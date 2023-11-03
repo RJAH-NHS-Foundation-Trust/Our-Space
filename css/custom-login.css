@@ -1,0 +1,29 @@
+body {
+    background-color: #fff !important;
+}
+
+#loginform {
+    color: #fff !important;
+    background-color: #4b493c !important;
+}
+
+#loginform input[type="submit"], #loginform .submit input[type="button"]
+{
+    color: #c9c9c9 !important;
+    background-color: #87714a !important;
+}
+
+#loginform input[type="submit"]:hover, #loginform .submit input[type="button"]:hover
+{
+    color: #c9c9c9 !important;
+    background-color: #87714a !important;
+}
+
+#login h1 a { 
+	background-image: url("../img/logo.png") !important;
+    height:56px !important;
+    width:350px !important;
+    background-size: 350px 56px !important;
+    background-repeat: no-repeat !important;
+    padding-bottom: 30px !important;
+}
