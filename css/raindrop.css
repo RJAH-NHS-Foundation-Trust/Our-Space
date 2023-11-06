@@ -8,6 +8,32 @@ html, body {
   padding: 0;
 }
 
+a:hover { 
+  color: #78BE20 !important;
+}
+
+.nav-link {
+  color: #005EB8 !important;
+}
+
+.nav-link.active {
+  background-color: #005EB8 !important;
+  color: #FFFFFF !important;
+}
+
+.nav-link:hover {
+  color: #78BE20 !important;
+}
+
+.nav-link.active:hover {
+  background-color: #78BE20 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-primary:hover {
+  color: #FFFFFF !important
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
   .site-title {
@@ -116,6 +142,15 @@ html, body {
   align-items: center;
   justify-content: center;
   background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.app-icon:hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E5E4E2;
   border-radius: 5px;
   padding: 10px;
 }
@@ -233,5 +268,4 @@ footer {
   text-align: center;
   padding: 10px;
   margin-top: auto;
-}
-  
+}  
