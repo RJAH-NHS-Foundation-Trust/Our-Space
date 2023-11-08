@@ -259,7 +259,11 @@ a:hover {
   padding: 5px 10px;
   border-radius: 5px;
   margin-right: 5px;
-} 
+}
+
+.recipe-title a {
+  text-decoration: none;
+}
   
 /* Footer styles */
 footer {
