@@ -31,22 +31,26 @@
             <div class="app-icons">
               <div class="app-icon">
                 <a href="<?php echo get_option('app_a_url'); ?>">
-                  <img src="<?php echo get_option('app_a_logo'); ?>" alt="App 1" class="app-image">      
+                  <img src="<?php echo get_option('app_a_logo'); ?>" alt="<?php echo get_option('app_a_name'); ?>" class="app-image">                  
                 </a>
               </div>
               <div class="app-icon">
                 <a href="<?php echo get_option('app_d_url'); ?>">
-                  <img alt="Headspace" src="<?php echo get_option('app_b_logo'); ?>" alt="App 2" class="app-image">                
+                  <img src="<?php echo get_option('app_b_logo'); ?>" alt="<?php echo get_option('app_b_name'); ?>" class="app-image">                
                 </a>
+                <div style="display: block; position:absolute;">
+                  <img style="max-width: 20px" src="<?php echo get_option('app_b_logo'); ?>" alt="<?php echo get_option('app_b_name'); ?>" class="app-image">  
+                  <img style="max-width: 20px" src="<?php echo get_option('app_b_logo'); ?>" alt="<?php echo get_option('app_b_name'); ?>" class="app-image">  
+                </div>
               </div>
               <div class="app-icon">
                 <a href="<?php echo get_option('app_c_url'); ?>">
-                  <img src="<?php echo get_option('app_c_logo'); ?>" alt="App 3" class="app-image">
+                  <img src="<?php echo get_option('app_c_logo'); ?>" alt="<?php echo get_option('app_c_name'); ?>" class="app-image">
                 </a>
               </div>
               <div class="app-icon">
                 <a href="<?php echo get_option('app_d_url'); ?>">
-                  <img src="<?php echo get_option('app_d_logo'); ?>" alt="App 4" class="app-image">
+                  <img src="<?php echo get_option('app_d_logo'); ?>" alt="<?php echo get_option('app_d_name'); ?>" class="app-image">
                 </a>
               </div>
             </div>

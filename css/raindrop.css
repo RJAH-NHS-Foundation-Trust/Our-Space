@@ -1,41 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,400;9..40,900&display=swap');
 
-/* Reset CSS */
-html, body {
-  height: 100%;
-  font-family: 'DM Sans', sans-serif;
-  margin: 0;
-  padding: 0;
-}
+:root {
 
-a:hover { 
-  color: #78BE20 !important;
-}
+  --link-color: #6a6b66;
+  --link-color-hover: #377454;
+  --link-color-background-hover: #f5a81f;
+  --link-color-text-hover: #ffffff;
+  --heading-color: #706f6d;
 
-.nav-link {
-  color: #005EB8 !important;
-}
+  --search-bar-bg: #fcf7fb;
 
-.nav-link.active {
-  background-color: #005EB8 !important;
-  color: #FFFFFF !important;
-}
+  --button-background: #f5a81f;
+  --button-hover-background: #f5a81f; 
 
-.nav-link:hover {
-  color: #78BE20 !important;
-}
+  --crisis-background: #f2e8f3;
+  --crisis-hover-background: #f3eff4;
 
-.nav-link.active:hover {
-  background-color: #78BE20 !important;
-  color: #FFFFFF !important;
-}
 
-.btn-primary:hover {
-  color: #FFFFFF !important
-}
+} 
 
 /* Media Queries */
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .site-title {
     font-size: 20px;
   }
@@ -48,22 +33,44 @@ a:hover {
     width: 30px;
     height: 30px;
   }
+
+  .dropdown:hover .dropdown-menu {
+    display: flex;
+  }
+  .dropdown-menu.show {
+    display: flex;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    max-height: 350px;
+    overflow-y: scroll;
+  }
+
 }
 
-.btn-primary {
-
-  background-color: #005EB8;
-  color: #FFFFFF;
-  border: none;
+/* Reset CSS */
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.btn-primary:hover {
-  background-color: #78BE20;
-  color: #FFFFFF;
+h1, h2, h3, h4 {
+  color: #132e41;
+  text-transform: uppercase;
+  font-weight: 800; 
+}
+
+.site-info h2 {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #132e41;
 }
 
 .logo img {
   height: 100%; /* Adjust the height as needed */
+  width: 300px;
 }
 
 .site-title {
@@ -75,6 +82,133 @@ a:hover {
 .site-subtitle {
   font-size: 14px;
   color: #888888;
+}
+
+/* Search Input Styling */
+
+.input.form-control {
+  background-color: var(--search-bar-bg);
+}
+
+.btn-outline-success { 
+  background-color: var(--button-background);
+  border: 0px;
+  color: white
+}
+
+.btn-outline-success:hover { 
+  background-color: var(--button-hover-background);
+  border: 0px;
+  color: white
+}
+
+.btn-primary {
+  background-color: var(--button-background);
+  border: 0px;
+  color: white  
+}
+
+.btn-primary:hover {
+  background-color: var(--button-background);
+  border: 0px;
+  color: white  
+}
+
+/* Drop Down Menu */
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dropdown-menu.show {
+  display: flex;
+}
+
+.dropdown-menu li:first-child a {
+  font-weight: bold;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  color: #516beb;
+}
+
+.dropdown-menu li .dropdown-item {
+  color: gray;
+  font-size: 1em;
+  padding: 0.5em 1em;
+}
+
+.dropdown-menu {
+  border: none;
+  border-radius: 0;
+  padding: 0.7em;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Crisis Icons */
+
+.crisis-list 
+{
+  list-style: none;
+}
+
+.crisis {
+  background-color: var(--crisis-background);
+  border-radius: 5px;
+}
+
+.app-icons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  
+}
+
+.app-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--crisis-background);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.app-icon:hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--crisis-hover-background);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.app-image {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 5px;
+}
+
+a:hover { 
+  color: var(--link-color-hover);
+}
+
+.nav-link {
+  color: var(--link-color);
+  font-weight: 600;
+}
+
+.nav-link.active {
+  color: var(--link-color);
+}
+
+.nav-link:hover {
+  color: var(--link-color-hover) !important;
+}
+
+.nav-link.active:hover {
+  background-color: var(--link-color-background-hover) !important;
+  border-radius: 5px;
+  color: var(--link-color-text-hover) !important;
 }
 
 .feature {
@@ -101,21 +235,12 @@ a:hover {
 .jumbotron-title {
   font-size: 36px;
   font-weight: bold;
+  color: white;
 }
 
 .jumbotron-description {
   font-size: 18px;
   margin-top: 20px;
-}
-  
-.crisis-list 
-{
-  list-style: none;
-}
-
-.crisis {
-  background-color: #f2a9a2;
-  border-radius: 5px;
 }
   
 .sidebar-section {
@@ -128,75 +253,6 @@ a:hover {
   
 .sidebar-section h2 {
   margin-bottom: 10px;
-}
-
-.app-icons {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  
-}
-
-.app-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-.app-icon:hover {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #E5E4E2;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-.app-image {
-  max-width: 50px;
-  max-height: 50px;
-  border-radius: 5px;
-}
-
-.recipe-card {
-  display: flex;
-  align-items: center;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  padding: 20px;
-}
-
-.recipe-image {
-  width: 150px;
-  margin-right: 20px;
-}
-
-.recipe-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.recipe-title {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.recipe-description {
-  color: #888;
-  margin-bottom: 10px;
-}
-
-.recipe-link {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #41B6E6;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
 }
 
 .blog-post {
@@ -261,8 +317,134 @@ a:hover {
   margin-right: 5px;
 }
 
-.recipe-title a {
-  text-decoration: none;
+/* Home Page Cards */
+
+.custom-card {
+  border: 0px;
+  background-color: #e4f3f6;
+  min-height: 20vh;
+  border-radius: 10px;
+  overflow: hidden; /* Ensure the image doesn't overflow */
+  position: relative; /* Positioning context for the pill */
+  text-align: center;
+}
+
+.custom-pill {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  background-color: #7a756f;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.custom-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensure the image covers the entire top half */
+  z-index: 1; /* Set a lower z-index than the pill to make it appear below */
+}
+
+.custom-card .card-body {
+  padding: 20px; /* Add padding to the card body */
+}
+
+.custom-card .card-title {
+  color: #333;
+}
+
+.custom-card .card-text {
+  color: #666;
+}
+
+/* Playlist Card */
+
+.playlist-card {
+  border: 0px;
+  background-color: #e4f3f6;
+  min-height: 17vh;
+  border-radius: 10px;
+  overflow: hidden; /* Ensure the image doesn't overflow */
+  position: relative; /* Positioning context for the pill */
+  text-align: center;
+}
+
+.custom-pill {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  background-color: #7a756f;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.playlist-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensure the image covers the entire top half */
+  z-index: 1; /* Set a lower z-index than the pill to make it appear below */
+}
+
+.playlist-card .card-body {
+  padding: 20px; /* Add padding to the card body */
+}
+
+.playlist-card .card-title {
+  color: #333;
+}
+
+.playlist-card .card-text {
+  color: #666;
+}
+
+/* Featured Card */
+
+.featured-card {
+  border: 0px;
+  background-color: #fff7f4;
+  min-height: 20vh;
+  max-height: 20vh;
+  border-radius: 10px;
+  overflow: hidden; /* Ensure the image doesn't overflow */
+  position: relative; /* Positioning context for the pill */
+  text-align: center;
+  overflow: hidden;
+}
+
+.custom-pill {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  background-color: #7a756f;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.featured-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensure the image covers the entire top half */
+  z-index: 1; /* Set a lower z-index than the pill to make it appear below */
+}
+
+.featured-card .card-body {
+  padding: 20px; /* Add padding to the card body */
+}
+
+.featured-card .card-title {
+  color: #333;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.featured-card .card-text {
+  color: #666;
 }
   
 /* Footer styles */
