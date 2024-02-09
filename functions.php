@@ -86,14 +86,14 @@ add_action('login_head', 'custom_login');
  {
      global $menu;
      $url = get_option('home');;
-     $menu[0] = array(__('Mindful Percy'), 'read', $url, 'percy-logo', 'percy-logo');
+     $menu[0] = array(__('Our Space'), 'read', $url, 'percy-logo', 'percy-logo');
  }
  
  add_action('admin_head', 'raindrop_admin_style');
  
  function raindrop_admin_style()
  {
-     echo '<link rel="stylesheet" href="' . get_template_directory_uri() . '/css/raindrop-admin.css" type="text/css" media="all" />';
+     echo '<link rel="stylesheet" href="' . get_template_directory_uri() . '/css/ourspace-admin.css" type="text/css" media="all" />';
  }
 
 /*
@@ -456,8 +456,7 @@ function custom_apps_settings_page_setup() {
 
     register_setting('section', 'app_d_name');
     register_setting('section', 'app_d_logo');
-    register_setting('section', 'app_d_url');
-  
+    register_setting('section', 'app_d_url');  
 
 }
 
@@ -465,10 +464,14 @@ add_action( 'after_switch_theme', 'create_page_on_theme_activation' );
 
 function create_page_on_theme_activation(){
 
-    // Set the title, template, etc
-    $new_page_title     = __('About Us','text-domain'); // Page's title
+    $hubTemplate = 'page-hub.php';
+
+    // ANXIETY HUB PAGE 
+    $page_name = 'Anxiety';
+    $page_name_with_spacing = strtolower(str_replace(' ','_',$page_name));
+    $new_page_title     = __($page_name,'text-domain'); // Page's title
     $new_page_content   = '';                           // Content goes here
-    $new_page_template  = 'page-recipe.php';       // The template to use for the page
+    $new_page_template  = $hubTemplate;       // The template to use for the page
     $page_check = get_page_by_title($new_page_title);   // Check if the page already exists
     // Store the above data in an array
     $new_page = array(
@@ -477,15 +480,138 @@ function create_page_on_theme_activation(){
             'post_content'  => $new_page_content,
             'post_status'   => 'publish',
             'post_author'   => 1,
-            'post_name'     => 'about-us'
+            'post_name'     => $page_name_with_spacing
     );
-    // If the page doesn't already exist, create it
-    if(!isset($page_check->ID)){
-        $new_page_id = wp_insert_post($new_page);
-        if(!empty($new_page_template)){
-            update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
-        }
+
+    // DEPRESSION HUB PAGE 
+    $page_name = 'Depression';
+    $page_name_with_spacing = strtolower(str_replace(' ','_',$page_name));
+    $new_page_title     = __($page_name,'text-domain'); // Page's title
+    $new_page_content   = '';                           // Content goes here
+    $new_page_template  = $hubTemplate;       // The template to use for the page
+    $page_check = get_page_by_title($new_page_title);   // Check if the page already exists
+    // Store the above data in an array
+    $new_page = array(
+            'post_type'     => 'page', 
+            'post_title'    => $new_page_title,
+            'post_content'  => $new_page_content,
+            'post_status'   => 'publish',
+            'post_author'   => 1,
+            'post_name'     => $page_name_with_spacing
+    );
+
+    // MINDFULNESS HUB PAGE 
+    $page_name = 'Mindfulness';
+    $page_name_with_spacing = strtolower(str_replace(' ','_',$page_name));
+    $new_page_title     = __($page_name,'text-domain'); // Page's title
+    $new_page_content   = '';                           // Content goes here
+    $new_page_template  = $hubTemplate;       // The template to use for the page
+    $page_check = get_page_by_title($new_page_title);   // Check if the page already exists
+    // Store the above data in an array
+    $new_page = array(
+            'post_type'     => 'page', 
+            'post_title'    => $new_page_title,
+            'post_content'  => $new_page_content,
+            'post_status'   => 'publish',
+            'post_author'   => 1,
+            'post_name'     => $page_name_with_spacing
+    );
+
+    // YOGA HUB PAGE 
+    $page_name = 'Yoga';
+    $page_name_with_spacing = strtolower(str_replace(' ','_',$page_name));
+    $new_page_title     = __($page_name,'text-domain'); // Page's title
+    $new_page_content   = '';                           // Content goes here
+    $new_page_template  = $hubTemplate;       // The template to use for the page
+    $page_check = get_page_by_title($new_page_title);   // Check if the page already exists
+    // Store the above data in an array
+    $new_page = array(
+            'post_type'     => 'page', 
+            'post_title'    => $new_page_title,
+            'post_content'  => $new_page_content,
+            'post_status'   => 'publish',
+            'post_author'   => 1,
+            'post_name'     => $page_name_with_spacing
+    );
+
+
+    // MEDITATION HUB PAGE 
+    $page_name = 'Meditation';
+    $page_name_with_spacing = strtolower(str_replace(' ','_',$page_name));
+    $new_page_title     = __($page_name,'text-domain'); // Page's title
+    $new_page_content   = '';                           // Content goes here
+    $new_page_template  = $hubTemplate;       // The template to use for the page
+    $page_check = get_page_by_title($new_page_title);   // Check if the page already exists
+    // Store the above data in an array
+    $new_page = array(
+            'post_type'     => 'page', 
+            'post_title'    => $new_page_title,
+            'post_content'  => $new_page_content,
+            'post_status'   => 'publish',
+            'post_author'   => 1,
+            'post_name'     => $page_name_with_spacing
+    );
+
+    // PERSONAL HEALTH HUB PAGE 
+    $page_name = 'Personal Health';
+    $page_name_with_spacing = strtolower(str_replace(' ','_',$page_name));
+    $new_page_title     = __($page_name,'text-domain'); // Page's title
+    $new_page_content   = '';                           // Content goes here
+    $new_page_template  = $hubTemplate;       // The template to use for the page
+    $page_check = get_page_by_title($new_page_title);   // Check if the page already exists
+    // Store the above data in an array
+    $new_page = array(
+            'post_type'     => 'page', 
+            'post_title'    => $new_page_title,
+            'post_content'  => $new_page_content,
+            'post_status'   => 'publish',
+            'post_author'   => 1,
+            'post_name'     => $page_name_with_spacing
+    ); 
+
+}
+
+// POST VIEWS 
+// Functions to power the post views that drive the popular pages in the hubs
+
+function wpb_set_post_views($postID) {
+    $count_key = 'wpb_post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    }else{
+        $count++;
+        update_post_meta($postID, $count_key, $count);
     }
+}
+
+//Get rid of prefetching to keep the count accurate
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+wpb_set_post_views(get_the_ID());
+
+function wpb_track_post_views ($post_id) {
+    if ( !is_single() ) return;
+    if ( empty ( $post_id) ) {
+        global $post;
+        $post_id = $post->ID;    
+    }
+
+    wpb_set_post_views($post_id);
+}
+add_action( 'wp_head', 'wpb_track_post_views');
+
+function wpb_get_post_views($postID){
+    $count_key = 'wpb_post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+        return "0 View";
+    }
+    return $count.' Views';
 }
 
 

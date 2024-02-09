@@ -1,0 +1,573 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,400;9..40,900&display=swap');
+
+:root {
+
+  --link-color: #6a6b66;
+  --link-color-hover: #377454;
+  --link-color-background-hover: #f5a81f;
+  --link-color-text-hover: #ffffff;
+  --heading-color: #132e41;
+
+  --search-bar-bg: #fcf7fb;
+
+  --button-background: #f5a81f;
+  --button-hover-background: #f6b238; 
+
+  --card-background: #eaeef9;
+  --card-text: #132e41;
+
+  --playlist-card-background: #fff7ea;
+  --fitness-card-background: #ebf7f7;
+
+  --pill-color: #bf377c;
+
+  --crisis-background: #f8edf3;
+  --crisis-hover-background: #f9e8f1;
+
+} 
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+  .site-title {
+    font-size: 20px;
+  }
+
+  .site-subtitle {
+    font-size: 16px;
+  }
+
+  .profile-picture {
+    width: 30px;
+    height: 30px;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: flex;    
+  }
+
+  .dropdown-menu.show {
+    display: flex;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    max-height: 350px;
+    overflow-y: scroll;
+  }
+
+}
+
+/* Reset CSS */
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4 {
+  color: #132e41;
+  text-transform: uppercase;
+  font-weight: 800; 
+}
+
+a:hover { 
+  color: var(--link-color-hover);
+}
+
+.site-info h2 {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #132e41;
+}
+
+.logo img {
+  height: 100%; /* Adjust the height as needed */
+  width: 300px;
+}
+
+.site-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.site-subtitle {
+  font-size: 14px;
+  color: #888888;
+}
+
+/* Search Input Styling */
+
+.input.form-control {
+  background-color: var(--search-bar-bg);
+}
+
+.btn-outline-success { 
+  background-color: var(--button-background);
+  border: 0px;
+  color: white
+}
+
+.btn-outline-success:hover { 
+  background-color: var(--button-hover-background);
+  border: 0px;
+  color: white
+}
+
+.btn-primary {
+  background-color: var(--button-background);
+  border: 0px;
+  color: white  
+}
+
+.btn-primary:hover {
+  background-color: var(--button-hover-background);
+  border: 0px;
+  color: white  
+}
+
+/* Drop Down Menu */
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dropdown-menu.show {
+  display: flex;
+}
+
+.dropdown-menu li:first-child a {
+  font-weight: bold;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  color: #132e41;
+}
+
+.dropdown-menu li .dropdown-item {
+  color: gray;
+  font-size: 1em;
+  padding: 0.5em 1em;
+}
+
+a.nav-link.your-ideas { 
+  background-color:  var(--button-background);
+  border-radius: 5px;
+  color: white;
+}
+
+a:visited.nav-link.your-ideas { 
+  background-color:  var(--button-background);
+  border-radius: 5px;
+  color: white;
+}
+
+a:hover.nav-link.your-ideas { 
+  background-color:  var(--link-color-background-hover);
+  border-radius: 5px;
+  color: white;
+}
+
+li.dropdown-item {
+  color: var(--card-text);
+  font-size: 1.5em;
+  font-weight: 800;
+  padding: 0.5em 1em;
+}
+
+.dropdown-menu {
+  border: none;
+  border-radius: 0;
+  padding: 0.7em;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.nav-item.dropdown:hover  {
+  background-color: var(--link-color-background-hover);
+  border-radius: 5px;
+  color: var(--link-color-text-hover);
+}
+
+.nav-item.dropdown a:hover  {
+  color: #fff;
+}
+
+/* Crisis Icons */
+
+.crisis-list 
+{
+  list-style: none;
+}
+
+.crisis {
+  background-color: var(--crisis-background);
+  border-radius: 5px;
+}
+
+.app-icons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  
+}
+
+.app-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--crisis-background);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.app-icon:hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--crisis-hover-background);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.app-image {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 5px;
+}
+
+
+.nav-link {
+  color: var(--link-color);
+  font-weight: 600;
+}
+
+.nav-link.active {
+  color: var(--link-color);
+}
+
+.nav-link.active:hover {
+  background-color: var(--link-color-background-hover) !important;
+  border-radius: 5px;
+  color: var(--link-color-text-hover) !important;
+}
+
+.feature {
+  background-color: #f1f5f6;
+  border-radius: 5px; /* Added border radius */
+  padding: 10px; /* Added padding */
+}
+
+.jumbotron {
+  background-image: url('../img/blog-post-1.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 50px 0;
+  min-height: 300px !important;
+  color: #fff;
+  text-align: center;
+}
+
+.jumbotron-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.jumbotron-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+}
+
+.jumbotron-description {
+  font-size: 18px;
+  margin-top: 20px;
+}
+  
+.sidebar-section {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  position: relative;
+}
+  
+.sidebar-section h2 {
+  margin-bottom: 10px;
+}
+
+.blog-post {
+  background-color: #E8EDEE;
+  max-width: 400px;
+  margin: 2px;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.blog-post h2 {
+  color: var(--heading-color);
+  text-decoration: none;
+}
+
+.blog-post a {
+  text-decoration: none;  
+}
+
+.blog-post a:hover {
+  text-decoration: underline;
+}
+
+.blog-post a:visited {
+  text-decoration: none;
+  
+}
+
+.blog-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--heading-color)
+}
+
+a.blog-title {
+  color: var(--heading-color);
+}
+
+a:visited.blog-title {
+  color: var(--heading-color);
+}
+
+.blog-meta {
+  color: var(--heading-color);
+  margin-bottom: 10px;
+}
+  
+.author,
+.publish-date {
+  margin-right: 10px;
+}
+
+.thumbnail {
+  float: right;
+  border-radius: 5px;
+  width: 100px;
+  margin: 0 0 10px 10px;
+}
+  
+.excerpt {
+  margin-bottom: 10px;
+}
+
+.read-more {
+  color: #005EB8;
+}
+
+.blog-tags {
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+a.custom-category-pill {
+
+  top: 10px;
+  left: 10px;
+  background-color: var(--pill-color);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+a:hover.custom-category-pill {
+
+  top: 10px;
+  left: 10px;
+  background-color: var(--pill-color);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  text-decoration: underline;
+}
+
+a:visited.custom-category-pill {
+
+  top: 10px;
+  left: 10px;
+  background-color: var(--pill-color);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+/* Home Page Cards */
+
+.custom-card {
+  border: 0px;
+  background-color: var(--card-background);
+  min-height: 20vh;
+  border-radius: 10px;
+  overflow: hidden; /* Ensure the image doesn't overflow */
+  position: relative; /* Positioning context for the pill */
+  text-align: center;
+}
+
+a.custom-card-link {
+  text-decoration:  none;
+}
+
+.custom-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensure the image covers the entire top half */
+  z-index: 1; /* Set a lower z-index than the pill to make it appear below */
+}
+
+.custom-card .card-body {
+  padding: 20px; /* Add padding to the card body */
+}
+
+.custom-card .card-title {
+  color: #333;
+}
+
+.custom-card .card-text {
+  color: var(--card-text);
+}
+
+/* Playlist Card */
+
+.playlist-card {
+  border: 0px;
+  background-color: var(--playlist-card-background);
+  min-height: 17vh;
+  border-radius: 10px;
+  overflow: hidden; /* Ensure the image doesn't overflow */
+  position: relative; /* Positioning context for the pill */
+  text-align: center;
+}
+
+.playlist-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensure the image covers the entire top half */
+  z-index: 1; /* Set a lower z-index than the pill to make it appear below */
+}
+
+.playlist-card .card-body {
+  padding: 20px; /* Add padding to the card body */
+}
+
+.playlist-card .card-title {
+  color: #333;
+}
+
+.playlist-card .card-text {
+  color: var(--card-text);
+}
+
+/* Fitness Card */
+
+.fitness-card {
+  border: 0px;
+  background-color: var(--fitness-card-background);
+  min-height: 17vh;
+  border-radius: 10px;
+  overflow: hidden; /* Ensure the image doesn't overflow */
+  position: relative; /* Positioning context for the pill */
+  text-align: center;
+}
+
+.fitness-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensure the image covers the entire top half */
+  z-index: 1; /* Set a lower z-index than the pill to make it appear below */
+}
+
+.fitness-card .card-body {
+  padding: 20px; /* Add padding to the card body */
+}
+
+.fitness-card .card-title {
+  color: #333;
+}
+
+.fitness-card .card-text {
+  color: var(--card-text);
+}
+
+/* Featured Card */
+
+.featured-card {
+  border: 0px;
+  background-color: var(--card-background);
+  min-height: 20vh;
+  max-height: 20vh;
+  border-radius: 10px;
+  overflow: hidden; /* Ensure the image doesn't overflow */
+  position: relative; /* Positioning context for the pill */
+  text-align: center;
+  overflow: hidden;
+}
+
+.custom-pill {
+  position: absolute;
+  font-size: 1.0rem;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  background-color: var(--pill-color);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.featured-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensure the image covers the entire top half */
+  z-index: 1; /* Set a lower z-index than the pill to make it appear below */
+}
+
+.featured-card .card-body {
+  padding: 20px; /* Add padding to the card body */
+}
+
+.featured-card .card-title {
+  color: #333;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.featured-card .c {
+  color: var(--feature-text-color);
+}
+
+.featured-card .card-text {
+  color: var(--feature-text-color);
+}
+  
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  margin-top: auto;
+}  
+
+a.footer-link {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover.footer-link {
+  color: var(--link-color-hover)  
+}

@@ -1,6 +1,6 @@
 <footer>
     <div class="container">
-      Powered by Percy
+      Copyright <?php echo date("Y"); ?> <a class="footer-link" href ="https://www.rjah.nhs.uk" >The Robert Jones & Agnes Hunt NHS Foundation Trust</a>
     </div>
   </footer>
 

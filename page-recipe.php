@@ -1,7 +1,7 @@
 <?php 
 
     /** 
-     * Template Name: Recipe Archive
+     * Template Name: Recipe Template
      * 
      * 
     */
@@ -9,14 +9,6 @@
     get_header(); 
   
 ?>
-
-<div class="jumbotron">
-    <div class="container">
-        <h1 class="jumbotron-title">Few of us ever live in the present. We are forever anticipating what is to come or remembering what has gone.</h1>
-        <p class="jumbotron-description">Louis L'Amour</p>
-    </div>
-</div>
-
 
 <section class="main-section mt-4">
     <div class="container">
