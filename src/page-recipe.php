@@ -23,9 +23,10 @@
             );
 
             $posts = new WP_Query( $args );
+            $totalPopularPosts = $posts -> found_posts;
             
             if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
-                get_template_part( 'blog-content', get_post_format() );
+                get_template_part( 'recipe-content', get_post_format() );
                     endwhile; endif; wp_reset_postdata(); 
         ?>
             
