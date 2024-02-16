@@ -99,12 +99,12 @@
 
     <!-- Fourth Card -->
     <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/yoga">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/recipes">
         <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">Yoga</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image-3.jpg" class="card-img-top" alt="Image Alt">
+          <span class="custom-pill">Recipes</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/recipe.jpg" class="card-img-top" alt="Image Alt">
           <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
+            <p class="card-text">A collection of affordable, easy to make recipes.</p>
           </div>
         </div>
       </a>
