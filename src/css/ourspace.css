@@ -108,6 +108,30 @@ a:hover.cat-link {
   color: #888888;
 }
 
+.tlp-content {
+  background: var(--card-background) !important;
+}
+
+.rt-team-container  .single-team-area h3, .layout1 .single-team-area h3 a {
+  color: var(--card-text) !important;
+}
+
+.tlp-position a {
+  color: var(--card-text) !important;  
+}
+
+i.far.fa-envelope {
+  color: var(--pill-color);
+}
+
+i.fa.fa-phone-alt {
+  color: var(--pill-color);
+}
+
+i.fa-mobile {
+  color: var(--pill-color);
+}
+
 /* Search Input Styling */
 
 .input.form-control {
