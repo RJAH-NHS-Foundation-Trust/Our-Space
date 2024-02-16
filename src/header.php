@@ -45,92 +45,11 @@
           <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>/events">Events</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>">Mental Health First Aiders</a>
+          <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>/mental-health-first-aiders">Mental Health First Aiders</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>">Get In Touch</a>
-        </li>
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <ul>
-                <li class="dropdown-item">Action</li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-            </ul>
-            <ul>
-                <li class="dropdown-item">Another action</li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-            </ul>
-            <ul>
-                <li class="dropdown-item">Something else here</li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-            </ul>
-        </div>
-        </li> -->
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <ul>
-                <li class="dropdown-item">Action</li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-            </ul>
-            <ul>
-                <li class="dropdown-item">Another action</li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-            </ul>
-            <ul>
-                <li class="dropdown-item">Something else here</li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-            </ul>
-        </div>
-        </li> -->
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu pr-2" aria-labelledby="navbarDropdown">
-            <ul>
-                <li class="dropdown-item">Action</li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-            </ul>
-            <ul>
-                <li class="dropdown-item">Another action</li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-            </ul>
-            <ul>
-                <li class="dropdown-item">Something else here</li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-                <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
-            </ul>
-        </div>
-        </li> -->
+        </li>        
         <li class="nav-item">
           <a class="nav-link crisis-help" aria-current="page" href="<?php echo get_option('home'); ?>">Crisis Help</a>
         </li>
