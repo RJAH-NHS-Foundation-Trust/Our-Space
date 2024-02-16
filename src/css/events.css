@@ -1,0 +1,42 @@
+:root {
+
+    --link-color: #6a6b66;
+    --link-color-hover: #377454;
+    --link-color-background-hover: #f5a81f;
+    --link-color-text-hover: #ffffff;
+    --heading-color: #132e41;
+  
+    --search-bar-bg: #fcf7fb;
+  
+    --button-background: #f5a81f;
+    --button-hover-background: #f6b238; 
+  
+    --card-background: #eaeef9;
+    --card-text: #132e41;
+  
+    --playlist-card-background: #fff7ea;
+    --fitness-card-background: #ebf7f7;
+  
+    --pill-color: #bf377c;
+  
+    --crisis-background: #f8edf3;
+    --crisis-hover-background: #f9e8f1;
+  
+    --crisis-button-background: #f5e4ec;
+    --crisis-button-text: #c23172;
+    --crisis-button-border: #c23172;
+  
+  } 
+
+.tribe-common--breakpoint-medium.tribe-events .tribe-common-c-btn.tribe-events-c-search__button {
+
+    background-color: var(--button-background);
+}
+
+.tribe-common-c-btn-border.tribe-events-c-subscribe-dropdown__button {
+
+    background-color: var(--button-background) !important;
+    color: #ffffff !important;
+    border: 0px !important;
+
+}
