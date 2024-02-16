@@ -1,14 +1,12 @@
-#adminmenu a.chr-logo{
-    display: block;
+#adminmenu a.our-space-logo{
+    display: inline-block;
     background: url(../img/admin_logo.png) no-repeat center center;
-    background-size: 140px 30px;
-    width: 140px;
-    opacity: 0.6;
+    background-size: 30px 30px;
     height: 30px;
     margin: 0 auto;
     padding: 10px 5px;
 }
 
-#adminmenu a.chr-logo div.wp-menu-name {
+#adminmenu a.our-space-logo div.wp-menu-name {
     display: none;
 }
