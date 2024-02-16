@@ -1,4 +1,4 @@
-    <h2 class="blog-title"><a class="blog-title" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+    <h2 class="featured-blog-title"><a class="featured-blog-title" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
     <div class="blog-meta">        
         <span class="author"><strong>Author:</strong> <?php global $post; $author_id = $post -> post_author; $author_url = get_author_posts_url($author_id);$username = get_userdata($post->post_author); echo $username->user_nicename; ?></span>
         <span class="date"><strong>Published:</strong> <?php the_time('F j, Y'); ?></span>
