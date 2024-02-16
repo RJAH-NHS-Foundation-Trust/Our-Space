@@ -80,18 +80,18 @@ add_action('login_head', 'custom_login');
   * Custom admin logo
   */
  
- add_action('admin_menu', 'raindrop_admin_menu');
+ add_action('admin_menu', 'our_space_admin_menu');
  
- function raindrop_admin_menu()
+ function our_space_admin_menu()
  {
      global $menu;
      $url = get_option('home');;
-     $menu[0] = array(__('Our Space'), 'read', $url, 'percy-logo', 'percy-logo');
+     $menu[0] = array(__('Our Space'), 'read', $url, 'our-space-logo', 'our-space-logo');
  }
  
- add_action('admin_head', 'raindrop_admin_style');
+ add_action('admin_head', 'our_space_admin_style');
  
- function raindrop_admin_style()
+ function our_space_admin_style()
  {
      echo '<link rel="stylesheet" href="' . get_template_directory_uri() . '/css/ourspace-admin.css" type="text/css" media="all" />';
  }
