@@ -12,7 +12,7 @@
                 <?php $categories = get_categories();
                     foreach ($categories as $cat) {
                     $category_link = get_category_link($cat->cat_ID);
-                    echo '<a href="' . esc_url($category_link) . '" title="' . esc_attr($cat->name) . '">' . esc_html($cat->name) . '</a> ';
+                    echo '<a class="cat-link" href="' . esc_url($category_link) . '" title="' . esc_attr($cat->name) . '">' . esc_html($cat->name) . '</a> ';
                     } 
                 ?>
                 </span>
