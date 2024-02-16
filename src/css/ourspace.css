@@ -24,6 +24,10 @@
   --crisis-background: #f8edf3;
   --crisis-hover-background: #f9e8f1;
 
+  --crisis-button-background: #f5e4ec;
+  --crisis-button-text: #c23172;
+  --crisis-button-border: #c23172;
+
 } 
 
 /* Media Queries */
@@ -71,6 +75,14 @@ h1, h2, h3, h4 {
 }
 
 a:hover { 
+  color: var(--link-color-hover);
+}
+
+a.cat-link {
+  color: var(--link-color);
+}
+
+a:hover.cat-link {
   color: var(--link-color-hover);
 }
 
@@ -150,22 +162,25 @@ a:hover {
   padding: 0.5em 1em;
 }
 
-a.nav-link.your-ideas { 
-  background-color:  var(--button-background);
+a.nav-link.crisis-help { 
+  background-color:  var(--crisis-button-background);
   border-radius: 5px;
-  color: white;
+  border: solid 2px #c23172;
+  color: var(--crisis-button-text);
 }
 
-a:visited.nav-link.your-ideas { 
-  background-color:  var(--button-background);
+a:visited.nav-link.crisis-help { 
+  background-color:  var(--crisis-button-background);
   border-radius: 5px;
-  color: white;
+
+  color: var(--crisis-button-text);
 }
 
-a:hover.nav-link.your-ideas { 
-  background-color:  var(--link-color-background-hover);
+a:hover.nav-link.crisis-help { 
+  background-color:  var(--crisis-button-background);
   border-radius: 5px;
-  color: white;
+  border: solid 2px #c23172;
+  color: var(--crisis-button-text);
 }
 
 li.dropdown-item {
@@ -267,6 +282,14 @@ li.dropdown-item {
   text-align: center;
 }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 300px !important;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the transparency (last value) as needed */
+}
+
 .jumbotron-content {
   max-width: 800px;
   margin: 0 auto;
@@ -333,6 +356,21 @@ a.blog-title {
 }
 
 a:visited.blog-title {
+  color: var(--heading-color);
+}
+
+.featured-blog-title {
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--heading-color)
+}
+
+a.featured-blog-title {
+  color: var(--heading-color);
+}
+
+a:visited.featured-blog-title {
   color: var(--heading-color);
 }
 
@@ -409,10 +447,10 @@ a:visited.custom-category-pill {
 /* Home Page Cards */
 
 .custom-card {
+  border-radius: 0px;
   border: 0px;
   background-color: var(--card-background);
   min-height: 20vh;
-  border-radius: 10px;
   overflow: hidden; /* Ensure the image doesn't overflow */
   position: relative; /* Positioning context for the pill */
   text-align: center;
@@ -423,6 +461,7 @@ a.custom-card-link {
 }
 
 .custom-card img {
+  border-radius: 0px;
   width: 100%;
   height: auto;
   object-fit: cover; /* Ensure the image covers the entire top half */
@@ -444,16 +483,17 @@ a.custom-card-link {
 /* Playlist Card */
 
 .playlist-card {
+  border-radius: 0px;
   border: 0px;
   background-color: var(--playlist-card-background);
   min-height: 17vh;
-  border-radius: 10px;
   overflow: hidden; /* Ensure the image doesn't overflow */
   position: relative; /* Positioning context for the pill */
   text-align: center;
 }
 
 .playlist-card img {
+  border-radius: 0px;  
   width: 100%;
   height: auto;
   object-fit: cover; /* Ensure the image covers the entire top half */
@@ -475,16 +515,17 @@ a.custom-card-link {
 /* Fitness Card */
 
 .fitness-card {
+  border-radius: 0px;
   border: 0px;
   background-color: var(--fitness-card-background);
   min-height: 17vh;
-  border-radius: 10px;
   overflow: hidden; /* Ensure the image doesn't overflow */
   position: relative; /* Positioning context for the pill */
   text-align: center;
 }
 
 .fitness-card img {
+  border-radius: 0px;
   width: 100%;
   height: auto;
   object-fit: cover; /* Ensure the image covers the entire top half */
