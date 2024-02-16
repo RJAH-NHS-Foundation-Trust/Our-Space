@@ -6,6 +6,7 @@
   <title><?php echo get_bloginfo( 'name' ); ?> - <?php echo get_bloginfo( 'description' ); ?></title>
   <link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/css/ourspace.css">
+  <link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/css/events.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +41,16 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?php echo get_option('home'); ?>">Home</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>/events">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>">Mental Health First Aiders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>">Get In Touch</a>
+        </li>
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
           </a>
@@ -66,8 +76,8 @@
                 <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
             </ul>
         </div>
-        </li>
-        <li class="nav-item dropdown">
+        </li> -->
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
           </a>
@@ -93,8 +103,8 @@
                 <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
             </ul>
         </div>
-        </li>
-        <li class="nav-item dropdown">
+        </li> -->
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
           </a>
@@ -120,9 +130,9 @@
                 <li><a class="dropdown-item" href="#">Mega Menu Link</a></li>
             </ul>
         </div>
-        </li>
+        </li> -->
         <li class="nav-item">
-          <a class="nav-link your-ideas" aria-current="page" href="<?php echo get_option('home'); ?>">Submit Your Ideas</a>
+          <a class="nav-link crisis-help" aria-current="page" href="<?php echo get_option('home'); ?>">Crisis Help</a>
         </li>
       </ul>      
     </div>
@@ -135,6 +145,7 @@
 <?php $array = ["One specific aspect of mindfulness is awareness.","One specific aspect of mindfulness is awareness.","Mindfulness is a deceptively simple way of relating to all experience that can reduce suffering and set the stage for positive personal transformation.","We can talk about mindfulness or write at length about it, but to truly understand mindfulness, we have to experience it directly.","Mindfulness is the capacity to perceive our world clearly, without adulteration or manipulation.","We are all mindful to one degree or another, moment by moment. It is an inherent human capacity.","It is only when the mind is open and receptive that learning and seeing and change can occur."];?>
 
     <div class="jumbotron">
+      <div class="overlay"></div>
         <div class="container">
           <div class="row justify-content-center align-items-center">
               <div class="col-md-6">
