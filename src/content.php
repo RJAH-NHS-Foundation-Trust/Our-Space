@@ -4,7 +4,6 @@
         <span class="author"><strong>Author:</strong> <?php global $post; $author_id = $post -> post_author; $author_url = get_author_posts_url($author_id);$username = get_userdata($post->post_author); echo $username->user_nicename; ?></span>
         <span class="date"><strong>Published:</strong> <?php the_time('F j, Y'); ?></span>
         <div class="mb-2 mt-2">
-            <span class="date"><strong>Category:</strong> 
             <?php
                 $post_id = get_the_ID();
                 $categories = get_the_category($post_id);
@@ -18,7 +17,9 @@
         </div>
     </div>
     <div class="blog-excerpt">
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/blog-post-1.jpg" alt="Thumbnail" class="thumbnail">
+    <?php if(has_post_thumbnail()) { ?>
+        <img src="<?php the_post_thumbnail_url() ?>" alt="Thumbnail" class="thumbnail">
+        <?php } ?>
         <p><?php the_excerpt(); ?></p>
         <a href="<?php the_permalink(); ?>" class="btn btn-outline-success">Read More</a>
     </div>
