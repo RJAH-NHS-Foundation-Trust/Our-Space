@@ -126,7 +126,7 @@ function custom_post_youtube_type() {
             'description'         => __( 'YouTube Videos', 'twentytwentyone' ),
             'labels'              => $labels,
             'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'genres' ),
+            'taxonomies'          => array( 'category' ),
             'hierarchical'        => false,
             'public'              => true,
             'show_ui'             => true,
@@ -186,7 +186,7 @@ function custom_post_recipe_type() {
             'description'         => __( 'recipes', 'twentytwentyone' ),
             'labels'              => $labels,
             'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'genres' ),
+            'taxonomies'          => array( 'diet' ),
             'hierarchical'        => false,
             'public'              => true,
             'show_ui'             => true,
@@ -215,6 +215,37 @@ function custom_post_recipe_type() {
 */
     
 add_action( 'init', 'custom_post_recipe_type', 0 );
+
+function custom_taxonomy() {
+    $labels = array(
+        'name' => _x( 'Diets', 'taxonomy general name' ),
+        'singular_name' => _x( 'Diet', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Diets' ),
+        'all_items' => __( 'All Diets' ),
+        'parent_item' => __( 'Parent Diet' ),
+        'parent_item_colon' => __( 'Parent Diet:' ),
+        'edit_item' => __( 'Edit Diet' ), 
+        'update_item' => __( 'Update Diet' ),
+        'add_new_item' => __( 'Add New Diet' ),
+        'new_item_name' => __( 'New Diet Name' ),
+        'menu_name' => __( 'Diets' ),
+    );
+
+    register_taxonomy(
+        'diet',
+        'recipe', // Change 'recipe' to your custom post type slug
+        array(
+            'hierarchical' => true,
+            'labels' => $labels,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array( 'slug' => 'diet' ),
+        )
+    );
+}
+add_action( 'init', 'custom_taxonomy' );
+
 
 add_action( 'after_switch_theme', 'create_page_on_theme_activation' );
 
