@@ -60,10 +60,10 @@
 <div class="row mt-2">
     <!-- First Card -->
     <div class="col-md-4 mb-4">
-        <a class="custom-card-link" href="<?php echo get_option('home'); ?>/anxiety">
+        <a class="custom-card-link" href="<?php echo get_option('home'); ?>/mental-health/">
           <div class="card custom-card d-flex flex-column h-100">
-            <span class="custom-pill">Anxiety</span>
-            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image.jpg" class="card-img-top" alt="Image Alt">
+            <span class="custom-pill">Mental Health</span>
+            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/depression.jpg" class="card-img-top" alt="Image Alt">
             <div class="card-body">
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
             </div>
@@ -73,10 +73,10 @@
 
     <!-- Second Card -->
     <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/depression">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/disability">
         <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">Depression</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image-2.jpeg" class="card-img-top" alt="Image Alt">
+          <span class="custom-pill">Disability</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/disability.jpg" class="card-img-top" alt="Image Alt">
           <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
           </div>
@@ -86,10 +86,10 @@
 
     <!-- Third Card -->
     <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/mindfulness">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/personal-fitness">
         <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">Mindfulness</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/mindfullness.png" class="card-img-top" alt="Image Alt">
+          <span class="custom-pill">Personal Fitness</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/disability.jpg" class="card-img-top" alt="Image Alt">
           <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
           </div>
@@ -99,10 +99,10 @@
 
     <!-- Fourth Card -->
     <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/recipes">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/mindfulness">
         <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">Recipes</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/recipe.jpg" class="card-img-top" alt="Image Alt">
+          <span class="custom-pill">Mindfulness</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image-2.jpeg " class="card-img-top" alt="Image Alt">
           <div class="card-body">
             <p class="card-text">A collection of affordable, easy to make recipes.</p>
           </div>
@@ -112,10 +112,10 @@
 
     <!-- Fifth Card -->
     <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/meditation">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/healthy-eating">
         <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">Meditation</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image-2.jpeg" class="card-img-top" alt="Image Alt">
+          <span class="custom-pill">Healthy Eating</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/recipe.jpg" class="card-img-top" alt="Image Alt">
           <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
           </div>
@@ -128,7 +128,7 @@
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/personal-health">
       <div class="card custom-card d-flex flex-column h-100">
         <span class="custom-pill">Personal Health</span>
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image-3.jpg" class="card-img-top" alt="Image Alt">
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image.jpg " class="card-img-top" alt="Image Alt">
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
         </div>

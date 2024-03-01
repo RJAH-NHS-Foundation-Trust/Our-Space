@@ -1,30 +1,30 @@
 <?php 
 
     /** 
-     * Template Name: Hub Template
+     * Template Name: Hub Page Template
      * 
      * 
     */
 
     get_header(); 
-  
+
 ?>
 
-<?php 
+<section class="main-section mt-4">
+    <div class="container">
+
+        <div class="row mb-4">
+            <?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
+        </div>
+
+      <div class="row">        
+        <div class="col-lg-9 col-md-12 blog-posts">
+            
+        <?php 
     $pageTitle = get_the_title(); 
     $hubTitle = strtok($pageTitle, " ");
     $resourceTitle = 'resources';
 ?>
-
-<div class="container mt-4">
-    
-    <div class="row mb-2">
-        <?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
-    </div>
-    
-    <h2><?php the_title(); ?></h2>
-    <p><?php the_content(); ?> 
-</div>
 
 <?php          
     $args = array (
@@ -87,5 +87,13 @@ if($totalRecentPosts > 0) { ?>
   </section>
 
 <?php } ?>
+
+        </div>
+
+        <?php get_sidebar() ?>
+
+      </div>
+    </div>
+  </section>
 
   <?php get_footer(); ?>

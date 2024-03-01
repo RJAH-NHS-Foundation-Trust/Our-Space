@@ -110,6 +110,7 @@ span.aioseo-breadcrumb {
   border-radius: 5px;
 
 }
+
 .aioseo-breadcrumb a:hover {
   color: var(--white-text);
   background-color: var(--button-hover-background);
@@ -135,6 +136,14 @@ span.aioseo-breadcrumb {
 .site-subtitle {
   font-size: 14px;
   color: #888888;
+}
+
+img.page-profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  float: right;
+
 }
 
 .tlp-content {

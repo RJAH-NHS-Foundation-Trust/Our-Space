@@ -97,66 +97,6 @@ add_action('login_head', 'custom_login');
  }
 
 /*
-* YouTube Custom Post Types
-*/
-   
-function custom_post_youtube_type() {
-   
-    // Set UI labels for Custom Post Type
-        $labels = array(
-            'name'                => _x( 'YouTube Video', 'Post Type General Name', 'twentytwentyone' ),
-            'singular_name'       => _x( 'YouTube Videos', 'Post Type Singular Name', 'twentytwentyone' ),
-            'menu_name'           => __( 'YouTube Videos', 'twentytwentyone' ),
-            'parent_item_colon'   => __( 'Parent video', 'twentytwentyone' ),
-            'all_items'           => __( 'All videos', 'twentytwentyone' ),
-            'view_item'           => __( 'View videos', 'twentytwentyone' ),
-            'add_new_item'        => __( 'Add New video', 'twentytwentyone' ),
-            'add_new'             => __( 'Add New', 'twentytwentyone' ),
-            'edit_item'           => __( 'Edit video', 'twentytwentyone' ),
-            'update_item'         => __( 'Update video', 'twentytwentyone' ),
-            'search_items'        => __( 'Search video', 'twentytwentyone' ),
-            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
-        );
-           
-    // Set other options for Custom Post Type
-           
-        $args = array(
-            'label'               => __( 'YouTube Videos', 'twentytwentyone' ),
-            'description'         => __( 'YouTube Videos', 'twentytwentyone' ),
-            'labels'              => $labels,
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'category' ),
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-editor-video',
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-       
-        );
-           
-        // Registering your Custom Post Type
-        register_post_type( 'youtube', $args );
-       
-    }
-       
-    /* Hook into the 'init' action so that the function
-    * Containing our post type registration is not 
-    * unnecessarily executed. 
-    */
-       
-    add_action( 'init', 'custom_post_youtube_type', 0 );
-
-/*
 * Recipe Custom Post Types
 */
    
@@ -244,8 +184,99 @@ function custom_taxonomy() {
         )
     );
 }
+
 add_action( 'init', 'custom_taxonomy' );
 
+/*
+* Routes Custom Post Types
+*/
+   
+function custom_post_route_type() {
+   
+    // Set UI labels for Custom Post Type
+        $labels = array(
+            'name'                => _x( 'Routes', 'Post Type General Name', 'twentytwentyone' ),
+            'singular_name'       => _x( 'Route', 'Post Type Singular Name', 'twentytwentyone' ),
+            'menu_name'           => __( 'Routes', 'twentytwentyone' ),
+            'parent_item_colon'   => __( 'Parent Route', 'twentytwentyone' ),
+            'all_items'           => __( 'All Routes', 'twentytwentyone' ),
+            'view_item'           => __( 'View Routes', 'twentytwentyone' ),
+            'add_new_item'        => __( 'Add New Route', 'twentytwentyone' ),
+            'add_new'             => __( 'Add New', 'twentytwentyone' ),
+            'edit_item'           => __( 'Edit Route', 'twentytwentyone' ),
+            'update_item'         => __( 'Update Route', 'twentytwentyone' ),
+            'search_items'        => __( 'Search Route', 'twentytwentyone' ),
+            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+        );
+           
+    // Set other options for Custom Post Type
+           
+        $args = array(
+            'label'               => __( 'routes', 'twentytwentyone' ),
+            'description'         => __( 'routes', 'twentytwentyone' ),
+            'labels'              => $labels,
+            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            'taxonomies'          => array( 'length' ),
+            'hierarchical'        => false,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 5,
+            'menu_icon'           => 'dashicons-admin-site',
+            'can_export'          => true,
+            'has_archive'         => true,
+            'exclude_from_search' => false,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'post',
+            'show_in_rest' => true,
+       
+        );
+           
+        // Registering your Custom Post Type
+        register_post_type( 'routes', $args );
+       
+    }
+       
+/* Hook into the 'init' action so that the function
+* Containing our post type registration is not 
+* unnecessarily executed. 
+*/
+    
+add_action( 'init', 'custom_post_route_type', 0 );
+
+function custom_length_taxonomy() {
+    $labels = array(
+        'name' => _x( 'Route Lengths', 'taxonomy general name' ),
+        'singular_name' => _x( 'length', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search length' ),
+        'all_items' => __( 'All lengths' ),
+        'parent_item' => __( 'Parent length' ),
+        'parent_item_colon' => __( 'Parent length:' ),
+        'edit_item' => __( 'Edit length' ), 
+        'update_item' => __( 'Update length' ),
+        'add_new_item' => __( 'Add New length' ),
+        'new_item_name' => __( 'New Diet Name' ),
+        'menu_name' => __( 'Route Length' ),
+    );
+
+    register_taxonomy(
+        'length',
+        'routes', // Change 'recipe' to your custom post type slug
+        array(
+            'hierarchical' => true,
+            'labels' => $labels,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array( 'slug' => 'length' ),
+        )
+    );
+}
+
+add_action( 'init', 'custom_length_taxonomy' );
 
 add_action( 'after_switch_theme', 'create_page_on_theme_activation' );
 
