@@ -3,7 +3,7 @@
 <section class="main-section mt-4">
   <div class="container">
     <div class="row">        
-      <div class="col-lg-12 col-md-12 blog-posts">
+      
         <?php
           // Check if we are on a taxonomy archive page
           if ( is_tax( 'diet' ) ) {
@@ -55,7 +55,6 @@
             endwhile;
           }
         ?>
-      </div>
     </div>
   </div>
 </section>

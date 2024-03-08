@@ -84,6 +84,10 @@ a:link:hover {
   color: var(--link-color-hover);
 }
 
+a:link:visited {
+  color: var(--link-color);
+}
+
 a:hover { 
   color: var(--link-color-hover);
 }
@@ -384,7 +388,6 @@ li.dropdown-item {
   background-color: #E8EDEE;
   max-width: 400px;
   margin: 2px;
-  border-radius: 5px;
   padding: 20px;
   margin-bottom: 20px;
 }

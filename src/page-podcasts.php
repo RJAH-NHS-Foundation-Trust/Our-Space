@@ -1,7 +1,7 @@
 <?php 
 
     /** 
-     * Template Name: Route Page Template
+     * Template Name: Podcasts Page Template
      * 
      * 
     */
@@ -17,13 +17,12 @@
     </div>
     
     <h2><?php the_title(); ?></h2>
-    <p><?php the_content(); ?> 
-</div>
+    <p><?php the_content(); ?></p> 
 
 <?php          
     $args = array (
         'post_status' => 'publish',
-        'post_type' => 'routes',
+        'post_type' => 'podcast',
         // 'tax_query' => array(
         //   array(
         //     'taxonomy' => 'diet', // Your custom taxonomy slug
@@ -44,7 +43,7 @@ if($totalPopularPosts > 0) { ?>
     <div class="container">
         <div class="row">
             <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
-                get_template_part( 'routes-content', get_post_format() );
+                get_template_part( 'podcast-content', get_post_format() );
                     endwhile; endif; wp_reset_postdata(); 
         ?>
       </div>
@@ -52,5 +51,7 @@ if($totalPopularPosts > 0) { ?>
   </section>
 
   <?php } ?>
+
+</div>
 
   <?php get_footer(); ?>

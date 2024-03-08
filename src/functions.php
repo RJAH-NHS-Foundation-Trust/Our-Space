@@ -20,6 +20,19 @@ function custom_login()
 
 add_action('login_head', 'custom_login');
 
+// Method 1: Filter.
+function my_acf_google_map_api( $api ){
+    $api['key'] = 'xxx';
+    return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+// Method 2: Setting.
+function my_acf_init() {
+    acf_update_setting('google_api_key', 'xxx');
+}
+add_action('acf/init', 'my_acf_init');
+
 /**
  * Pagination
  */
@@ -156,6 +169,159 @@ function custom_post_recipe_type() {
     
 add_action( 'init', 'custom_post_recipe_type', 0 );
 
+/*
+* Workouts Custom Post Types
+*/
+   
+function custom_post_workout_type() {
+   
+    // Set UI labels for Custom Post Type
+        $labels = array(
+            'name'                => _x( 'Workouts', 'Post Type General Name', 'twentytwentyone' ),
+            'singular_name'       => _x( 'Workout', 'Post Type Singular Name', 'twentytwentyone' ),
+            'menu_name'           => __( 'Workouts', 'twentytwentyone' ),
+            'parent_item_colon'   => __( 'Parent Workout', 'twentytwentyone' ),
+            'all_items'           => __( 'All Workouts', 'twentytwentyone' ),
+            'view_item'           => __( 'View Workouts', 'twentytwentyone' ),
+            'add_new_item'        => __( 'Add New Workout', 'twentytwentyone' ),
+            'add_new'             => __( 'Add New', 'twentytwentyone' ),
+            'edit_item'           => __( 'Edit Workout', 'twentytwentyone' ),
+            'update_item'         => __( 'Update Workout', 'twentytwentyone' ),
+            'search_items'        => __( 'Search Workout', 'twentytwentyone' ),
+            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+        );
+           
+    // Set other options for Custom Post Type
+           
+        $args = array(
+            'label'               => __( 'workouts', 'twentytwentyone' ),
+            'description'         => __( 'workouts', 'twentytwentyone' ),
+            'labels'              => $labels,
+            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            'taxonomies'          => array( 'diet' ),
+            'hierarchical'        => false,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 5,
+            'menu_icon'           => 'dashicons-heart',
+            'can_export'          => true,
+            'has_archive'         => true,
+            'exclude_from_search' => false,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'post',
+            'show_in_rest' => true,
+       
+        );
+           
+        // Registering your Custom Post Type
+        register_post_type( 'workout', $args );
+       
+    }
+       
+/* Hook into the 'init' action so that the function
+* Containing our post type registration is not 
+* unnecessarily executed. 
+*/
+    
+add_action( 'init', 'custom_post_workout_type', 0 );
+
+function custom_workout_taxonomy() {
+    $labels = array(
+        'name' => _x( 'Workout Types', 'taxonomy general name' ),
+        'singular_name' => _x( 'Workout Type', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Types' ),
+        'all_items' => __( 'All Types' ),
+        'parent_item' => __( 'Parent Type' ),
+        'parent_item_colon' => __( 'Parent Type:' ),
+        'edit_item' => __( 'Edit Type' ), 
+        'update_item' => __( 'Update Type' ),
+        'add_new_item' => __( 'Add New Type' ),
+        'new_item_name' => __( 'New Type Name' ),
+        'menu_name' => __( 'Types' ),
+    );
+
+    register_taxonomy(
+        'type',
+        'workout', // Change 'recipe' to your custom post type slug
+        array(
+            'hierarchical' => true,
+            'labels' => $labels,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array( 'slug' => 'diet' ),
+        )
+    );
+}
+
+add_action( 'init', 'custom_workout_taxonomy' );
+
+function custom_workout_distance_taxonomy() {
+    $labels = array(
+        'name' => _x( 'Workout Distances', 'taxonomy general name' ),
+        'singular_name' => _x( 'Workout Distance', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Distances' ),
+        'all_items' => __( 'All Distances' ),
+        'parent_item' => __( 'Parent Distance' ),
+        'parent_item_colon' => __( 'Parent Distance:' ),
+        'edit_item' => __( 'Edit Distance' ), 
+        'update_item' => __( 'Update Distance' ),
+        'add_new_item' => __( 'Add New Distance' ),
+        'new_item_name' => __( 'New Distance Name' ),
+        'menu_name' => __( 'Distances' ),
+    );
+
+    register_taxonomy(
+        'distance',
+        'workout', // Change 'recipe' to your custom post type slug
+        array(
+            'hierarchical' => true,
+            'labels' => $labels,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array( 'slug' => 'diet' ),
+        )
+    );
+}
+
+add_action( 'init', 'custom_workout_distance_taxonomy' );
+
+function custom_workout_location_taxonomy() {
+    $labels = array(
+        'name' => _x( 'Workout Locations', 'taxonomy general name' ),
+        'singular_name' => _x( 'Workout Location', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Locations' ),
+        'all_items' => __( 'All Locations' ),
+        'parent_item' => __( 'Parent Location' ),
+        'parent_item_colon' => __( 'Parent Location:' ),
+        'edit_item' => __( 'Edit Location' ), 
+        'update_item' => __( 'Update Location' ),
+        'add_new_item' => __( 'Add New Location' ),
+        'new_item_name' => __( 'New Location Name' ),
+        'menu_name' => __( 'Locations' ),
+    );
+
+    register_taxonomy(
+        'locations',
+        'workout', // Change 'recipe' to your custom post type slug
+        array(
+            'hierarchical' => true,
+            'labels' => $labels,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array( 'slug' => 'diet' ),
+        )
+    );
+}
+
+add_action( 'init', 'custom_workout_location_taxonomy' );
+
 function custom_taxonomy() {
     $labels = array(
         'name' => _x( 'Diets', 'taxonomy general name' ),
@@ -186,6 +352,246 @@ function custom_taxonomy() {
 }
 
 add_action( 'init', 'custom_taxonomy' );
+
+/*
+* Books Custom Post Types
+*/
+   
+function custom_post_book_type() {
+   
+    // Set UI labels for Custom Post Type
+        $labels = array(
+            'name'                => _x( 'Books', 'Post Type General Name', 'twentytwentyone' ),
+            'singular_name'       => _x( 'Book', 'Post Type Singular Name', 'twentytwentyone' ),
+            'menu_name'           => __( 'Books', 'twentytwentyone' ),
+            'parent_item_colon'   => __( 'Parent Book', 'twentytwentyone' ),
+            'all_items'           => __( 'All Books', 'twentytwentyone' ),
+            'view_item'           => __( 'View Books', 'twentytwentyone' ),
+            'add_new_item'        => __( 'Add New Book', 'twentytwentyone' ),
+            'add_new'             => __( 'Add New', 'twentytwentyone' ),
+            'edit_item'           => __( 'Edit Book', 'twentytwentyone' ),
+            'update_item'         => __( 'Update Book', 'twentytwentyone' ),
+            'search_items'        => __( 'Search Books', 'twentytwentyone' ),
+            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+        );
+           
+    // Set other options for Custom Post Type
+           
+        $args = array(
+            'label'               => __( 'books', 'twentytwentyone' ),
+            'description'         => __( 'books', 'twentytwentyone' ),
+            'labels'              => $labels,
+            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            'taxonomies'          => array( 'categories' ),
+            'hierarchical'        => false,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 5,
+            'menu_icon'           => 'dashicons-book',
+            'can_export'          => true,
+            'has_archive'         => true,
+            'exclude_from_search' => false,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'post',
+            'show_in_rest' => true,
+       
+        );
+           
+        // Registering your Custom Post Type
+        register_post_type( 'book', $args );
+       
+    }
+       
+/* Hook into the 'init' action so that the function
+* Containing our post type registration is not 
+* unnecessarily executed. 
+*/
+    
+add_action( 'init', 'custom_post_book_type', 0 );
+
+/*
+* Podcasts Custom Post Types
+*/
+   
+function custom_post_podcast_type() {
+   
+    // Set UI labels for Custom Post Type
+        $labels = array(
+            'name'                => _x( 'Podcasts', 'Post Type General Name', 'twentytwentyone' ),
+            'singular_name'       => _x( 'Podcast', 'Post Type Singular Name', 'twentytwentyone' ),
+            'menu_name'           => __( 'Podcasts', 'twentytwentyone' ),
+            'parent_item_colon'   => __( 'Parent Podcast', 'twentytwentyone' ),
+            'all_items'           => __( 'All Podcasts', 'twentytwentyone' ),
+            'view_item'           => __( 'View Podcasts', 'twentytwentyone' ),
+            'add_new_item'        => __( 'Add New Podcast', 'twentytwentyone' ),
+            'add_new'             => __( 'Add New', 'twentytwentyone' ),
+            'edit_item'           => __( 'Edit Podcast', 'twentytwentyone' ),
+            'update_item'         => __( 'Update Podcast', 'twentytwentyone' ),
+            'search_items'        => __( 'Search Podcast', 'twentytwentyone' ),
+            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+        );
+           
+    // Set other options for Custom Post Type
+           
+        $args = array(
+            'label'               => __( 'podcasts', 'twentytwentyone' ),
+            'description'         => __( 'podcasts', 'twentytwentyone' ),
+            'labels'              => $labels,
+            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            'taxonomies'          => array( 'categories' ),
+            'hierarchical'        => false,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 5,
+            'menu_icon'           => 'dashicons-format-audio',
+            'can_export'          => true,
+            'has_archive'         => true,
+            'exclude_from_search' => false,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'post',
+            'show_in_rest' => true,
+       
+        );
+           
+        // Registering your Custom Post Type
+        register_post_type( 'podcast', $args );
+       
+    }
+       
+/* Hook into the 'init' action so that the function
+* Containing our post type registration is not 
+* unnecessarily executed. 
+*/
+    
+add_action( 'init', 'custom_post_podcast_type', 0 );
+
+/*
+* Gyms Custom Post Types
+*/
+   
+function custom_post_gym_type() {
+   
+    // Set UI labels for Custom Post Type
+        $labels = array(
+            'name'                => _x( 'Gyms', 'Post Type General Name', 'twentytwentyone' ),
+            'singular_name'       => _x( 'Gym', 'Post Type Singular Name', 'twentytwentyone' ),
+            'menu_name'           => __( 'Gyms', 'twentytwentyone' ),
+            'parent_item_colon'   => __( 'Parent Gym', 'twentytwentyone' ),
+            'all_items'           => __( 'All Gyms', 'twentytwentyone' ),
+            'view_item'           => __( 'View Gyms', 'twentytwentyone' ),
+            'add_new_item'        => __( 'Add New Gym', 'twentytwentyone' ),
+            'add_new'             => __( 'Add New', 'twentytwentyone' ),
+            'edit_item'           => __( 'Edit Gym', 'twentytwentyone' ),
+            'update_item'         => __( 'Update Gym', 'twentytwentyone' ),
+            'search_items'        => __( 'Search Gym', 'twentytwentyone' ),
+            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+        );
+           
+    // Set other options for Custom Post Type
+           
+        $args = array(
+            'label'               => __( 'gyms', 'twentytwentyone' ),
+            'description'         => __( 'gyms', 'twentytwentyone' ),
+            'labels'              => $labels,
+            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            'taxonomies'          => array( 'categories' ),
+            'hierarchical'        => false,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 5,
+            'menu_icon'           => 'dashicons-format-audio',
+            'can_export'          => true,
+            'has_archive'         => true,
+            'exclude_from_search' => false,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'post',
+            'show_in_rest' => true,
+       
+        );
+           
+        // Registering your Custom Post Type
+        register_post_type( 'gym', $args );
+       
+    }
+       
+/* Hook into the 'init' action so that the function
+* Containing our post type registration is not 
+* unnecessarily executed. 
+*/
+    
+add_action( 'init', 'custom_post_gym_type', 0 );
+
+/*
+* Local Clubs & Classes Custom Post Types
+*/
+   
+function custom_post_support_groups_type() {
+   
+    // Set UI labels for Custom Post Type
+        $labels = array(
+            'name'                => _x( 'Groups', 'Post Type General Name', 'twentytwentyone' ),
+            'singular_name'       => _x( 'Group', 'Post Type Singular Name', 'twentytwentyone' ),
+            'menu_name'           => __( 'Groups', 'twentytwentyone' ),
+            'parent_item_colon'   => __( 'Parent Group', 'twentytwentyone' ),
+            'all_items'           => __( 'All Groups', 'twentytwentyone' ),
+            'view_item'           => __( 'View Groups', 'twentytwentyone' ),
+            'add_new_item'        => __( 'Add New Group', 'twentytwentyone' ),
+            'add_new'             => __( 'Add New', 'twentytwentyone' ),
+            'edit_item'           => __( 'Edit Group', 'twentytwentyone' ),
+            'update_item'         => __( 'Update Group', 'twentytwentyone' ),
+            'search_items'        => __( 'Search Group', 'twentytwentyone' ),
+            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+        );
+           
+    // Set other options for Custom Post Type
+           
+        $args = array(
+            'label'               => __( 'groups', 'twentytwentyone' ),
+            'description'         => __( 'groups', 'twentytwentyone' ),
+            'labels'              => $labels,
+            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            'taxonomies'          => array( 'categories' ),
+            'hierarchical'        => false,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 5,
+            'menu_icon'           => 'dashicons-format-audio',
+            'can_export'          => true,
+            'has_archive'         => true,
+            'exclude_from_search' => false,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'post',
+            'show_in_rest' => true,
+       
+        );
+           
+        // Registering your Custom Post Type
+        register_post_type( 'group', $args );
+       
+    }
+       
+/* Hook into the 'init' action so that the function
+* Containing our post type registration is not 
+* unnecessarily executed. 
+*/
+    
+add_action( 'init', 'custom_post_support_groups_type', 0 );
 
 /*
 * Routes Custom Post Types
@@ -274,9 +680,58 @@ function custom_length_taxonomy() {
             'rewrite' => array( 'slug' => 'length' ),
         )
     );
+
+    // Define default terms
+    $default_terms = array( 'Less Than 5K', '3K', '5K', '10k', 'More Than 10k' );
+
+    // Add default terms
+    foreach ($default_terms as $term_name) {
+        wp_insert_term($term_name, 'length');
+    }
+
 }
 
 add_action( 'init', 'custom_length_taxonomy' );
+
+
+function custom_difficulty_taxonomy() {
+    $labels = array(
+        'name' => _x( 'Route Difficulties', 'taxonomy general name' ),
+        'singular_name' => _x( 'difficulty', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search difficulties' ),
+        'all_items' => __( 'All difficulties' ),
+        'parent_item' => __( 'Parent difficulty' ),
+        'parent_item_colon' => __( 'Parent difficulty:' ),
+        'edit_item' => __( 'Edit difficulty' ), 
+        'update_item' => __( 'Update difficulty' ),
+        'add_new_item' => __( 'Add New difficulty' ),
+        'new_item_name' => __( 'New difficulty Name' ),
+        'menu_name' => __( 'Route Difficulty' ),
+    );
+
+    register_taxonomy(
+        'difficulty',
+        'routes', // Change 'recipe' to your custom post type slug
+        array(
+            'hierarchical' => true,
+            'labels' => $labels,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array( 'slug' => 'length' ),
+        )
+    );
+
+    // Define default terms
+    $default_terms = array( 'Easy', 'Intermediate', 'Difficult', 'Advanced' );
+
+    // Add default terms
+    foreach ($default_terms as $term_name) {
+        wp_insert_term($term_name, 'difficulty');
+    }
+}
+
+add_action( 'init', 'custom_difficulty_taxonomy' );
 
 add_action( 'after_switch_theme', 'create_page_on_theme_activation' );
 
