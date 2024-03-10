@@ -1,6 +1,5 @@
 <div class="col-md-4 blog-post mr-2">
     <h2 class="blog-title"><a class="blog-title" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-    <?php get_template_part( 'meta') ?>
     <div class="blog-excerpt">
         <?php if(has_post_thumbnail()) { ?>
         <img src="<?php the_post_thumbnail_url() ?>" alt="Thumbnail" class="thumbnail">

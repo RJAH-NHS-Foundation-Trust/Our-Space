@@ -181,25 +181,25 @@ i.fa-mobile {
 .btn-outline-success { 
   background-color: var(--button-background);
   border: 0px;
-  color: white
+  color: var(--white-text) !important;
 }
 
 .btn-outline-success:hover { 
   background-color: var(--button-hover-background);
   border: 0px;
-  color: white
+  color: var(--white-text) !important;
 }
 
 .btn-primary {
   background-color: var(--button-background);
   border: 0px;
-  color: white  
+  color: var(--white-text) !important; 
 }
 
 .btn-primary:hover {
   background-color: var(--button-hover-background);
   border: 0px;
-  color: white  
+  color: var(--white-text) !important; 
 }
 
 /* Drop Down Menu */
