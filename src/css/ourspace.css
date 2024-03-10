@@ -72,7 +72,6 @@ html, body {
 
 h1, h2, h3, h4 {
   color: #132e41;
-  text-transform: uppercase;
   font-weight: 800; 
 }
 
@@ -121,7 +120,6 @@ span.aioseo-breadcrumb {
 }
 
 .site-info h2 {
-  text-transform: uppercase;
   font-weight: 700;
   color: #132e41;
 }
@@ -218,7 +216,6 @@ i.fa-mobile {
 .dropdown-menu li:first-child a {
   font-weight: bold;
   font-size: 1.2em;
-  text-transform: uppercase;
   color: #132e41;
 }
 
@@ -700,7 +697,6 @@ a.cat-pills {
 
 .featured-card .card-title {
   color: #333;
-  text-transform: uppercase;
   font-weight: 700;
 }
 
@@ -722,10 +718,11 @@ footer {
 }  
 
 a.footer-link {
-  color: var(--link-color);
+  color: var(--white-text);
   text-decoration: none;
 }
 
 a:hover.footer-link {
-  color: var(--link-color-hover)  
+  color: var(--white-text);
+  text-decoration: underline;  
 }

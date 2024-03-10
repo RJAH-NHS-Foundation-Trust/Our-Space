@@ -48,10 +48,10 @@
           <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>/mental-health-first-aiders">Mental Health First Aiders</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>">Get In Touch</a>
+          <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>/contact">Get In Touch</a>
         </li>        
         <li class="nav-item">
-          <a class="nav-link crisis-help" aria-current="page" href="<?php echo get_option('home'); ?>">Crisis Help</a>
+          <a class="nav-link crisis-help" aria-current="page" href="<?php echo get_option('home'); ?>/crisis">Crisis Help</a>
         </li>
       </ul>      
     </div>

@@ -1,19 +1,6 @@
 <div class="col-md-4 blog-post mr-2">
     <h2 class="blog-title"><a class="blog-title" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-    <div class="blog-meta">        
-        <div class="mb-2 mt-2">
-            <?php
-                $post_id = get_the_ID();
-                $categories = get_the_category($post_id);
-
-                foreach ($categories as $cat) {
-                    $category_link = get_category_link($cat->cat_ID);
-                    echo '<a  class="custom-category-pill" href="' . esc_url($category_link) . '" title="' . esc_attr($cat->name) . '">' . esc_html($cat->name) . '</a> ';
-                }
-                ?>
-            </span>
-        </div>
-    </div>
+    <?php get_template_part( 'meta') ?>
     <div class="blog-excerpt">
         <img src="<?php the_field('podcast_art'); ?>" alt="Thumbnail" class="thumbnail">
         <p><?php the_excerpt(); ?></p>

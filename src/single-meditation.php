@@ -79,40 +79,6 @@
                 <?php the_field('storage'); ?>
             </div>
         </div>
-
-
-
-
-      <!-- <div class="row">        
-        <div class="col-lg-9 col-md-12 blog-posts">
-            <div class="blog-meta">
-                <span class="author">Author: <?php $username = get_userdata($post->post_author); ?><?php echo $username->user_nicename; ?></span>
-                <span class="date">Published: <?php the_time('F j, Y'); ?></span>
-                <span class="date">Category: 
-                </span>
-            </div>
-            <?php the_content() ?>
-            <?php
-                $posttags = get_the_tags(); 
-                if ($posttags) 
-                {
-            ?>
-            <div class="blog-tags mb-4">
-                
-                <?php                              
-                    foreach($posttags as $tag) 
-                    { ?> 
-                        <span class="tag">
-                        <?php echo $tag->name . ' '; ?>
-                        </span>
-                   <?php }                            
-                ?>
-                
-            </div>
-        <?php } ?>
-        </div>
-        <?php get_sidebar() ?>
-      </div> -->
     </div>
   </section>
 

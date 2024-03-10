@@ -25,8 +25,8 @@
     <div class="col-md-4 mb-4">
         <a class="custom-card-link" href="<?php echo get_option('home'); ?>/anxiety">
           <div class="card custom-card d-flex flex-column h-100">
-            <span class="custom-pill">Anxiety</span>
-            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image.jpg" class="card-img-top" alt="Image Alt">
+            <span class="custom-pill">Hidden Disabilities</span>
+            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/hidden-disability.png" class="card-img-top" alt="Image Alt">
             <div class="card-body">
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
             </div>
@@ -38,8 +38,8 @@
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/depression">
         <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">Depression</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/depression.jpg" class="card-img-top" alt="Image Alt">
+          <span class="custom-pill">Access To Work</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/access-to-work.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
           </div>
@@ -51,8 +51,8 @@
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/disability">
         <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">Disability</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/disability.jpg" class="card-img-top" alt="Image Alt">
+          <span class="custom-pill">Hearing Loss</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/hearing-loss.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
           </div>
@@ -62,10 +62,10 @@
 
     <!-- Fourth Card -->
     <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/recipes">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/sight">
         <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">Recipes</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/recipe.jpg" class="card-img-top" alt="Image Alt">
+          <span class="custom-pill">Sight Loss</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/sight-loss.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
             <p class="card-text">A collection of affordable, easy to make recipes.</p>
           </div>
@@ -75,12 +75,12 @@
 
     <!-- Fifth Card -->
     <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/meditation">
+      <a class="custom-card-link" target="_blank" href="https://crohnsandcolitis.org.uk/">
         <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">Mindfulness</span>
+          <span class="custom-pill">Chrons</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image-2.jpeg" class="card-img-top" alt="Image Alt">
           <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
+            <p class="card-text">Crohn's disease, often referred to simply as Crohn's, is a chronic inflammatory bowel disease (IBD) that primarily affects the gastrointestinal tract.</p>
           </div>
         </div>
       </a>
@@ -88,12 +88,12 @@
 
     <!-- Sixth Card -->
     <div class="col-md-4 mb-4">
-    <a class="custom-card-link" href="<?php echo get_option('home'); ?>/personal-health">
+    <a class="custom-card-link" target="_blank" href="https://crohnsandcolitis.org.uk/">
       <div class="card custom-card d-flex flex-column h-100">
-        <span class="custom-pill">Personal Health</span>
+        <span class="custom-pill">Colitis</span>
         <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image-3.jpg" class="card-img-top" alt="Image Alt">
         <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
+          <p class="card-text">Colitis refers to inflammation of the colon, also known as the large intestine. It is a condition that can have various causes, including infection, autoimmune disorders, and inflammatory bowel diseases (IBD) such as ulcerative colitis and Crohn's disease.</p>
         </div>
       </div>
     </a>

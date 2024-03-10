@@ -170,6 +170,67 @@ function custom_post_recipe_type() {
 add_action( 'init', 'custom_post_recipe_type', 0 );
 
 /*
+* Recipe Custom Post Types
+*/
+   
+function custom_post_charity_type() {
+   
+    // Set UI labels for Custom Post Type
+        $labels = array(
+            'name'                => _x( 'Charities', 'Post Type General Name', 'twentytwentyone' ),
+            'singular_name'       => _x( 'Charity', 'Post Type Singular Name', 'twentytwentyone' ),
+            'menu_name'           => __( 'Charities', 'twentytwentyone' ),
+            'parent_item_colon'   => __( 'Parent Charity', 'twentytwentyone' ),
+            'all_items'           => __( 'All Charities', 'twentytwentyone' ),
+            'view_item'           => __( 'View Charities', 'twentytwentyone' ),
+            'add_new_item'        => __( 'Add New Charity', 'twentytwentyone' ),
+            'add_new'             => __( 'Add New', 'twentytwentyone' ),
+            'edit_item'           => __( 'Edit Charity', 'twentytwentyone' ),
+            'update_item'         => __( 'Update Charity', 'twentytwentyone' ),
+            'search_items'        => __( 'Search Charity', 'twentytwentyone' ),
+            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+        );
+           
+    // Set other options for Custom Post Type
+           
+        $args = array(
+            'label'               => __( 'charities', 'twentytwentyone' ),
+            'description'         => __( 'charities', 'twentytwentyone' ),
+            'labels'              => $labels,
+            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            'taxonomies'          => array( 'categories' ),
+            'hierarchical'        => false,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 5,
+            'menu_icon'           => 'dashicons-food',
+            'can_export'          => true,
+            'has_archive'         => true,
+            'exclude_from_search' => false,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'post',
+            'show_in_rest' => true,
+       
+        );
+           
+        // Registering your Custom Post Type
+        register_post_type( 'charity', $args );
+       
+    }
+       
+/* Hook into the 'init' action so that the function
+* Containing our post type registration is not 
+* unnecessarily executed. 
+*/
+    
+add_action( 'init', 'custom_post_charity_type', 0 );
+
+
+/*
 * Workouts Custom Post Types
 */
    

@@ -49,7 +49,7 @@
             <span class="custom-pill">Desk Exercises</span>
             <img src="<?php echo get_bloginfo('template_directory'); ?>/img/desk-workout.png" class="card-img-top" alt="Image Alt">
             <div class="card-body">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
+              <p class="card-text">Desk exercises offer a convenient way to incorporate physical activity into a sedentary workday, promoting better health and productivity. Simple exercises such as seated leg lifts, chair squats, and desk stretches can help improve circulation, reduce muscle tension, and alleviate stiffness commonly associated with prolonged sitting.</p>
             </div>
           </div>
         </a>
@@ -62,7 +62,7 @@
           <span class="custom-pill">Workouts</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/workouts.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
+            <p class="card-text">Working out is an essential component of a healthy lifestyle, offering numerous physical and mental benefits. Regular exercise helps maintain a healthy weight, strengthen muscles, and improve cardiovascular health.</p>
           </div>
         </div>
       </a>
@@ -75,7 +75,7 @@
           <span class="custom-pill">Exercise Routes</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/walking-routes.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
+            <p class="card-text">We have put together a collection of local routes, from short walks to long hikes and everything inbetween, there are even routes to do on your lunch break.</p>
           </div>
         </div>
       </a>
@@ -88,7 +88,7 @@
           <span class="custom-pill">Local Gyms</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/local-gym.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
-            <p class="card-text">A collection of affordable, easy to make recipes.</p>
+            <p class="card-text">Here you can find a directory of local gyms with information on opening times, prices and discounts.</p>
           </div>
         </div>
       </a>
