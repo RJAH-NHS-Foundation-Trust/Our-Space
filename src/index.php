@@ -63,7 +63,7 @@
         <a class="custom-card-link" href="<?php echo get_option('home'); ?>/mental-health/">
           <div class="card custom-card d-flex flex-column h-100">
             <span class="custom-pill">Mental Health</span>
-            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/depression.jpg" class="card-img-top" alt="Image Alt">
+            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/mental-health.png" class="card-img-top" alt="Image Alt">
             <div class="card-body">
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
             </div>
@@ -76,7 +76,7 @@
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/disability">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Disability</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/disability.jpg" class="card-img-top" alt="Image Alt">
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/disability.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
           </div>
@@ -89,7 +89,7 @@
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/personal-fitness">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Personal Fitness</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/disability.jpg" class="card-img-top" alt="Image Alt">
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/personal-fitness.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
           </div>
@@ -102,7 +102,7 @@
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/self-help">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Self-Help</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image-2.jpeg " class="card-img-top" alt="Image Alt">
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/self-help.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
             <p class="card-text">A collection of affordable, easy to make recipes.</p>
           </div>
@@ -115,7 +115,7 @@
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/healthy-eating">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Healthy Eating</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/recipe.jpg" class="card-img-top" alt="Image Alt">
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/healthy-eating.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
           </div>
@@ -128,7 +128,7 @@
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/personal-health">
       <div class="card custom-card d-flex flex-column h-100">
         <span class="custom-pill">Personal Health</span>
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image.jpg " class="card-img-top" alt="Image Alt">
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/personal-health.png" class="card-img-top" alt="Image Alt">
         <div class="card-body">
           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
         </div>

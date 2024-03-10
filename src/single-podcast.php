@@ -8,9 +8,8 @@
         </div>
 
         <div class="row">
-            <div class="col-6">                
-                <iframe src="<?php the_field('gym_location'); ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <a class="btn btn-primary mb-2" href="<?php the_field('gym_location'); ?>">Visit Gym Website</a>
+            <div class="col-6">
+                <img class="img-fluid mb-2" src="<?php the_field('podcast_art'); ?>" />
             </div>
             <div class="col-6">
                 <h1><?php the_title(); ?></h1>
@@ -29,11 +28,8 @@
                 <div class="mt-3 fst-italic">
                     <?php the_content(); ?>
                 </div>
-
-                <h3>Opening Times</h3>
-                <?php the_field('opening_times'); ?>
-                <h3>Facilities</h3>
-                    
+                <a href="<?php the_field('podcast_page_link'); ?>" class="btn btn-outline-success">Find Out More</a>
+                <a href="<?php the_field('podcast_subscribe_url'); ?>" class="btn btn-outline-success">Subscribe</a>                
             </div>
         </div>
     </div>

@@ -623,7 +623,7 @@ ul.ingredients-list {
   border-radius: 0px;
   border: 0px;
   background-color: var(--fitness-card-background);
-  min-height: 17vh;
+  min-height: 19vh;
   overflow: hidden; /* Ensure the image doesn't overflow */
   position: relative; /* Positioning context for the pill */
   text-align: center;
@@ -656,7 +656,6 @@ ul.ingredients-list {
   background-color: var(--card-background);
   min-height: 20vh;
   max-height: 20vh;
-  border-radius: 10px;
   overflow: hidden; /* Ensure the image doesn't overflow */
   position: relative; /* Positioning context for the pill */
   text-align: center;

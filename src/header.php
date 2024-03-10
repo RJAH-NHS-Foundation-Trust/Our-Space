@@ -61,16 +61,41 @@
 </nav> 
 
 
-<?php $array = ["One specific aspect of mindfulness is awareness.","One specific aspect of mindfulness is awareness.","Mindfulness is a deceptively simple way of relating to all experience that can reduce suffering and set the stage for positive personal transformation.","We can talk about mindfulness or write at length about it, but to truly understand mindfulness, we have to experience it directly.","Mindfulness is the capacity to perceive our world clearly, without adulteration or manipulation.","We are all mindful to one degree or another, moment by moment. It is an inherent human capacity.","It is only when the mind is open and receptive that learning and seeing and change can occur."];?>
+<?php
 
-    <div class="jumbotron">
-      <div class="overlay"></div>
-        <div class="container">
-          <div class="row justify-content-center align-items-center">
-              <div class="col-md-6">
-                <h1 class="jumbotron-title mb-4"><? echo $array[array_rand($array, 1)]; ?></h1>
+// Read quotes from the JSON file
+$quotes_file = get_bloginfo('template_directory') . '/quotes.json';
+$quotes = json_decode(file_get_contents($quotes_file), true);
+
+// Check if the session variable is set, if not initialize it as an empty array
+if (!isset($_SESSION['displayed_quotes'])) {
+    $_SESSION['displayed_quotes'] = [];
+}
+
+// Get a random quote that hasn't been displayed yet
+$random_quote = "";
+do {
+    $random_quote = $quotes[array_rand($quotes)];
+} while (in_array($random_quote, $_SESSION['displayed_quotes']));
+
+// Store the displayed quote in the session variable
+$_SESSION['displayed_quotes'][] = $random_quote;
+
+// Reset displayed quotes if all quotes have been displayed
+if (count($_SESSION['displayed_quotes']) === count($quotes)) {
+    $_SESSION['displayed_quotes'] = [];
+}
+?>
+
+<div class="jumbotron">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+                <h1 class="jumbotron-title mb-4"><?php echo $random_quote; ?></h1>
                 <?php get_search_form(); ?>
-              </div>
             </div>
         </div>
     </div>
+</div>
+
