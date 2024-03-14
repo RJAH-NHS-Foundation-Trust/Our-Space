@@ -64,19 +64,60 @@
         <div class="row mt-2">
             <div class="col-lg-6 col-md-6 col-12">
                 <div class="ingredients-card mb-2 mt-2">
+                    
                     <h3 class="mt-2">Ingredients</h3>                    
-                    <?php the_field('ingredients'); ?>
+                    
+                    <?php 
+                    $direction = get_field('ingredients');
+
+                    if(!empty($direction))
+                    {
+                        the_field('ingredients');
+                    } else 
+                    {
+                        echo 'No Ingredients Provided';
+                    } ?>
+
                 </div>
             </div>
             <div class="col-lg-6 col-6 col-12">
                 <h3>Directions</h3>
-                <?php the_field('directions'); ?>
+                <?php 
+                    $direction = get_field('directions');
+
+                    if(!empty($direction))
+                    {
+                        the_field('directions');
+                    } else 
+                    {
+                        echo 'No Directions Provided';
+                    } ?>
 
                 <h3>Notes</h3>
-                <?php the_field('notes'); ?>
+
+                <?php 
+                    $direction = get_field('notes');
+
+                    if(!empty($direction))
+                    {
+                        the_field('notes');
+                    } else 
+                    {
+                        echo 'No Notes Provided';
+                    } ?>
 
                 <h3>Storage</h3>
-                <?php the_field('storage'); ?>
+
+                <?php 
+                    $direction = get_field('storage');
+
+                    if(!empty($direction))
+                    {
+                        the_field('storage');
+                    } else 
+                    {
+                        echo 'No Storage Instructions Provided';
+                    } ?>
             </div>
         </div>      
     </div>

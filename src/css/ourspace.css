@@ -394,6 +394,12 @@ li.dropdown-item {
   text-decoration: none;
 }
 
+.content-card {
+  background-color: #E8EDEE;
+  width: 18rem;
+  padding: 20px;
+}
+
 .blog-post a {
   text-decoration: none;  
 }
@@ -410,6 +416,7 @@ li.dropdown-item {
 .blog-title {
   font-size: 24px;
   font-weight: bold;
+  margin-bottom: 20px;
   color: var(--heading-color)
 }
 

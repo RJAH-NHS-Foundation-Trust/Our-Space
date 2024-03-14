@@ -1,12 +1,11 @@
-<div class="col-4 content-card mb-3">
+<div class="col-md-4 content-card mr-2">
     <h2 class="blog-title"><a class="blog-title" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-    <?php get_template_part( 'meta-content') ?>
+    <?php get_template_part( 'meta') ?>
     <div class="blog-excerpt">
-        <?php if(has_post_thumbnail()) { ?>
-        <img src="<?php the_post_thumbnail_url() ?>" alt="Thumbnail" class="thumbnail">
-        <?php } ?>
+        <img src="<?php the_field('podcast_art'); ?>" alt="Thumbnail" class="thumbnail">
         <p><?php the_excerpt(); ?></p>
-        <a href="<?php the_permalink(); ?>" class="btn btn-outline-success">Explore</a>
+        <a href="<?php the_field('podcast_page_link'); ?>" class="btn btn-outline-success">Find Out More</a>
+        <a href="<?php the_field('podcast_subscribe_url'); ?>" class="btn btn-outline-success">Subscribe</a>
     </div>
     <?php
         $posttags = get_the_tags(); 

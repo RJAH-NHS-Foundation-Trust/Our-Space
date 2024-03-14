@@ -65,7 +65,7 @@
             <span class="custom-pill">Mental Health</span>
             <img src="<?php echo get_bloginfo('template_directory'); ?>/img/mental-health.png" class="card-img-top" alt="Image Alt">
             <div class="card-body">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
+              <p class="card-text">Mental Health support resources.</p>
             </div>
           </div>
         </a>
@@ -78,7 +78,7 @@
           <span class="custom-pill">Disability</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/disability.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
+            <p class="card-text">Disability support resources, including links to charities, external resources and more.</p>
           </div>
         </div>
       </a>
@@ -91,7 +91,7 @@
           <span class="custom-pill">Personal Fitness</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/personal-fitness.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
+            <p class="card-text">Find lots of information to better you own personal fitness including exercise routes, workout routines and more.</p>
           </div>
         </div>
       </a>
@@ -104,7 +104,7 @@
           <span class="custom-pill">Self-Help</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/self-help.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
-            <p class="card-text">A collection of affordable, easy to make recipes.</p>
+            <p class="card-text">Resources to help you better your own wellbeing, from podcasts to books.</p>
           </div>
         </div>
       </a>
@@ -117,7 +117,7 @@
           <span class="custom-pill">Healthy Eating</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/healthy-eating.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
+            <p class="card-text">A collection of healthy recipes including some of our very own catering team favorites.</p>
           </div>
         </div>
       </a>
@@ -130,7 +130,7 @@
         <span class="custom-pill">Personal Health</span>
         <img src="<?php echo get_bloginfo('template_directory'); ?>/img/personal-health.png" class="card-img-top" alt="Image Alt">
         <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
+          <p class="card-text">Resource to better your own personal health including resources to help cut down alcohol consumption, quit smoking and more.</p>
         </div>
       </div>
     </a>
