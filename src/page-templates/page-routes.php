@@ -24,7 +24,7 @@
         'post_status' => 'publish',
         'post_type' => 'routes',
         'orderby' => 'date',
-        'posts_per_page' => 6,
+        'posts_per_page' => 8,
         'order' => 'DESC',  
         'paged' => $paged 
     );

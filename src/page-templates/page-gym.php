@@ -23,7 +23,7 @@
     $args = array (
         'post_status' => 'publish',
         'post_type' => 'gym',
-        'posts_per_page' => 6, 
+        'posts_per_page' => 8, 
         'paged' => $paged,
         'orderby' => 'title',
         'order' => 'ASC',   
@@ -37,7 +37,7 @@ if($totalPopularPosts > 0) { ?>
 <section class="main-section mt-4">
     <div class="row g-grid gap-2 w-100 d-flex">
         <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
-            get_template_part( 'gym-content', get_post_format() );
+            get_template_part( 'partials/content', get_post_format() );
                 endwhile; ?> </div>
                 <?php bootstrap_pagination($posts);
             endif; wp_reset_postdata();       ?>

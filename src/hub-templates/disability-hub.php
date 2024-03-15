@@ -41,7 +41,7 @@
           <span class="custom-pill">Access To Work</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/access-to-work.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit ut.</p>
+            <p class="card-text">The UK Government's Access to Work scheme is a vital support system designed to assist individuals with disabilities or health conditions in securing and maintaining employment. Through this initiative, eligible individuals receive personalized assistance tailored to their specific needs, ranging from specialized equipment and adaptations in the workplace to travel support and sign language interpreters.</p>
           </div>
         </div>
       </a>
@@ -49,7 +49,7 @@
 
     <!-- Third Card -->
     <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/disability">
+      <a class="custom-card-link" target="_blank" href="https://rnid.org.uk/">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Hearing Loss</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/hearing-loss.png" class="card-img-top" alt="Image Alt">
@@ -62,7 +62,7 @@
 
     <!-- Fourth Card -->
     <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/sight">
+      <a class="custom-card-link" target="_blank" href="https://www.rnib.org.uk/">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Sight Loss</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/sight-loss.png" class="card-img-top" alt="Image Alt">

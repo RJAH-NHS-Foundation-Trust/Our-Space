@@ -33,7 +33,7 @@ get_header();
         'meta_key' => 'wpb_post_views_count',
         'orderby' => 'meta_value_num',
         'order' => 'DESC', 
-        'posts_per_page' => 6, 
+        'posts_per_page' => 8, 
         'paged' => $paged  
     );
 

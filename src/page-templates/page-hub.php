@@ -6,7 +6,8 @@
      * 
     */
 
-    get_header(); 
+    get_header();
+    $excluded_category_id = get_cat_ID('Resources');  
 
 ?>
 
@@ -24,6 +25,7 @@
     $pageTitle = get_the_title(); 
     $hubTitle = strtok($pageTitle, " ");
     $resourceTitle = 'resources';
+    $linkTitle = 'link';
 ?>
 
 <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);         
@@ -33,7 +35,8 @@
         'meta_key' => 'wpb_post_views_count',
         'orderby' => 'meta_value_num',
         'order' => 'DESC',
-        'paged' => $paged   
+        'paged' => $paged,
+        'operator' => 'IN',  
     );
 
     $posts = new WP_Query( $args );
@@ -43,30 +46,26 @@ if($totalPopularPosts > 0) { ?>
 
 <section class="main-section mt-4">
     <div class="container">
-
-
-        <div class="row">    
-            
+      <div class="row g-grid gap-2 w-100 d-flex">    
             <h3>Popular <?php echo $hubTitle; ?> Resources </h3>
-            
             <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
-                get_template_part( 'content', get_post_format() );
+                get_template_part( 'partials/content', get_post_format() );
                     endwhile; ?> </div>
                     <?php bootstrap_pagination($posts);
-                endif; wp_reset_postdata();       ?>
-        ?>
+                endif; wp_reset_postdata();       
+            ?>
       </div>
-    </div>
   </section>
 
   <?php } ?>
 
-<?php          
+<?php             
     $args = array (
         'post_status' => 'publish',
-        'category_name' => $hubTitle,
+        'category_name' => strtolower($hubTitle),
         'order'          => 'desc',
-        'orderby'        => 'publish_date',    
+        'orderby'        => 'publish_date', 
+        'operator' => 'IN',  
     );
 
     $posts = new WP_Query( $args );
@@ -82,14 +81,53 @@ if($totalRecentPosts > 0) { ?>
       
             
             <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
-                get_template_part( 'content', get_post_format() );
+                get_template_part( 'partials/content', get_post_format() );
                     endwhile; endif; wp_reset_postdata(); 
         ?>
+
+        <a class="btn btn-primary mb-2" href="<?php echo get_option('home'); ?>/category/<?php echo strtolower($hubTitle); ?>">View All Posts</a>
+
       </div>      
     </div>
   </section>
 
 <?php } ?>
+
+<?php     
+    $args = array (
+        'post_type' => 'link',  
+        'post_status' => 'publish',
+        'category_name' => "$hubTitle",
+        'orderby' => 'title',
+        'order' => 'ASC',
+        'paged' => $paged,
+        'operator' => 'IN',  
+        'category__not_in' => array($excluded_category_id), 
+    );
+
+    $posts = new WP_Query( $args );
+    $totalPopularPosts = $posts -> found_posts;
+
+if($totalPopularPosts > 0) { ?>
+
+<section class="main-section mt-4">
+    <div class="container">
+
+
+        <div class="row">    
+            
+            <h3><?php echo $hubTitle; ?> Links </h3>
+            
+            <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
+                get_template_part( 'partials/link-content', get_post_format() );
+                    endwhile; ?> </div>
+                    <?php bootstrap_pagination($posts);
+                endif; wp_reset_postdata();       ?>
+      </div>
+  </section>
+
+  <?php } ?>
+
 
         </div>
 

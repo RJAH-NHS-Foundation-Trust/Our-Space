@@ -22,7 +22,7 @@
 <div class="row mt-2">
     <!-- First Card -->
     <div class="col-md-4 mb-4">
-        <a class="custom-card-link" href="<?php echo get_option('home'); ?>/anxiety">
+        <a class="custom-card-link" target="_blank" href="https://www.nhs.uk/live-well/quit-smoking/nhs-stop-smoking-services-help-you-quit/">
           <div class="card custom-card d-flex flex-column h-100">
             <span class="custom-pill">Stop Smoking</span>
             <img src="<?php echo get_bloginfo('template_directory'); ?>/img/stop-smoking.png" class="card-img-top" alt="Image Alt">
@@ -35,7 +35,7 @@
 
       <!-- Third Card -->
       <div class="col-md-4 mb-4">
-        <a class="custom-card-link" href="<?php echo get_option('home'); ?>/disability">
+        <a class="custom-card-link" target="_blank" href="https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/">
           <div class="card custom-card d-flex flex-column h-100">
             <span class="custom-pill">Alcohol</span>
             <img src="<?php echo get_bloginfo('template_directory'); ?>/img/alcohol.png" class="card-img-top" alt="Image Alt">
@@ -48,7 +48,7 @@
 
     <!-- Second Card -->
     <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/depression">
+      <a class="custom-card-link" href="https://www.diabetes.org.uk/">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Diabetes</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/diabetes.png" class="card-img-top" alt="Image Alt">

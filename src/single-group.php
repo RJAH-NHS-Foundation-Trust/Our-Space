@@ -8,9 +8,12 @@
         </div>
 
         <div class="row">
+            <?php if(!empty(get_field('group_location')))
+            {?>
             <div class="col-6">
-                <?php the_field('gym_location'); ?>
+            <iframe src="<?php the_field('group_location'); ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+            <?php } ?>
             <div class="col-6">
                 <h1><?php the_title(); ?></h1>
                 <div class="mt-3">
@@ -28,6 +31,27 @@
                 <div class="mt-3 fst-italic">
                     <?php the_content(); ?>
                 </div>
+
+                <?php if(!empty(get_field('group_contact_email')))
+                { ?>
+                    <h3 class="mt-2">Contact Address</h3>
+                    <?php the_field('group_contact_email'); 
+                } ?>
+
+                <?php if(!empty(get_field('group_contact_number')))
+                { ?>
+                    <h3 class="mt-2">Contact Number</h3>
+                    <?php the_field('group_contact_number'); 
+                } ?>
+
+                <?php if(!empty(get_field('group_url')))
+                { ?>                    
+                <div class="row">
+                    <a class="btn btn-primary mt-2 mb-2" target="_blank" href="<?php the_field('group_url'); ?>">Visit Group Site</a>
+                </div>
+                <?php } ?>
+
+
             </div>
         </div>
     </div>

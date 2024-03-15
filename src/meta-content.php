@@ -4,12 +4,11 @@
         $categories = get_the_category($post_id);
         
         if(!empty($categories)) { ?>
-            <span class="date"><strong>Category:</strong> 
-            <?php foreach ($categories as $cat) {
-                $category_link = get_category_link($cat->cat_ID);
+            <?php foreach ($categories as $cat) { ?>
+                <span class="date">
+                <?php $category_link = get_category_link($cat->cat_ID);
                 echo '<a  class="custom-category-pill" href="' . esc_url($category_link) . '" title="' . esc_attr($cat->name) . '">' . esc_html($cat->name) . '</a> ';
-            } 
-        }
-        ?>
-    </span>
+            } ?>
+            </span>
+        <?php } ?>
 </div>

@@ -170,7 +170,7 @@ function custom_post_recipe_type() {
 add_action( 'init', 'custom_post_recipe_type', 0 );
 
 /*
-* Recipe Custom Post Types
+* Charity Custom Post Types
 */
    
 function custom_post_charity_type() {
@@ -199,7 +199,7 @@ function custom_post_charity_type() {
             'description'         => __( 'charities', 'twentytwentyone' ),
             'labels'              => $labels,
             'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'categories' ),
+            'taxonomies'          => array( 'category' ),
             'hierarchical'        => false,
             'public'              => true,
             'show_ui'             => true,
@@ -229,6 +229,66 @@ function custom_post_charity_type() {
     
 add_action( 'init', 'custom_post_charity_type', 0 );
 
+
+/*
+* Links Custom Post Types
+*/
+   
+function custom_post_link_type() {
+   
+    // Set UI labels for Custom Post Type
+        $labels = array(
+            'name'                => _x( 'Links', 'Post Type General Name', 'twentytwentyone' ),
+            'singular_name'       => _x( 'Link', 'Post Type Singular Name', 'twentytwentyone' ),
+            'menu_name'           => __( 'Links', 'twentytwentyone' ),
+            'parent_item_colon'   => __( 'Parent Link', 'twentytwentyone' ),
+            'all_items'           => __( 'All Links', 'twentytwentyone' ),
+            'view_item'           => __( 'View Links', 'twentytwentyone' ),
+            'add_new_item'        => __( 'Add New Link', 'twentytwentyone' ),
+            'add_new'             => __( 'Add New', 'twentytwentyone' ),
+            'edit_item'           => __( 'Edit Link', 'twentytwentyone' ),
+            'update_item'         => __( 'Update Link', 'twentytwentyone' ),
+            'search_items'        => __( 'Search Link', 'twentytwentyone' ),
+            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+        );
+           
+    // Set other options for Custom Post Type
+           
+        $args = array(
+            'label'               => __( 'links', 'twentytwentyone' ),
+            'description'         => __( 'links', 'twentytwentyone' ),
+            'labels'              => $labels,
+            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            'taxonomies'          => array( 'category' ),
+            'hierarchical'        => false,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 5,
+            'menu_icon'           => 'dashicons-food',
+            'can_export'          => true,
+            'has_archive'         => true,
+            'exclude_from_search' => false,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'post',
+            'show_in_rest' => true,
+       
+        );
+           
+        // Registering your Custom Post Type
+        register_post_type( 'link', $args );
+       
+    }
+       
+/* Hook into the 'init' action so that the function
+* Containing our post type registration is not 
+* unnecessarily executed. 
+*/
+    
+add_action( 'init', 'custom_post_link_type', 0 );
 
 /*
 * Workouts Custom Post Types
@@ -624,7 +684,7 @@ function custom_post_support_groups_type() {
             'description'         => __( 'groups', 'twentytwentyone' ),
             'labels'              => $labels,
             'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'categories' ),
+            'taxonomies'          => array( 'category','post_tag'),
             'hierarchical'        => false,
             'public'              => true,
             'show_ui'             => true,

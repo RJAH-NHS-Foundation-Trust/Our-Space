@@ -75,9 +75,18 @@ h1, h2, h3, h4 {
   font-weight: 800; 
 }
 
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--link-color-hover);
+}
+
 a:link {
   color: var(--link-color);
 }
+
 
 a:link:hover {
   color: var(--link-color-hover);
@@ -313,10 +322,13 @@ li.dropdown-item {
   border-radius: 5px;
 }
 
-
 .nav-link {
   color: var(--link-color);
   font-weight: 600;
+}
+
+.nav-link:last-child {
+  margin-right: 10px;
 }
 
 .nav-link.active {
@@ -324,6 +336,12 @@ li.dropdown-item {
 }
 
 .nav-link.active:hover {
+  background-color: var(--link-color-background-hover) !important;
+  border-radius: 5px;
+  color: var(--link-color-text-hover) !important;
+}
+
+.nav-link:hover {
   background-color: var(--link-color-background-hover) !important;
   border-radius: 5px;
   color: var(--link-color-text-hover) !important;
@@ -468,16 +486,26 @@ a:visited.featured-blog-title {
   color: #005EB8;
 }
 
+a.tag-link {
+  color: var(--white-text);
+  text-decoration: none;
+}
+
+a.tag-link:hover {
+  color: var(--link-color-hover);
+  text-decoration: underline;
+}
+
 .blog-tags {
   margin-top: 10px;
 }
 
 .tag {
   display: inline-block;
-  background-color: #f2f2f2;
-  color: #333;
+  background-color: var(--pill-color);
+  color: var(--white-text);
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 20px;
   margin-right: 5px;
 }
 

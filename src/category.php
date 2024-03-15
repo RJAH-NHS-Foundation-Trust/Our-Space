@@ -1,9 +1,26 @@
-<?php get_header(); ?>
+<?php 
+
+    /** 
+     * Category Page
+     * 
+     * 
+    */
+
+    get_header(); 
+  
+?>
+
+<div class="container mt-4">
+    
+    <div class="row mb-4">
+        <?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
+    </div>
+    
+    <h2>Category: <?php single_cat_title('' , true ) ?></h2>    
 
 <section class="main-section mt-4">
     <div class="container">
-      <div class="row">        
-        <div class="col-lg-9 col-md-12 blog-posts">
+        <div class="row g-grid gap-2 w-100 d-flex">
         <?php
           // The Loop
           while ( have_posts() ) : the_post(); ?>
@@ -13,16 +30,13 @@
             
           <div class="entry">
           <?php the_excerpt(); ?>
-            
-            <p class="postmetadata"></p>
           </div>
           </div>
             
           <?php endwhile; ?>
-        </div>
-        <?php get_sidebar() ?>
       </div>
     </div>
   </section>
+</div>
 
   <?php get_footer(); ?>

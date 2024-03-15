@@ -30,10 +30,17 @@
                     <?php the_content(); ?>
                 </div>
 
-                <h3>Opening Times</h3>
-                <?php the_field('opening_times'); ?>
-                <h3>Facilities</h3>
-                    
+                <?php if(!empty(get_field('gym_prices')))
+                { ?>
+                    <h3 class="mt-2">Prices</h3>
+                    <?php the_field('gym_prices'); 
+                } ?>
+
+                <?php if(!empty(get_field('opening_times')))
+                { ?>
+                    <h3 class="mt-2">Opening Times</h3>
+                    <?php the_field('opening_times'); 
+                } ?>                    
             </div>
         </div>
     </div>
