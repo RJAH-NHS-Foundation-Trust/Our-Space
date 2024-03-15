@@ -25,9 +25,9 @@
         'post_type' => 'workout',
         'tax_query' => array(
           array(
-            'taxonomy' => 'locations', // Your custom taxonomy slug
+            'taxonomy' => 'locations', 
             'field' => 'slug',
-            'terms' => 'desk', // Slug of the diet you want to filter by
+            'terms' => 'desk', 
           ),
         ),
         'orderby' => 'date',
@@ -48,7 +48,7 @@ if($totalPopularPosts > 0) { ?>
                 get_template_part( 'routes-content', get_post_format() );
                     endwhile; ?> </div>
                     <?php bootstrap_pagination($posts);
-                endif; wp_reset_postdata();       ?>
+                endif; wp_reset_postdata();?>
       
       </div>
     </div>

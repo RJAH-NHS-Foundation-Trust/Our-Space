@@ -27,7 +27,7 @@
           array(
             'taxonomy' => 'locations', // Your custom taxonomy slug
             'field' => 'slug',
-            'terms' => array('office','outdoors','home'), // Slug of the diet you want to filter by
+            'terms' => array('office','outdoors'), // Slug of the diet you want to filter by
             'operator' => 'IN',
           ),
         ),
