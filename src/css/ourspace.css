@@ -3,11 +3,13 @@
 :root {
 
   --white-text: #ffffff;
+  --black-text: #000000;
 
   --link-color: #6a6b66;
   --link-color-hover: #377454;
   --link-color-background-hover: #f5a81f;
   --link-color-text-hover: #ffffff;
+
   --heading-color: #132e41;
 
   --search-bar-bg: #fcf7fb;
@@ -109,12 +111,12 @@ a:hover.cat-link {
 }
 
 .aioseo-breadcrumb a {
-  color: var(--white-text);
+  color: var(--black-text);
   text-decoration: none;
 }
 
 span.aioseo-breadcrumb {
-  color: var(--white-text);
+  color: var(--black-text);
   background-color: var(--button-background);
   padding: 5px;
   margin-right: 5px;
@@ -124,7 +126,7 @@ span.aioseo-breadcrumb {
 }
 
 .aioseo-breadcrumb a:hover {
-  color: var(--white-text);
+  color: var(--black-text);
   background-color: var(--button-hover-background);
 }
 
@@ -190,25 +192,29 @@ i.fa-mobile {
 .btn-outline-success { 
   background-color: var(--button-background);
   border: 0px;
-  color: var(--white-text) !important;
+  font-weight: bold;
+  color: var(--black-text) !important;
 }
 
 .btn-outline-success:hover { 
   background-color: var(--button-hover-background);
   border: 0px;
-  color: var(--white-text) !important;
+  font-weight: bold;
+  color: var(--black-text) !important;
 }
 
 .btn-primary {
   background-color: var(--button-background);
   border: 0px;
-  color: var(--white-text) !important; 
+  font-weight: bold;
+  color: var(--black-text) !important; 
 }
 
 .btn-primary:hover {
   background-color: var(--button-hover-background);
   border: 0px;
-  color: var(--white-text) !important; 
+  font-weight: bold;
+  color: var(--black-text) !important; 
 }
 
 /* Drop Down Menu */
@@ -338,13 +344,13 @@ li.dropdown-item {
 .nav-link.active:hover {
   background-color: var(--link-color-background-hover) !important;
   border-radius: 5px;
-  color: var(--link-color-text-hover) !important;
+  color: var(--black-text) !important;
 }
 
 .nav-link:hover {
   background-color: var(--link-color-background-hover) !important;
   border-radius: 5px;
-  color: var(--link-color-text-hover) !important;
+  color: var(--black-text) !important;
 }
 
 .feature {

@@ -13,6 +13,7 @@
             </div>
             <div class="col-6">
                 <h1><?php the_title(); ?></h1>
+                <span><strong>Found a problem:</strong> <a href="<?php echo get_option('home'); ?>/suggest-an-edit/">Suggest an edit</a>
                 <div class="mt-3">
                     <?php
                     $post_id = get_the_ID();
@@ -28,8 +29,14 @@
                 <div class="mt-3 fst-italic">
                     <?php the_content(); ?>
                 </div>
-                <a href="<?php the_field('podcast_page_link'); ?>" class="btn btn-outline-success">Find Out More</a>
-                <a href="<?php the_field('podcast_subscribe_url'); ?>" class="btn btn-outline-success">Subscribe</a>                
+                <div class="row mb-2">
+                    <div class="col-md-4">
+                        <a href="<?php the_field('podcast_page_link'); ?>" class="btn btn-outline-success">Find Out More</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="<?php the_field('podcast_subscribe_url'); ?>" class="btn btn-outline-success">Subscribe</a>                
+                    </div>
+                </div>
             </div>
         </div>
     </div>

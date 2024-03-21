@@ -1,6 +1,7 @@
 <div class="blog-meta">
     <span class="author"><strong>Author:</strong> <?php $username = get_userdata($post->post_author); ?><?php echo $username->user_nicename; ?></span>
     <span class="date"><strong>Published:</strong> <?php the_time('F j, Y'); ?></span>
+    <span class="date"><strong>Found a problem:</strong> <a href="<?php echo get_option('home'); ?>/suggest-an-edit/">Suggest an edit</a></span>
     <div class="row mt-3 mb-3">
     <?php
         $post_id = get_the_ID();

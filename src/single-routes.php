@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php 
+    get_header(); 
+    $is_all_trails = get_field('all_trails_route');
+    $route_directions = get_field('route_directions'); 
+    $route_directions_url = get_field('route_direction_url'); 
+?>
 
 <section class="main-section mt-4">
     <div class="container">
@@ -6,6 +11,13 @@
         <div class="row mb-4">
             <?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
         </div>
+
+        <?php if($is_all_trails == TRUE) { ?>
+            
+            <div class="alert alert-secondary">
+                This route was provided by All Trails and is hosted here for information purposes only.
+            </div>
+        <?php } ?>
 
         <div class="row">
             <div class="col-6">
@@ -20,14 +32,14 @@
                 
                 // Display the featured image
                 echo '<img class="img-fluid mb-2" src="' . $featured_image_url . '" alt="Featured Image">';
-            } else {
-                // If no featured image is found, you can display a default image or do something else
-                echo 'No route map found.';
-            }
+            } else { ?>                
+                <img class="img-fluid mb-2" src="<?php echo get_bloginfo('template_directory'); ?>/img/route-image-default.png" alt="Featured Image">                
+            <?php }
             ?>
             </div>
             <div class="col-6">
-                <h1><?php the_title(); ?></h1>
+                <h1><?php the_title(); ?></h1>                
+                <span><strong>Found a problem:</strong> <a href="<?php echo get_option('home'); ?>/suggest-an-edit/">Suggest an edit</a>
                 <div class="mt-3">
                     <?php
                     $post_id = get_the_ID();
@@ -97,15 +109,18 @@
                 </div>
                 <div class="mt-3 fst-italic">
                     <?php the_content(); ?>
+
+                    <?php $route_external_site = get_field('route_external_site'); ?>
+                    
+                    <?php 
+                    if(!empty($route_external_site))
+                    { ?>
+                        <a class="btn btn-primary" target="_blank" href="<?php the_field('route_external_site') ?>">Find Out More</a>
+                    <?php } ?>
+
                 </div>
             </div>
         </div>
-
-
-
-            <?php 
-                $route_directions = get_field('route_directions'); 
-            ?>
 
             <div class="row mt-2 mb-2">
                 <div class="col-lg-12 col-12 col-12">
@@ -113,10 +128,12 @@
 
                         <?php if(!empty($route_directions)) {
                             echo $route_directions;
-                        } else {
-                            echo 'No Directions Available';
-                        } 
-                        ?>
+                        } ?>
+
+                        <?php if(!empty($route_directions_url))
+                        { ?>                            
+                            <iframe class="alltrails" src="<?php the_field('route_direction_url'); ?>" width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="AllTrails: Trail Guides and Maps for Hiking, Camping, and Running"></iframe>
+                         <?php } ?>                      
                 
                 </div>
             </div>

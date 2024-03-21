@@ -16,6 +16,7 @@
             <?php } ?>
             <div class="col-6">
                 <h1><?php the_title(); ?></h1>
+                <span><strong>Found a problem:</strong> <a href="<?php echo get_option('home'); ?>/suggest-an-edit/">Suggest an edit</a>
                 <div class="mt-3">
                     <?php
                     $post_id = get_the_ID();

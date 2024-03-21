@@ -18,6 +18,9 @@
     
     <h2><?php the_title(); ?></h2>
     <p><?php the_content(); ?></p> 
+    <div class="alert alert-secondary">
+      Workouts are provided as guidelines only, it is important to work within your own limits and consult your doctor before starting any new exercises.
+    </div>
 
     <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);         
     $args = array (
