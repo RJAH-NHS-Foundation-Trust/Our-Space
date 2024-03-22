@@ -48,7 +48,7 @@
           <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>/mental-health-first-aiders">Mental Health First Aiders</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>/mental-health-first-aiders">Staff Networks</a>
+          <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>/staff-networks">Staff Networks</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>/contact">Get In Touch</a>

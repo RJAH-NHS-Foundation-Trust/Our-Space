@@ -34,7 +34,7 @@
                         <a href="<?php the_field('podcast_page_link'); ?>" class="btn btn-outline-success">Find Out More</a>
                     </div>
                     <div class="col-md-4">
-                        <a href="<?php the_field('podcast_subscribe_url'); ?>" class="btn btn-outline-success">Subscribe</a>                
+                        <a href="<?php echo get_field('podcast_subscribe_url'); ?>" class="btn btn-outline-success">Subscribe</a>                
                     </div>
                 </div>
             </div>

@@ -23,7 +23,7 @@
             
         <?php 
     $pageTitle = get_the_title(); 
-    $hubTitle = strtok($pageTitle, " ");
+    $hubTitle = $pageTitle;
     $resourceTitle = 'resources';
     $linkTitle = 'link';
 ?>
@@ -62,7 +62,7 @@ if($totalPopularPosts > 0) { ?>
 <?php             
     $args = array (
         'post_status' => 'publish',
-        'category_name' => strtolower($hubTitle),
+        'category_name' => $hubTitle,
         'order'          => 'desc',
         'orderby'        => 'publish_date', 
         'operator' => 'IN',  
@@ -91,7 +91,7 @@ if($totalRecentPosts > 0) { ?>
     </div>
   </section>
 
-<?php } ?>
+<?php } else { echo '<p>No posts found in ' . $pageTitle . ' category.</p>'; }  ?>
 
 <?php     
     $args = array (
@@ -113,16 +113,13 @@ if($totalPopularPosts > 0) { ?>
 <section class="main-section mt-4">
     <div class="container">
 
-
-        <div class="row">    
-            
+        <div class="row g-grid gap-2 w-100 d-flex">
             <h3><?php echo $hubTitle; ?> Links </h3>
-            
             <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
                 get_template_part( 'partials/link-content', get_post_format() );
                     endwhile; ?> </div>
                     <?php bootstrap_pagination($posts);
-                endif; wp_reset_postdata();       ?>
+                endif; wp_reset_postdata();?>
       </div>
   </section>
 

@@ -135,6 +135,45 @@
       </div>
     </a>
   </div>
+
+    <!-- Sixth Card -->
+    <div class="col-md-4 mb-4">
+    <a class="custom-card-link" href="<?php echo get_option('home'); ?>/your-family">
+      <div class="card custom-card d-flex flex-column h-100">
+        <span class="custom-pill">Your Family</span>
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/your-family.png" class="card-img-top" alt="Image Alt">
+        <div class="card-body">
+          <p class="card-text">New families embark on a journey filled with excitement, challenges, and milestones, often beginning with the decision to conceive. Pregnancy marks the start of a transformative experience, as expectant parents eagerly anticipate the arrival of their child. </p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+     <!-- Sixth Card -->
+     <div class="col-md-4 mb-4">
+    <a class="custom-card-link" href="<?php echo get_option('home'); ?>/finances">
+      <div class="card custom-card d-flex flex-column h-100">
+        <span class="custom-pill">Finances</span>
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/finances.png" class="card-img-top" alt="Image Alt">
+        <div class="card-body">
+          <p class="card-text">Personal finance encompasses the management of an individual's financial affairs, including budgeting, saving, investing, and planning for future financial goals.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  
+     <!-- Sixth Card -->
+     <div class="col-md-4 mb-4">
+    <a class="custom-card-link" href="<?php echo get_option('home'); ?>/menopause">
+      <div class="card custom-card d-flex flex-column h-100">
+        <span class="custom-pill">Menopause</span>
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/menopause.png" class="card-img-top" alt="Image Alt">
+        <div class="card-body">
+          <p class="card-text">Menopause marks the natural biological transition in a woman's life, typically occurring in her late 40s to early 50s, although the exact age can vary. It signifies the cessation of menstruation and the end of reproductive capacity.</p>
+        </div>
+      </div>
+    </a>
+  </div>
 </div>
 </div>
 </div>

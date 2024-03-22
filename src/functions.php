@@ -20,18 +20,28 @@ function custom_login()
 
 add_action('login_head', 'custom_login');
 
-// Method 1: Filter.
-function my_acf_google_map_api( $api ){
-    $api['key'] = 'xxx';
-    return $api;
-}
-add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+// Create categories on theme activation if they don't already exist
+function create_categories_on_activation() {
+    $categories = array(
+        'Access To Work',
+        'adhd',
+        'anxiety',
+        'autism',
+        'bipolar',
+        'Depression',
+        'meditation',
+        'ocd',
+        'recipes',
+        'resources'
+    );
 
-// Method 2: Setting.
-function my_acf_init() {
-    acf_update_setting('google_api_key', 'xxx');
+    foreach ($categories as $category) {
+        if (!term_exists($category, 'category')) {
+            wp_insert_term($category, 'category');
+        }
+    }
 }
-add_action('acf/init', 'my_acf_init');
+add_action('after_switch_theme', 'create_categories_on_activation');
 
 /**
  * Pagination
@@ -207,7 +217,7 @@ function custom_post_charity_type() {
             'show_in_nav_menus'   => true,
             'show_in_admin_bar'   => true,
             'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-food',
+            'menu_icon'           => 'dashicons-share',
             'can_export'          => true,
             'has_archive'         => true,
             'exclude_from_search' => false,
@@ -268,7 +278,7 @@ function custom_post_link_type() {
             'show_in_nav_menus'   => true,
             'show_in_admin_bar'   => true,
             'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-food',
+            'menu_icon'           => 'dashicons-admin-links',
             'can_export'          => true,
             'has_archive'         => true,
             'exclude_from_search' => false,
@@ -632,7 +642,7 @@ function custom_post_gym_type() {
             'show_in_nav_menus'   => true,
             'show_in_admin_bar'   => true,
             'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-format-audio',
+            'menu_icon'           => 'dashicons-superhero',
             'can_export'          => true,
             'has_archive'         => true,
             'exclude_from_search' => false,
@@ -692,7 +702,7 @@ function custom_post_support_groups_type() {
             'show_in_nav_menus'   => true,
             'show_in_admin_bar'   => true,
             'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-format-audio',
+            'menu_icon'           => 'dashicons-networking',
             'can_export'          => true,
             'has_archive'         => true,
             'exclude_from_search' => false,

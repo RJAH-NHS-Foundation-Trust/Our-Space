@@ -5,7 +5,7 @@
         <img src="<?php the_field('podcast_art'); ?>" alt="Thumbnail" class="thumbnail">
         <p><?php the_excerpt(); ?></p>
         <a href="<?php the_field('podcast_page_link'); ?>" class="btn btn-outline-success">Find Out More</a>
-        <a href="<?php the_field('podcast_subscribe_url'); ?>" class="btn btn-outline-success">Subscribe</a>
+        <a href="<?php echo get_field('podcast_subscribe_url'); ?>" class="btn btn-outline-success">Subscribe</a>
     </div>
     <?php
         $posttags = get_the_tags(); 

@@ -36,7 +36,7 @@
 
     <!-- Second Card -->
     <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/depression">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/access-to-work">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Access To Work</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/access-to-work.png" class="card-img-top" alt="Image Alt">
