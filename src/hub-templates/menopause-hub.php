@@ -1,7 +1,7 @@
 <?php 
 
     /** 
-     * Template Name: Disability Hub Template
+     * Template Name: Menopause Hub Template
      * 
      * 
     */
@@ -25,7 +25,7 @@
     <div class="col-md-4 mb-4">
         <a class="custom-card-link" href="<?php echo get_option('home'); ?>/hidden-disabilities/">
           <div class="card custom-card d-flex flex-column h-100">
-            <span class="custom-pill">Hidden Disabilities</span>
+            <span class="custom-pill">Your Family</span>
             <img src="<?php echo get_bloginfo('template_directory'); ?>/img/hidden-disability.png" class="card-img-top" alt="Image Alt">
             <div class="card-body">
               <p class="card-text">Hidden disabilities are conditions that are not immediately apparent to others, often because they do not have visible physical signs. These disabilities can include chronic illnesses, mental health disorders, neurological conditions, and cognitive impairments, among others. </p>

@@ -36,6 +36,19 @@
 
     <!-- Second Card -->
     <div class="col-md-4 mb-4">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/exercises">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">Exercises</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/exercise.png" class="card-img-top" alt="Image Alt">
+          <div class="card-body">
+            <p class="card-text">Find a selection of exercises that fit your ability, use these exercises to build your own workout routine.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Second Card -->
+    <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/workouts">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Workouts</span>

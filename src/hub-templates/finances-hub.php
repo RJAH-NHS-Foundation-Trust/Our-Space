@@ -1,7 +1,7 @@
 <?php 
 
     /** 
-     * Template Name: Disability Hub Template
+     * Template Name: Finances Hub Template
      * 
      * 
     */
@@ -25,7 +25,7 @@
     <div class="col-md-4 mb-4">
         <a class="custom-card-link" href="<?php echo get_option('home'); ?>/hidden-disabilities/">
           <div class="card custom-card d-flex flex-column h-100">
-            <span class="custom-pill">Hidden Disabilities</span>
+            <span class="custom-pill">Your Family</span>
             <img src="<?php echo get_bloginfo('template_directory'); ?>/img/hidden-disability.png" class="card-img-top" alt="Image Alt">
             <div class="card-body">
               <p class="card-text">Hidden disabilities are conditions that are not immediately apparent to others, often because they do not have visible physical signs. These disabilities can include chronic illnesses, mental health disorders, neurological conditions, and cognitive impairments, among others. </p>
@@ -36,10 +36,10 @@
 
     <!-- Second Card -->
     <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/access-to-work">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/discounts">
         <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">Access To Work</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/access-to-work.png" class="card-img-top" alt="Image Alt">
+          <span class="custom-pill">Discount Codes</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/discounts.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
             <p class="card-text">The UK Government's Access to Work scheme is a vital support system designed to assist individuals with disabilities or health conditions in securing and maintaining employment. Through this initiative, eligible individuals receive personalized assistance tailored to their specific needs, ranging from specialized equipment and adaptations in the workplace to travel support and sign language interpreters.</p>
           </div>
@@ -59,45 +59,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Fourth Card -->
-    <div class="col-md-4 mb-4">
-      <a class="custom-card-link" target="_blank" href="https://www.rnib.org.uk/">
-        <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">Sight Loss</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/sight-loss.png" class="card-img-top" alt="Image Alt">
-          <div class="card-body">
-            <p class="card-text">Sight loss, also known as visual impairment or blindness, refers to a condition in which an individual experiences partial or complete loss of vision. This loss of vision can result from various factors, including eye diseases, injuries, congenital conditions, or age-related changes.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Fifth Card -->
-    <div class="col-md-4 mb-4">
-      <a class="custom-card-link" target="_blank" href="https://crohnsandcolitis.org.uk/">
-        <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">Crohns & Colitis</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/chrons.png" class="card-img-top" alt="Image Alt">
-          <div class="card-body">
-            <p class="card-text">Crohn's disease, often referred to simply as Crohn's, is a chronic inflammatory bowel disease (IBD) that primarily affects the gastrointestinal tract.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Sixth Card -->
-    <!-- <div class="col-md-4 mb-4">
-    <a class="custom-card-link" target="_blank" href="https://crohnsandcolitis.org.uk/">
-      <div class="card custom-card d-flex flex-column h-100">
-        <span class="custom-pill">Something else</span>
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image-3.jpg" class="card-img-top" alt="Image Alt">
-        <div class="card-body">
-          <p class="card-text">Space.</p>
-        </div>
-      </div>
-    </a>
-  </div> -->
 
 </div>
 </div>

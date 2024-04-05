@@ -60,7 +60,7 @@ if($totalPopularPosts > 0) { ?>
     <section class="main-section mt-4">
     <div class="container">
       <div class="row g-grid gap-2 w-100 d-flex">
-        <p>There are no posts to display.</p>        
+        <p>There are no workouts to display.</p>        
       </div>
     </div>
   </section>

@@ -48,7 +48,7 @@
 
     <!-- Second Card -->
     <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="https://www.diabetes.org.uk/">
+      <a class="custom-card-link" target="_blank" href="https://www.diabetes.org.uk/">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Diabetes</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/diabetes.png" class="card-img-top" alt="Image Alt">
@@ -58,6 +58,19 @@
         </div>
       </a>
     </div>
+
+    <!-- Second Card -->
+    <div class="col-md-4 mb-4">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/sanitary-products">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">Sanitary Products</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/sanitary-products.png" class="card-img-top" alt="Image Alt">
+          <div class="card-body">
+            <p class="card-text">We are delighted to announce that due to the huge success of the scheme, we are continuing this service to support our staff – thanks to our Estates and Facilities Team who have offered to order and stock staff toilets with sanitary towels and tampons going forward.</p>
+          </div>
+        </div>
+      </a>
+    </div>    
 
 </div>
 </div>
