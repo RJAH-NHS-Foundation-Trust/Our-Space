@@ -379,7 +379,7 @@
                 "aria-label": "",
                 "type": "url",
                 "instructions": "",
-                "required": 0,
+                "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -388,6 +388,56 @@
                 },
                 "default_value": "",
                 "placeholder": ""
+            },
+            {
+                "key": "field_6618e1bcc0986",
+                "label": "Crisis Sidebar Logo",
+                "name": "crisis_sidebar_logo",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_6618e1fb36e98",
+                "label": "App Icon",
+                "name": "app_icon",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
             }
         ],
         "location": [
@@ -661,6 +711,60 @@
         "title": "Routes",
         "fields": [
             {
+                "key": "field_65fbf91a72d8d",
+                "label": "Route Direction URL",
+                "name": "route_direction_url",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_65fc05f508b1d",
+                "label": "Route External Site",
+                "name": "route_external_site",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_65fc54e1d8169",
+                "label": "Is this route from all trails",
+                "name": "all_trails_route",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
                 "key": "field_65eb19bee9ada",
                 "label": "Total Length",
                 "name": "total_length",
@@ -727,6 +831,69 @@
                     "param": "post_type",
                     "operator": "==",
                     "value": "routes"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_6617d7cc0e6ca",
+        "title": "Staff Networks",
+        "fields": [
+            {
+                "key": "field_6617d7d05ae8b",
+                "label": "Network Chair",
+                "name": "network_chair",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_6617d7da5ae8c",
+                "label": "Network Email Address",
+                "name": "network_email_address",
+                "aria-label": "",
+                "type": "email",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_category",
+                    "operator": "==",
+                    "value": "category:staff-networks"
                 }
             ]
         ],
