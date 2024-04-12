@@ -22,7 +22,7 @@
     <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);         
     $args = array (
         'post_status' => 'publish',
-        'post_type' => 'workout',
+        'post_type' => 'exercise',
         'tax_query' => array(
           array(
             'taxonomy' => 'locations', 

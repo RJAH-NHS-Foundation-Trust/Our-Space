@@ -24,7 +24,8 @@
 <?php          
     $args = array (
         'post_status' => 'publish',
-        'post_type' => 'charity',
+        'post_type' => 'link',
+        'category_name' => 'charity',
         'orderby' => 'title',
         'order' => 'ASC',   
     );
@@ -38,7 +39,7 @@ if($totalPopularPosts > 0) { ?>
     <div class="container">
         <div class="row g-grid gap-2 w-100 d-flex">
             <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
-                get_template_part( 'partials/crisis-content', get_post_format() );
+                get_template_part( 'partials/link-content', get_post_format() );
                     endwhile; endif; wp_reset_postdata(); 
         ?>
       </div>

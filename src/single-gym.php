@@ -15,6 +15,9 @@
             <div class="col-6">
                 <h1><?php the_title(); ?></h1>
                 <span><strong>Found a problem:</strong> <a href="<?php echo get_option('home'); ?>/suggest-an-edit/">Suggest an edit</a>
+                <div class="alert alert-secondary mt-2">
+                    We do our best to keep information provided as up to date and accurate as possible, but please check the Gym's website for the latest information before signing up or attending.
+                </div>
                 <div class="mt-3">
                     <?php
                     $post_id = get_the_ID();
@@ -27,7 +30,7 @@
                     ?>
                 </div>
                     
-                <div class="mt-3 fst-italic">
+                <div class="mt-3">
                     <?php the_content(); ?>
                 </div>
 

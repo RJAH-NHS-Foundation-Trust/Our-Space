@@ -10,6 +10,8 @@
   --link-color-background-hover: #f5a81f;
   --link-color-text-hover: #ffffff;
 
+  --disclaimer-background: #f3a71d;
+
   --breadcrumb-background: #122c41;
 
   --heading-color: #132e41;
@@ -149,6 +151,22 @@ span.aioseo-breadcrumb {
 .site-subtitle {
   font-size: 14px;
   color: #888888;
+}
+
+.disclaimer {
+  background-color: var(--disclaimer-background);
+}
+
+.disclaimer p {
+  color: var(--white-text);
+}
+
+.disclaimer a {
+  color: var(--white-text);
+}
+
+.disclaimer a:hover {
+  color: var(--link-color-hover);
 }
 
 img.page-profile-pic {

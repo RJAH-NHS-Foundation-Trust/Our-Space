@@ -31,11 +31,6 @@
         'post_type' => 'exercise',
         'tax_query' => array(
           array(
-            'taxonomy' => 'locations', // Your custom taxonomy slug
-            'field' => 'slug',
-            'terms' => array('home'), // Slug of the diet you want to filter by
-          ),
-          array(
             'taxonomy' => 'workout-difficulty', // Your custom taxonomy slug
             'field' => 'slug',
             'terms' => array('beginner'), // Slug of the diet you want to filter by
@@ -84,10 +79,9 @@ if($totalPopularPosts > 0) { ?>
         'post_type' => 'exercise',
         'tax_query' => array(
           array(
-            'taxonomy' => 'locations', // Your custom taxonomy slug
+            'taxonomy' => 'workout-difficulty', // Your custom taxonomy slug
             'field' => 'slug',
-            'terms' => array('office','outdoors'), // Slug of the diet you want to filter by
-            'operator' => 'IN',
+            'terms' => array('intermediate'), // Slug of the diet you want to filter by
           ),
         ),
         'orderby' => 'title',
@@ -133,10 +127,9 @@ if($totalPopularPosts > 0) { ?>
         'post_type' => 'exercise',
         'tax_query' => array(
           array(
-            'taxonomy' => 'locations', // Your custom taxonomy slug
+            'taxonomy' => 'workout-difficulty', // Your custom taxonomy slug
             'field' => 'slug',
-            'terms' => array('office','outdoors'), // Slug of the diet you want to filter by
-            'operator' => 'IN',
+            'terms' => array('advanced'), // Slug of the diet you want to filter by
           ),
         ),
         'orderby' => 'title',

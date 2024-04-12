@@ -47,14 +47,14 @@
       </a>
     </div>
 
-    <!-- Third Card -->
+    <!-- Second Card -->
     <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/adhd">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/counselling">
         <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">ADHD</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/adhd.png" class="card-img-top" alt="Image Alt">
+          <span class="custom-pill">Counselling</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/counselling.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
-            <p class="card-text">ADHD, or Attention-Deficit/Hyperactivity Disorder, is a neurodevelopmental condition characterized by persistent patterns of inattention, hyperactivity, and impulsivity that interfere with daily functioning and social interactions. Individuals with ADHD may struggle with maintaining focus, organizing tasks, managing time, and controlling impulsive behaviors.</p>
+            <p class="card-text">Care First provide RJAH staff with access to free in person or telephone counselling</p>
           </div>
         </div>
       </a>
@@ -73,19 +73,6 @@
       </a>
     </div>
 
-    <!-- Fifth Card -->
-    <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/autism">
-        <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">Autism</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/autism.png" class="card-img-top" alt="Image Alt">
-          <div class="card-body">
-            <p class="card-text">Autism spectrum disorder (ASD) is a neurodevelopmental condition characterized by challenges in social communication and interaction, as well as restricted interests and repetitive behaviors. Symptoms of autism vary widely and can range from mild to severe, affecting individuals differently.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
     <!-- Sixth Card -->
     <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/ocd">
@@ -98,6 +85,20 @@
       </div>
     </a>
   </div>
+  
+    <!-- Third Card -->
+    <div class="col-md-4 mb-4">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/adhd">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">ADHD</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/adhd.png" class="card-img-top" alt="Image Alt">
+          <div class="card-body">
+            <p class="card-text">ADHD, or Attention-Deficit/Hyperactivity Disorder, is a neurodevelopmental condition characterized by persistent patterns of inattention, hyperactivity, and impulsivity that interfere with daily functioning and social interactions. Individuals with ADHD may struggle with maintaining focus, organizing tasks, managing time, and controlling impulsive behaviors.</p>
+          </div>
+        </div>
+      </a>
+    </div>     
+
 </div>
 </div>
 </div>

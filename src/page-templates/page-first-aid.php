@@ -22,8 +22,8 @@
             <?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
         </div>
 
-        <div class="row">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim lobortis scelerisque fermentum dui. Fringilla est ullamcorper eget nulla facilisi. Quis enim lobortis scelerisque fermentum dui faucibus in ornare. Sodales ut eu sem integer vitae justo. Cras adipiscing enim eu turpis egestas pretium aenean pharetra magna. Urna duis convallis convallis tellus id. Velit laoreet id donec ultrices tincidunt arcu. Est pellentesque elit ullamcorper dignissim. Convallis aenean et tortor at risus viverra.</p>
+        <div class="row mt-4">
+            <p>Our Mental Health First Aiders can be a first point of contact and reassurance if staff are experiencing any kind of mental health related issue. They can listen, provide comfort, and guide towards the right support.</p>
         </div>
 
         <div class="row">

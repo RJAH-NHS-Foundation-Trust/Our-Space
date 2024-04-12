@@ -136,8 +136,8 @@
     </a>
   </div>
 
-    <!-- Sixth Card -->
-    <div class="col-md-4 mb-4">
+  <!-- 
+  <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/your-family">
       <div class="card custom-card d-flex flex-column h-100">
         <span class="custom-pill">Your Family</span>
@@ -149,8 +149,7 @@
     </a>
   </div>
 
-     <!-- Sixth Card -->
-     <div class="col-md-4 mb-4">
+  <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/finances">
       <div class="card custom-card d-flex flex-column h-100">
         <span class="custom-pill">Finances</span>
@@ -162,8 +161,7 @@
     </a>
   </div>
   
-     <!-- Sixth Card -->
-     <div class="col-md-4 mb-4">
+  <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/menopause">
       <div class="card custom-card d-flex flex-column h-100">
         <span class="custom-pill">Menopause</span>
@@ -172,7 +170,7 @@
           <p class="card-text">Menopause marks the natural biological transition in a woman's life, typically occurring in her late 40s to early 50s, although the exact age can vary. It signifies the cessation of menstruation and the end of reproductive capacity.</p>
         </div>
       </div>
-    </a>
+    </a>-->
   </div>
 </div>
 </div>

@@ -23,7 +23,7 @@
 <div class="row mt-2">
     <!-- First Card -->
     <div class="col-md-4 mb-4">
-        <a class="custom-card-link" href="<?php echo get_option('home'); ?>/hidden-disabilities/">
+        <a class="custom-card-link" href="<?php echo get_option('home'); ?>/hidden-disabilities">
           <div class="card custom-card d-flex flex-column h-100">
             <span class="custom-pill">Hidden Disabilities</span>
             <img src="<?php echo get_bloginfo('template_directory'); ?>/img/hidden-disability.png" class="card-img-top" alt="Image Alt">
@@ -33,6 +33,19 @@
           </div>
         </a>
       </div>
+
+    <!-- First Card -->
+    <div class="col-md-4 mb-4">
+      <a class="custom-card-link" target="_blank" href="https://hdsunflower.com/uk/">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">The Sunflower</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/sunflower.png" class="card-img-top" alt="Image Alt">
+          <div class="card-body">
+            <p class="card-text">The Hidden Disabilities Sunflower is a simple tool for you to voluntarily share that you have a disability or condition that may not be immediately apparent – and that you may need a helping hand, understanding, or more time in shops, at work, on transport, or in public spaces.</p>
+          </div>
+        </div>
+      </a>
+    </div>      
 
     <!-- Second Card -->
     <div class="col-md-4 mb-4">
@@ -85,6 +98,45 @@
         </div>
       </a>
     </div>
+
+    <!-- Fifth Card -->
+    <div class="col-md-4 mb-4">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/autism">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">Autism</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/autism.png" class="card-img-top" alt="Image Alt">
+          <div class="card-body">
+            <p class="card-text">Autism spectrum disorder (ASD) is a neurodevelopmental condition characterized by challenges in social communication and interaction, as well as restricted interests and repetitive behaviors. Symptoms of autism vary widely and can range from mild to severe, affecting individuals differently.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    
+    <!-- Sixth Card -->
+    <div class="col-md-4 mb-4">
+    <a class="custom-card-link" href="<?php echo get_option('home'); ?>/ocd">
+      <div class="card custom-card d-flex flex-column h-100">
+        <span class="custom-pill">OCD</span>
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/ocd.png" class="card-img-top" alt="Image Alt">
+        <div class="card-body">
+          <p class="card-text">Obsessive-compulsive disorder (OCD) is a mental health condition characterized by intrusive, unwanted thoughts (obsessions) and repetitive behaviors or mental rituals (compulsions) performed in response to these thoughts. These obsessions and compulsions can significantly interfere with daily activities, relationships, and overall quality of life.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  
+    <!-- Third Card -->
+    <div class="col-md-4 mb-4">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/adhd">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">ADHD</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/adhd.png" class="card-img-top" alt="Image Alt">
+          <div class="card-body">
+            <p class="card-text">ADHD, or Attention-Deficit/Hyperactivity Disorder, is a neurodevelopmental condition characterized by persistent patterns of inattention, hyperactivity, and impulsivity that interfere with daily functioning and social interactions. Individuals with ADHD may struggle with maintaining focus, organizing tasks, managing time, and controlling impulsive behaviors.</p>
+          </div>
+        </div>
+      </a>
+    </div>  
 
     <!-- Sixth Card -->
     <!-- <div class="col-md-4 mb-4">

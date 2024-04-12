@@ -19,29 +19,34 @@
     <h2><?php the_title(); ?></h2>
     <p><?php the_content(); ?></p> 
 
-    <div class="row">
-        <h4>LGBTQIA+ Staff network Group</h4>
-        <span><strong>Network Chair:</strong> Martine Williams</span>
-        <span><strong>Email Address:</strong> <a href="mailto:Martine.williams@nhs.net">Martine.williams@nhs.net</a></span>
-        <p></p>
+    <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);          
+    $args = array (
+        'post_status' => 'publish',
+        'category_name' => 'staff-networks',
+        'orderby' => 'date',
+        'posts_per_page' => 8,
+        'order' => 'DESC',  
+        'paged' => $paged 
+    );
 
-        <h4>Menopause Network and Champions</h4>
-        <span><strong>Network Chair:</strong> Vacant</span>
-        <span><strong>Email Address:</strong> <a href="mailto:rjah.edi.od@nhs.net">rjah.edi.od@nhs.net</a></span>
-        <p></p>
+    $posts = new WP_Query( $args );
+    $totalPopularPosts = $posts -> found_posts;
 
-        <h4>Ethnic Diverse Staff Network group </h4>
-        <span><strong>Network Chair:</strong> Shashank Chitgopkar</span>
-        <span><strong>Email Address:</strong> <a href="mailto:shashank.chitgopkar1@nhs.net">shashank.chitgopkar1@nhs.net</a></span>
-        <p></p>
+if($totalPopularPosts > 0) { ?>
 
-        <h4>Disability and Neuro-Diverse Group </h4>
-        <span><strong>Network Chair:</strong> Ellie Baldwin</span>
-        <span><strong>Email Address:</strong> <a href="mailto:ellie.baldwin1@nhs.net">ellie.baldwin1@nhs.net</a></span>
-        <p></p>
-    
-    </div>
+<section class="main-section mb-4">
+    <div class="container">
+        <div class="row">
+            <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
+                get_template_part( 'partials/staff-network-content', get_post_format() );
+                    endwhile; ?>
+                    </div>
+                    <?php bootstrap_pagination($posts);
+                endif; wp_reset_postdata(); ?>
+      </div>
+  </section>
 
+  <?php } ?>
 </div>
 
   <?php get_footer(); ?>
