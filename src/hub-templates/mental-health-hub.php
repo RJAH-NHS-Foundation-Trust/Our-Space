@@ -97,7 +97,20 @@
           </div>
         </div>
       </a>
-    </div>     
+    </div> 
+    <!-- Third Card -->
+    <div class="col-md-4 mb-4">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/shropshire-telford-and-wrekin-staff-wellbeing-hub">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">Shropshire, Telford and Wrekin Staff Wellbeing Hub</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/wellbeing.png" class="card-img-top" alt="Image Alt">
+          <div class="card-body">
+            <p class="card-text">Shropshire, Telford and Wrekin Staff Wellbeing Hub is available for NHS and Social Care staff who work in Shropshire, Telford and Wrekin. They are highly confidential and don’t routinely contact your workplace or GP and clients can self-refer.</p>
+          </div>
+        </div>
+      </a>
+    </div> 
+
 
 </div>
 </div>

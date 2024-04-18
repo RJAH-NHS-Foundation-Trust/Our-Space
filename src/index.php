@@ -147,7 +147,7 @@
         </div>
       </div>
     </a>
-  </div>
+  </div> -->
 
   <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/finances">
@@ -170,7 +170,7 @@
           <p class="card-text">Menopause marks the natural biological transition in a woman's life, typically occurring in her late 40s to early 50s, although the exact age can vary. It signifies the cessation of menstruation and the end of reproductive capacity.</p>
         </div>
       </div>
-    </a>-->
+    </a>
   </div>
 </div>
 </div>

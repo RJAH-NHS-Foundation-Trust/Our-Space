@@ -397,7 +397,7 @@ function custom_post_exercise_type() {
             'show_in_nav_menus'   => true,
             'show_in_admin_bar'   => true,
             'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-heart',
+            'menu_icon'           => 'dashicons-superhero-alt',
             'can_export'          => true,
             'has_archive'         => true,
             'exclude_from_search' => false,
@@ -418,6 +418,66 @@ function custom_post_exercise_type() {
 */
     
 add_action( 'init', 'custom_post_exercise_type', 0 );
+
+/*
+* Discount Codes Post Types
+*/
+   
+function custom_post_discount_codes_type() {
+   
+    // Set UI labels for Custom Post Type
+        $labels = array(
+            'name'                => _x( 'Discount Codes', 'Post Type General Name', 'twentytwentyone' ),
+            'singular_name'       => _x( 'Discount Code', 'Post Type Singular Name', 'twentytwentyone' ),
+            'menu_name'           => __( 'Discount Codes', 'twentytwentyone' ),
+            'parent_item_colon'   => __( 'Parent Discount Code', 'twentytwentyone' ),
+            'all_items'           => __( 'All Discount Codes', 'twentytwentyone' ),
+            'view_item'           => __( 'View Discount Codes', 'twentytwentyone' ),
+            'add_new_item'        => __( 'Add New Discount Code', 'twentytwentyone' ),
+            'add_new'             => __( 'Add New Discount Code', 'twentytwentyone' ),
+            'edit_item'           => __( 'Edit Discount Code', 'twentytwentyone' ),
+            'update_item'         => __( 'Update Discount Code', 'twentytwentyone' ),
+            'search_items'        => __( 'Search Discount Code', 'twentytwentyone' ),
+            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+        );
+           
+    // Set other options for Custom Post Type
+           
+        $args = array(
+            'label'               => __( 'Discount Codes', 'twentytwentyone' ),
+            'description'         => __( 'Discount Codes', 'twentytwentyone' ),
+            'labels'              => $labels,
+            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            'taxonomies'          => array( 'diet' ),
+            'hierarchical'        => false,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 5,
+            'menu_icon'           => 'dashicons-money-alt',
+            'can_export'          => true,
+            'has_archive'         => true,
+            'exclude_from_search' => false,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'post',
+            'show_in_rest' => true,
+       
+        );
+           
+        // Registering your Custom Post Type
+        register_post_type( 'discount-codes', $args );
+       
+    }
+       
+/* Hook into the 'init' action so that the function
+* Containing our post type registration is not 
+* unnecessarily executed. 
+*/
+    
+add_action( 'init', 'custom_post_discount_codes_type', 0 );
 
 function custom_workout_taxonomy() {
     $labels = array(
@@ -553,7 +613,46 @@ function custom_workout_location_taxonomy() {
     );
 }
 
-add_action( 'init', 'custom_workout_location_taxonomy' );
+add_action( 'init', 'custom_workout_body_area_taxonomy' );
+
+function custom_workout_body_area_taxonomy() {
+    $labels = array(
+        'name' => _x( 'Body Area', 'taxonomy general name' ),
+        'singular_name' => _x( 'Body Area', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Body Areas' ),
+        'all_items' => __( 'All Body Areas' ),
+        'parent_item' => __( 'Parent Body Area' ),
+        'parent_item_colon' => __( 'Parent Body Area:' ),
+        'edit_item' => __( 'Edit Body Area' ), 
+        'update_item' => __( 'Update Body Area' ),
+        'add_new_item' => __( 'Add New Body Area' ),
+        'new_item_name' => __( 'New Body Area Name' ),
+        'menu_name' => __( 'Body Areas' ),
+    );
+
+    register_taxonomy(
+        'body_area',
+        array('exercise'), // Change 'recipe' to your custom post type slug
+        array(
+            'hierarchical' => true,
+            'labels' => $labels,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array( 'slug' => 'body-area' ),
+        )
+    );
+
+    $default_terms = array( 'Hip Abductors','Chest','Triceps','Shoulders','Quadriceps','Glutes','Calves','Hip Flexors','Quadriceps','Abs','Hamstrings','Full Body','Legs','Biceps','Forearms','Back' );
+
+    foreach ($default_terms as $term_name) {
+        wp_insert_term($term_name, 'body_area');
+    }
+
+}
+
+add_action( 'init', 'custom_workout_body_area_taxonomy' );
+
 
 function custom_taxonomy() {
     $labels = array(
