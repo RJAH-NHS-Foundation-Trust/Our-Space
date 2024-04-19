@@ -130,9 +130,9 @@ class PostMeta {
 
 					foreach ( $s as $count => $val ) {
 						?>
-						<div class="tlp-field-holder socialLink" id="slh-<?php echo absint( $count ); ?>">
+						<div class="tlp-field-holder socialLink" id="slh-<?php echo esc_attr(absint( $count )); ?>">
 							<div class="tlp-label">
-								<select name="social[<?php echo absint( $count ); ?>][id]">
+								<select name="social[<?php echo esc_attr(absint( $count )); ?>][id]">
 									<?php
 									foreach ( Options::socialLink() as $id => $name ) {
 										$select = ( $val['id'] == $id ) ? 'selected' : null;
@@ -143,8 +143,8 @@ class PostMeta {
 							</div>
 
 							<div class="tlp-field">
-								<input type="text" name="social[<?php echo absint( $count ); ?>][url]" class="tlpfield" value="<?php echo 'envelope-o' === $val['id'] ? sanitize_email( $val['url'] ) : esc_url( $val['url'] ); ?>">
-								<span data-id="<?php echo absint( $count ); ?>" class="sRemove dashicons dashicons-trash"></span>
+								<input type="text" name="social[<?php echo esc_attr(absint( $count )); ?>][url]" class="tlpfield" value="<?php echo 'envelope-o' === $val['id'] ? esc_attr(sanitize_email( $val['url'] )) : esc_url( $val['url'] ); ?>">
+								<span data-id="<?php echo esc_attr(absint( $count )); ?>" class="sRemove dashicons dashicons-trash"></span>
 								<span class="dashicons dashicons-admin-settings"></span>
 							</div>
 						</div>
@@ -166,7 +166,7 @@ class PostMeta {
 			return;
 		}
 
-		if ( ! Fns::verifyNonce() ) {
+		if ( ! wp_verify_nonce( Fns::getNonce(), Fns::nonceText()) ) {
 			return $post_id;
 		}
 

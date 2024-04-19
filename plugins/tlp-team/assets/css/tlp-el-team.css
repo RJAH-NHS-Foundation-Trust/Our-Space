@@ -70,7 +70,6 @@
 	border: 1px solid #dddddd;
 	border-radius: 4px;
 	-webkit-transition: all 0.2s ease-in-out;
-	-o-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 	display: inline-block;
 	max-width: 100%;
@@ -108,7 +107,6 @@
 .rt-elementor-container h3,
 .rt-elementor-container a {
 	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
 	transition: all 0.3s;
 }
 
@@ -495,7 +493,6 @@ to a reusable component.
 	visibility: hidden;
 	position: absolute;
 	-webkit-transition: all 0.5s;
-	-o-transition: all 0.5s;
 	transition: all 0.5s;
 	top: 0;
 	left: 0;
@@ -624,7 +621,6 @@ to a reusable component.
 .rt-elementor-container .tlp-content .tlp-position a {
 	color: inherit;
 	-webkit-transition: none;
-	-o-transition: none;
 	transition: none;
 	outline: none;
 }
@@ -787,7 +783,6 @@ to a reusable component.
 	max-width: 100%;
 	-webkit-transition: opacity 0.6s, -webkit-transform 0.6s;
 	transition: opacity 0.6s, -webkit-transform 0.6s;
-	-o-transition: opacity 0.6s, transform 0.6s;
 	transition: opacity 0.6s, transform 0.6s;
 	transition: opacity 0.6s, transform 0.6s, -webkit-transform 0.6s;
 	-webkit-backface-visibility: hidden;
@@ -1011,7 +1006,6 @@ to a reusable component.
 	width: 30px;
 	height: 30px;
 	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
 	transition: all 0.3s;
 	background-image: none;
 	background: #000;
@@ -1134,7 +1128,6 @@ to a reusable component.
 	height: 10px;
 	margin: 10px 5px 5px;
 	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
 	transition: all 0.3s;
 }
 
@@ -1226,7 +1219,6 @@ to a reusable layout.
 .rt-elementor-container .layout2 .rttm-content-area .tlp-position a {
 	color: inherit;
 	-webkit-transition: none;
-	-o-transition: none;
 	transition: none;
 }
 
@@ -1260,7 +1252,6 @@ to a reusable layout.
 .rt-elementor-container .layout3 .tlp-content .tlp-position a {
 	color: inherit;
 	-webkit-transition: none;
-	-o-transition: none;
 	transition: none;
 }
 
@@ -1300,7 +1291,6 @@ to a reusable layout.
 	-ms-transform: rotate(50deg);
 	transform: rotate(50deg);
 	-webkit-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
 
@@ -1318,7 +1308,6 @@ to a reusable layout.
 	-ms-transform: rotate(50deg);
 	transform: rotate(50deg);
 	-webkit-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
 
@@ -1350,7 +1339,6 @@ to a reusable layout.
 	margin-top: 0;
 	text-align: center;
 	-webkit-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
 
@@ -1399,7 +1387,6 @@ to a reusable layout.
 .rt-elementor-container .carousel-el-1 .tlp-overlay1 .tlp-position a {
 	color: inherit;
 	-webkit-transition: none;
-	-o-transition: none;
 	transition: none;
 }
 

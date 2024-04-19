@@ -53,6 +53,12 @@ class Fns {
 		return true;
 	}
 
+	public static function getNonce(  ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		return isset( $_REQUEST[ self::nonceID() ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ self::nonceID() ] ) ) : null;
+
+    }
+
 	/**
 	 * Nonce text.
 	 *
@@ -131,6 +137,7 @@ class Fns {
 			return new \WP_Error(
 				'brock',
 				sprintf(
+                        /* translators: %s is the file name */
 					__( '%s file not found', 'tlp-team' ),
 					esc_html( $resources_path )
 				)
@@ -633,7 +640,12 @@ class Fns {
 
 		$terms = [];
 		if ( $taxonomy ) {
-			$termList = get_terms( [ rttlp_team()->taxonomies[ $taxonomy ] ], [ 'hide_empty' => 0 ] );
+            /*old code*/
+//			$termList = get_terms( [ rttlp_team()->taxonomies[ $taxonomy ] ], [ 'hide_empty' => 0 ] );
+            $termList = get_terms( array(
+	            'taxonomy'   => rttlp_team()->taxonomies[ $taxonomy ],
+	            'hide_empty' => false,
+            ) );
 			if ( is_array( $termList ) && ! empty( $termList ) && empty( $termList['errors'] ) ) {
 				foreach ( $termList as $term ) {
 					$terms[ $term->term_id ] = $term->name;
@@ -1412,9 +1424,12 @@ class Fns {
 		$upload_dir     = wp_upload_dir();
 		$upload_basedir = $upload_dir['basedir'];
 		$cssFile        = $upload_basedir . '/tlp-team/team-sc.css';
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 		if ( file_exists( $cssFile ) && ( $oldCss = file_get_contents( $cssFile ) ) && strpos( $oldCss, '/*sc-' . $scID . '-start' ) !== false ) {
+
 			$css = preg_replace( '/\/\*sc-' . $scID . '-start[\s\S]+?sc-' . $scID . '-end\*\//', '', $oldCss );
 			$css = preg_replace( "/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", '', $css );
+			// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents
 			file_put_contents( $cssFile, $css );
 		}
 	}
@@ -1612,6 +1627,7 @@ class Fns {
 	 */
 	public static function print_html( $html, $allHtml = false ) {
 		if ( $allHtml ) {
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo stripslashes_deep( $html );
 		} else {
 			echo wp_kses_post( stripslashes_deep( $html ) );

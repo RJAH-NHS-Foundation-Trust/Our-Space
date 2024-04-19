@@ -111,7 +111,7 @@ class Shortcode {
 	}
 
 	function team_shortcode( $atts ) {
-		$rand     = mt_rand();
+		$rand     = wp_rand();
 		$layoutID = 'rt-team-container-' . $rand;
 		$html     = null;
 		$arg      = [];
@@ -565,7 +565,7 @@ class Shortcode {
 					$arg['title']       = get_the_title();
 					$cLink              = get_post_meta( $mID, 'ttp_custom_detail_url', true );
 					$arg['pLink']       = ( $cLink ? $cLink : get_permalink() );
-					$arg['designation'] = strip_tags(
+					$arg['designation'] = wp_strip_all_tags(
 						get_the_term_list(
 							$mID,
 							rttlp_team()->taxonomies['designation'],

@@ -38,7 +38,8 @@ class Settings {
 	public function response() {
 		$error    = true;
 		$settings = [];
-		if ( Fns::verifyNonce() ) {
+
+		if ( wp_verify_nonce( Fns::getNonce(), Fns::nonceText()) ) {
 			$_REQUEST['team-slug'] = isset( $_REQUEST['team-slug'] ) ? sanitize_title_with_dashes( $_REQUEST['team-slug'] ) : 'team';
 			$options               = Options::getAllSettingOptions();
 			if ( ! empty( $options ) ) {

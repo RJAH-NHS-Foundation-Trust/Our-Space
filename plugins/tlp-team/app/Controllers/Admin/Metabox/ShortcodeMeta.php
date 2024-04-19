@@ -35,11 +35,15 @@ class ShortcodeMeta
         add_action('edit_form_after_title', [$this, 'team_sc_after_title']);
         add_action('admin_init', [$this, 'tlp_team_pro_remove_all_meta_box']);
         add_action('before_delete_post', [$this, 'before_delete_post'], 10, 2);
-
+	    // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         if ((isset($_GET['post']) && 'team-sc' === get_post_type(sanitize_text_field(wp_unslash($_GET['post'])))) ||
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             (isset($_GET['post_type']) && 'team-sc' === sanitize_text_field(wp_unslash($_GET['post_type']))) ||
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             (isset($_GET['post']) && 'team' === get_post_type(sanitize_text_field(wp_unslash($_GET['post'])))) ||
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             (isset($_GET['post_type']) && 'team' === sanitize_text_field(wp_unslash($_GET['post_type']))) ||
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             (isset($_GET['page']) && 'tlp_team_settings' === sanitize_text_field(wp_unslash($_GET['page'])))
         ) {
             add_action('admin_footer', [$this, 'pro_alert_html']);
@@ -368,7 +372,7 @@ class ShortcodeMeta
             return $post_id;
         }
 
-        if (!Fns::verifyNonce()) {
+        if (! wp_verify_nonce( Fns::getNonce(), Fns::nonceText())) {
             return $post_id;
         }
 

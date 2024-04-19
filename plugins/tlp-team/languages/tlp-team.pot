@@ -1,4 +1,4 @@
-# Copyright (C) 2023 Team
+# Copyright (C) 2024 Team
 # This file is distributed under the same license as the Team package.
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: RadiusTheme\n"
 "Last-Translator: RadiusTheme\n"
-"POT-Creation-Date: 2023-11-20 04:42+0000\n"
+"POT-Creation-Date: 2024-04-16 03:42+0000\n"
 "Report-Msgid-Bugs-To: https://radiustheme.com/tlp-team-for-wordpress/\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -17,8 +17,8 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app/Abstracts/ElementorWidget.php:81
-msgid "<span class=\"rttm-pro-label\">Pro</span>"
+#: app/Abstracts/ElementorWidget.php:81, app/Models/Fields.php:473
+msgid "Pro"
 msgstr ""
 
 #: app/Abstracts/ElementorWidget.php:142
@@ -89,11 +89,11 @@ msgstr ""
 msgid "Successfully deleted"
 msgstr ""
 
-#: app/Controllers/Admin/Ajax/Settings.php:56
+#: app/Controllers/Admin/Ajax/Settings.php:57
 msgid "Security Error !!"
 msgstr ""
 
-#: app/Controllers/Admin/Ajax/Settings.php:54
+#: app/Controllers/Admin/Ajax/Settings.php:55
 msgid "Settings successfully updated"
 msgstr ""
 
@@ -121,43 +121,43 @@ msgstr ""
 msgid "Add new"
 msgstr ""
 
-#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:59
+#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:63
 msgid "Pro field alert!"
 msgstr ""
 
-#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:60
+#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:64
 msgid "Sorry! this is a pro field. To use this field, you need to use pro plugin."
 msgstr ""
 
-#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:61
+#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:65
 msgid "Upgrade to pro"
 msgstr ""
 
-#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:251, app/Controllers/PostTypesController.php:158
+#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:255, app/Controllers/PostTypesController.php:158
 msgid "Shortcode Generator"
 msgstr ""
 
-#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:259
+#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:263
 msgid "Layout Preview"
 msgstr ""
 
-#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:268
+#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:272
 msgid "Pro Documentation"
 msgstr ""
 
-#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:326
+#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:330
 msgid "Layout"
 msgstr ""
 
-#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:327, app/Widgets/Elementor/Sections/Layout.php:226
+#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:331, app/Widgets/Elementor/Sections/Layout.php:226
 msgid "Filtering"
 msgstr ""
 
-#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:328, app/Helpers/Options.php:620
+#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:332, app/Helpers/Options.php:620
 msgid "Field Selection"
 msgstr ""
 
-#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:329
+#: app/Controllers/Admin/Metabox/ShortcodeMeta.php:333
 msgid "Styling"
 msgstr ""
 
@@ -185,51 +185,51 @@ msgstr ""
 msgid "Get Help"
 msgstr ""
 
-#: app/Controllers/Admin/TaxSorting.php:81
+#: app/Controllers/Admin/TaxSorting.php:89
 msgid "Security error"
 msgstr ""
 
-#: app/Controllers/Admin/TaxSorting.php:78
+#: app/Controllers/Admin/TaxSorting.php:86
 msgid "Select a taxonomy"
 msgstr ""
 
-#: app/Controllers/Admin/TaxSorting.php:75
+#: app/Controllers/Admin/TaxSorting.php:83
 msgid "No term found"
 msgstr ""
 
-#: app/Controllers/Admin/TaxSorting.php:95, app/Helpers/Options.php:478, app/Widgets/Elementor/Sections/Layout.php:283
+#: app/Controllers/Admin/TaxSorting.php:103, app/Helpers/Options.php:478, app/Widgets/Elementor/Sections/Layout.php:283
 msgid "Order"
 msgstr ""
 
-#: app/Controllers/Frontend/Ajax/LoadMore.php:400
-msgid "Session Error"
+#: app/Controllers/Admin/TaxSorting.php:130, app/Controllers/Admin/TaxSorting.php:220, app/Controllers/Frontend/Ajax/MultiPopup.php:44, app/Controllers/Frontend/Ajax/SinglePopup.php:43, app/Controllers/Frontend/Ajax/SmartPopup.php:44, app/Controllers/Frontend/Ajax/SpecialLayout.php:48
+msgid "Security Issue"
 msgstr ""
 
-#: app/Controllers/Frontend/Ajax/LoadMore.php:397
+#: app/Controllers/Frontend/Ajax/LoadMore.php:408
 msgid "Shortcode id missing"
 msgstr ""
 
-#: app/Controllers/Frontend/Ajax/LoadMore.php:389, app/Controllers/Frontend/Ajax/LoadMore.php:390
+#: app/Controllers/Frontend/Ajax/LoadMore.php:400, app/Controllers/Frontend/Ajax/LoadMore.php:401
 msgid "No more member to load"
 msgstr ""
 
-#: app/Controllers/Frontend/Ajax/MultiPopup.php:153, app/Controllers/Frontend/Ajax/SinglePopup.php:156, app/Controllers/Frontend/Ajax/SmartPopup.php:147
+#: app/Controllers/Frontend/Ajax/MultiPopup.php:159, app/Controllers/Frontend/Ajax/SinglePopup.php:162, app/Controllers/Frontend/Ajax/SmartPopup.php:152
 msgid "No item id found"
 msgstr ""
 
-#: app/Controllers/Frontend/Ajax/MultiPopup.php:149, app/Controllers/Frontend/Ajax/SinglePopup.php:153
+#: app/Controllers/Frontend/Ajax/MultiPopup.php:155, app/Controllers/Frontend/Ajax/SinglePopup.php:159
 msgid "Selected is is not for team member"
 msgstr ""
 
-#: app/Controllers/Frontend/Ajax/MultiPopup.php:101, app/Controllers/Frontend/Ajax/SinglePopup.php:108, app/Controllers/Frontend/Ajax/SmartPopup.php:94, templates/single-team.php:99
+#: app/Controllers/Frontend/Ajax/MultiPopup.php:107, app/Controllers/Frontend/Ajax/SinglePopup.php:114, app/Controllers/Frontend/Ajax/SmartPopup.php:99, templates/single-team.php:99
 msgid "Qualifications : "
 msgstr ""
 
-#: app/Controllers/Frontend/Ajax/MultiPopup.php:108, app/Controllers/Frontend/Ajax/SinglePopup.php:115, app/Controllers/Frontend/Ajax/SmartPopup.php:101, templates/single-team.php:103
+#: app/Controllers/Frontend/Ajax/MultiPopup.php:114, app/Controllers/Frontend/Ajax/SinglePopup.php:121, app/Controllers/Frontend/Ajax/SmartPopup.php:106, templates/single-team.php:103
 msgid "Professional Memberships : "
 msgstr ""
 
-#: app/Controllers/Frontend/Ajax/MultiPopup.php:115, app/Controllers/Frontend/Ajax/SinglePopup.php:122, app/Controllers/Frontend/Ajax/SmartPopup.php:108, templates/single-team.php:107
+#: app/Controllers/Frontend/Ajax/MultiPopup.php:121, app/Controllers/Frontend/Ajax/SinglePopup.php:128, app/Controllers/Frontend/Ajax/SmartPopup.php:113, templates/single-team.php:107
 msgid "Area of Expertise : "
 msgstr ""
 
@@ -245,47 +245,47 @@ msgstr ""
 msgid "Layout 2"
 msgstr ""
 
-#: app/Controllers/Hooks/FilterHooks.php:92, app/Helpers/Fns.php:1796, app/Helpers/Options.php:40, app/Helpers/Options.php:822
+#: app/Controllers/Hooks/FilterHooks.php:92, app/Helpers/Fns.php:1812, app/Helpers/Options.php:40, app/Helpers/Options.php:822
 msgid "Layout 3"
 msgstr ""
 
-#: app/Controllers/Hooks/FilterHooks.php:96, app/Helpers/Fns.php:1801, app/Helpers/Options.php:41, app/Helpers/Options.php:43
+#: app/Controllers/Hooks/FilterHooks.php:96, app/Helpers/Fns.php:1817, app/Helpers/Options.php:41, app/Helpers/Options.php:43
 msgid "Layout 4"
 msgstr ""
 
-#: app/Controllers/Hooks/FilterHooks.php:100, app/Helpers/Fns.php:1806
+#: app/Controllers/Hooks/FilterHooks.php:100, app/Helpers/Fns.php:1822
 msgid "Layout 5"
 msgstr ""
 
-#: app/Controllers/Hooks/FilterHooks.php:104, app/Helpers/Fns.php:1811
+#: app/Controllers/Hooks/FilterHooks.php:104, app/Helpers/Fns.php:1827
 msgid "Layout 6"
 msgstr ""
 
-#: app/Controllers/Hooks/FilterHooks.php:108, app/Helpers/Fns.php:1816
+#: app/Controllers/Hooks/FilterHooks.php:108, app/Helpers/Fns.php:1832
 msgid "Layout 7"
 msgstr ""
 
-#: app/Controllers/Hooks/FilterHooks.php:112, app/Helpers/Fns.php:1821
+#: app/Controllers/Hooks/FilterHooks.php:112, app/Helpers/Fns.php:1837
 msgid "Layout 8"
 msgstr ""
 
-#: app/Controllers/Hooks/FilterHooks.php:116, app/Helpers/Fns.php:1826
+#: app/Controllers/Hooks/FilterHooks.php:116, app/Helpers/Fns.php:1842
 msgid "Layout 9"
 msgstr ""
 
-#: app/Controllers/Hooks/FilterHooks.php:120, app/Helpers/Fns.php:1831
+#: app/Controllers/Hooks/FilterHooks.php:120, app/Helpers/Fns.php:1847
 msgid "Layout 10"
 msgstr ""
 
-#: app/Controllers/Hooks/FilterHooks.php:124, app/Helpers/Fns.php:1836
+#: app/Controllers/Hooks/FilterHooks.php:124, app/Helpers/Fns.php:1852
 msgid "Layout 11"
 msgstr ""
 
-#: app/Controllers/Hooks/FilterHooks.php:128, app/Helpers/Fns.php:1841
+#: app/Controllers/Hooks/FilterHooks.php:128, app/Helpers/Fns.php:1857
 msgid "Layout 12"
 msgstr ""
 
-#: app/Controllers/Hooks/FilterHooks.php:132, app/Helpers/Fns.php:1846
+#: app/Controllers/Hooks/FilterHooks.php:132, app/Helpers/Fns.php:1862
 msgid "Layout 13"
 msgstr ""
 
@@ -301,7 +301,7 @@ msgstr ""
 msgid "Layout 16"
 msgstr ""
 
-#: app/Controllers/Hooks/FilterHooks.php:148, app/Helpers/Fns.php:1861
+#: app/Controllers/Hooks/FilterHooks.php:148, app/Helpers/Fns.php:1877
 msgid "Special 01"
 msgstr ""
 
@@ -657,27 +657,28 @@ msgstr ""
 msgid "Search Departments"
 msgstr ""
 
-#: app/Helpers/Fns.php:134
+#. translators: %s is the file name
+#: app/Helpers/Fns.php:141
 msgid "%s file not found"
 msgstr ""
 
-#: app/Helpers/Fns.php:494
+#: app/Helpers/Fns.php:501
 msgid "Latest post(s)"
 msgstr ""
 
-#: app/Helpers/Fns.php:627
+#: app/Helpers/Fns.php:634
 msgid "Custom image size"
 msgstr ""
 
-#: app/Helpers/Fns.php:762
+#: app/Helpers/Fns.php:774
 msgid "Default Image"
 msgstr ""
 
-#: app/Helpers/Fns.php:1851
+#: app/Helpers/Fns.php:1867
 msgid "Layout 17"
 msgstr ""
 
-#: app/Helpers/Fns.php:1856
+#: app/Helpers/Fns.php:1872
 msgid "Layout 18"
 msgstr ""
 
@@ -1397,10 +1398,6 @@ msgstr ""
 msgid "This is premium field"
 msgstr ""
 
-#: app/Models/Fields.php:473
-msgid "Pro"
-msgstr ""
-
 #: app/Widgets/Elementor/Elements/GridLayout.php:38
 msgid "Grid Layouts"
 msgstr ""
@@ -1973,7 +1970,7 @@ msgstr ""
 msgid "Team Widget (With Carousel)"
 msgstr ""
 
-#: app/Widgets/TeamCarousel.php:195, app/Widgets/TeamShortcodeWidget.php:63, app/Widgets/TeamWidget.php:141
+#: app/Widgets/TeamCarousel.php:195, app/Widgets/TeamShortcodeWidget.php:64, app/Widgets/TeamWidget.php:141
 msgid "Title:"
 msgstr ""
 
@@ -1997,11 +1994,11 @@ msgstr ""
 msgid "Team Widget (Shortcodes List)"
 msgstr ""
 
-#: app/Widgets/TeamShortcodeWidget.php:42, app/Widgets/TeamShortcodeWidget.php:57
+#: app/Widgets/TeamShortcodeWidget.php:43, app/Widgets/TeamShortcodeWidget.php:58
 msgid "TLP Team"
 msgstr ""
 
-#: app/Widgets/TeamShortcodeWidget.php:68
+#: app/Widgets/TeamShortcodeWidget.php:69
 msgid "Select team shortcode"
 msgstr ""
 

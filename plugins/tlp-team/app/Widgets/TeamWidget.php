@@ -74,7 +74,7 @@ class TeamWidget extends WP_Widget {
 				}
 
 				$bio         = get_post_meta( get_the_ID(), 'short_bio', true );
-				$designation = strip_tags(
+				$designation = wp_strip_all_tags(
 					get_the_term_list(
 						get_the_ID(),
 						rttlp_team()->taxonomies['designation'],
@@ -156,7 +156,7 @@ class TeamWidget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 
 		$instance           = [];
-		$instance['title']  = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['title']  = ( ! empty( $new_instance['title'] ) ) ? wp_strip_all_tags( $new_instance['title'] ) : '';
 		$instance['member'] = ( ! empty( $new_instance['member'] ) ) ? (int) ( $new_instance['member'] ) : '';
 
 		return $instance;

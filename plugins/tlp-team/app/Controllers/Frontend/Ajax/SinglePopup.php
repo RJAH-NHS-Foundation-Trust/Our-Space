@@ -38,7 +38,13 @@ class SinglePopup {
 	public function response() {
 		$html  = $htmlCInfo = null;
 		$error = true;
+		if ( ! wp_verify_nonce( Fns::getNonce(), Fns::nonceText() ) ) {
+			wp_send_json_error( [
+				'data'  => __('Security Issue','tlp-team'),
+				'error' => $error,
+			] );
 
+		}
 		if ( isset( $_REQUEST['id'] ) && $post_id = absint( $_REQUEST['id'] ) ) {
 			global $post;
 			$post = get_post( absint( $_REQUEST['id'] ) );
@@ -61,7 +67,7 @@ class SinglePopup {
 				$name                     = $post->post_title;
 				$settings                 = get_option( rttlp_team()->options['settings'] );
 				$fields                   = isset( $settings['detail_page_fields'] ) ? $settings['detail_page_fields'] : [];
-				$designation              = strip_tags(
+				$designation              = wp_strip_all_tags(
 					get_the_term_list(
 						$post->ID,
 						rttlp_team()->taxonomies['designation'],
@@ -155,7 +161,6 @@ class SinglePopup {
 		} else {
 			$html .= '<p>' . esc_html__( 'No item id found', 'tlp-team' ) . '</p>';
 		}
-
 		wp_send_json(
 			[
 				'data'  => wp_kses_post( $html ),

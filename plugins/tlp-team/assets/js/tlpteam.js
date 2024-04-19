@@ -370,7 +370,7 @@
 						$.ajax({
 							url: ttp.ajaxurl,
 							type: 'POST',
-							data: { memberId: selectedId, scID: scID, action: 'rtGetSpecialLayoutData' },
+							data: { memberId: selectedId, scID: scID, action: 'rtGetSpecialLayoutData',tlp_nonce:ttp.nonce },
 							cache: false,
 							beforeSend: function () {
 								placeholder_loading();
@@ -397,7 +397,7 @@
 						$.ajax({
 							url: ttp.ajaxurl,
 							type: 'POST',
-							data: { memberId: id, toggleId: toggleId, scID: scID, action: 'rtGetSpecialLayoutData' },
+							data: { memberId: id, toggleId: toggleId, scID: scID, action: 'rtGetSpecialLayoutData',tlp_nonce:ttp.nonce },
 							cache: false,
 							beforeSend: function () {
 								placeholder_loading();
@@ -527,7 +527,7 @@
 			$(document).on('click', '.ttp-single-md-popup', function (e) {
 				e.preventDefault();
 				var id = $(this).attr("data-id");
-				var data = "action=tlp_md_popup_single&id=" + id;
+				var data = "action=tlp_md_popup_single&id=" + id+"&tlp_nonce="+ttp.nonce;
 				var modalWrapper = ".tlp-modal-" + scID;
 
 				$.ajax({
@@ -705,7 +705,7 @@
 					current = self.attr("data-id"),
 					contentLoader = self.parents('.rt-team-container').children('.rt-row.rt-content-loader'),
 					itemArray = getItemsArray(contentLoader),
-					data = "action=tlp_multi_popup_single&id=" + current,
+					data = "action=tlp_multi_popup_single&id=" + current+"&tlp_nonce="+ttp.nonce,
 					popupWrap, popupContainer;
 
 				$.ajax({

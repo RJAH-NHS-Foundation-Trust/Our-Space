@@ -39,7 +39,13 @@ class MultiPopup {
 		$html    = $htmlCInfo = null;
 		$success = false;
 		$error   = true;
+		if ( ! wp_verify_nonce( Fns::getNonce(), Fns::nonceText() ) ) {
+			wp_send_json_error( [
+				'data'  => __('Security Issue','tlp-team'),
+				'error' => $error,
+			] );
 
+		}
 		if ( isset( $_REQUEST['id'] ) && $post_id = absint( $_REQUEST['id'] ) ) {
 			global $post;
 			$post = get_post( absint( $_REQUEST['id'] ) );
@@ -64,7 +70,7 @@ class MultiPopup {
 				$location                 = get_post_meta( $post->ID, 'location', true );
 				$experience_year          = get_post_meta( $post->ID, 'experience_year', true );
 				$short_bio                = get_post_meta( $post->ID, 'short_bio', true );
-				$designation              = strip_tags(
+				$designation              = wp_strip_all_tags(
 					get_the_term_list(
 						$post->ID,
 						rttlp_team()->taxonomies['designation'],

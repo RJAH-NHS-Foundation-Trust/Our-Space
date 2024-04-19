@@ -36,15 +36,23 @@ class SpecialLayout {
 	 * @return void
 	 */
 	public function response() {
+
 		$memberId = ! empty( $_REQUEST['memberId'] ) ? absint( $_REQUEST['memberId'] ) : null;
 		$toggleId = ! empty( $_REQUEST['toggleId'] ) ? absint( $_REQUEST['toggleId'] ) : null;
 		$scID     = ! empty( $_REQUEST['scID'] ) ? absint( $_REQUEST['scID'] ) : null;
 		$html     = $toggle_image_src = null;
 		$error    = true;
 
+		if ( ! wp_verify_nonce( Fns::getNonce(), Fns::nonceText() ) ) {
+			wp_send_json_error( [
+				'data'  => __('Security Issue','tlp-team'),
+				'error' => $error,
+			] );
+
+		}
 		if ( $memberId ) {
 			$name        = get_the_title( $memberId );
-			$designation = strip_tags(
+			$designation = wp_strip_all_tags(
 				get_the_term_list(
 					$memberId,
 					rttlp_team()->taxonomies['designation'],

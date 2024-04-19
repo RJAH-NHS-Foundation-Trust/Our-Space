@@ -108,7 +108,7 @@ class BlackFriday {
 										e.preventDefault();
 										$.post(ajaxurl, {
 											'action': 'rtteam_dismiss_admin_notice',
-											'nonce': <?php echo json_encode( wp_create_nonce( 'rtteam-dismissible-notice' ) ); ?>
+											'nonce': <?php echo wp_json_encode( wp_create_nonce( 'rtteam-dismissible-notice' ) ); ?>
 										});
 										$(e.target).closest('.is-dismissible').remove();
 									});

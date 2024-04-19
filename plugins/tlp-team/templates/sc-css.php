@@ -393,5 +393,6 @@ if ( $itemP ) {
 }
 
 if ( $css ) {
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo wp_strip_all_tags( $css );
 }

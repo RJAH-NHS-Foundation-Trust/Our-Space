@@ -41,7 +41,7 @@ while ( have_posts() ) :
 	$tlp_skill       = $tlpSkill ? unserialize( $tlpSkill ) : [];
 	$exp             = null;
 
-	$designation = strip_tags(
+	$designation = wp_strip_all_tags(
 		get_the_term_list(
 			get_the_ID(),
 			rttlp_team()->taxonomies['designation'],
