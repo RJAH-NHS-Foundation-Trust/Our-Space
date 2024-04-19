@@ -104,7 +104,7 @@ if (count($_SESSION['displayed_quotes']) === count($quotes)) {
 
 <div class="container disclaimer mt-4"> 
   <div class="row pt-2 pb-2 justify-content-center align-items-center text-center">
-    <p class="my-0">Our Space is for educational and awareness purposes and is not a replacement for proper medical advice. If you have concerns about your health, please contact you GP or medical professional. You can find out more about this <a href="<?php echo get_option('home'); ?>/about">here</a></p>
+    <p class="my-0">Our Space is for educational and awareness purposes and is not a replacement for proper medical advice. If you have concerns about your health, please contact your GP or medical professional. You can find out more about this <a href="<?php echo get_option('home'); ?>/about">here</a></p>
   </div>
 </div>
 

@@ -19,25 +19,10 @@
     <h2><?php the_title(); ?></h2>
     <p><?php the_content(); ?></p> 
 
-
-<div class="row">
-    <div class="col-12">
-        <h3>Filter Recipes</h3>
-        <?php echo do_shortcode( '[searchandfilter fields="diet"]' ); ?>
-    </div>
-</div>
-
-<?php          
+    <?php          
     $args = array (
         'post_status' => 'publish',
         'post_type' => 'recipe',
-        // 'tax_query' => array(
-        //   array(
-        //     'taxonomy' => 'diet', // Your custom taxonomy slug
-        //     'field' => 'slug',
-        //     'terms' => 'vegetarian', // Slug of the diet you want to filter by
-        //   ),
-        // ),
         'orderby' => 'meta_value_num',
         'order' => 'DESC',   
     );
@@ -46,6 +31,13 @@
     $totalPopularPosts = $posts -> found_posts;
 
 if($totalPopularPosts > 0) { ?>
+
+<div class="row">
+    <div class="col-12">
+        <h3>Filter Recipes</h3>
+        <?php echo do_shortcode( '[searchandfilter fields="diet"]' ); ?>
+    </div>
+</div>
 
 <section class="main-section mt-4">
     <div class="container">
@@ -58,7 +50,11 @@ if($totalPopularPosts > 0) { ?>
     </div>
   </section>
 
-  <?php } ?>
+  <?php } else { ?>
+
+    <p>Nothing to show</p>
+
+  <?php } ?> 
 
 </div>
 
