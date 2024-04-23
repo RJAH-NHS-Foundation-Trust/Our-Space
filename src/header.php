@@ -63,7 +63,6 @@
   </div>
 </nav> 
 
-
 <?php
 
 // Read quotes from the JSON file
@@ -102,9 +101,48 @@ if (count($_SESSION['displayed_quotes']) === count($quotes)) {
     </div>
 </div>
 
-<div class="container disclaimer mt-4"> 
-  <div class="row pt-2 pb-2 justify-content-center align-items-center text-center">
-    <p class="my-0">Our Space is for educational and awareness purposes and is not a replacement for proper medical advice. If you have concerns about your health, please contact your GP or medical professional. You can find out more about this <a href="<?php echo get_option('home'); ?>/about">here</a></p>
-  </div>
-</div>
+<?php
 
+$pagename = str_replace('/','',str_replace(get_option('home'), '', get_pagenum_link()));
+$meditation = array("Meditation");
+$finance = array("Finances");
+$personal_fitness = array("Personal Fitness","Desk Exercises","Exercises","Workouts","Routes");
+$titles_to_exclude = array("Discount Codes", "Mental Health First Aiders", "Events", "Staff Networks","Get In Touch","Groups","Get Help Now","Gyms");
+$title = get_the_title();
+
+
+//Used this because the title for the events page doesn't render the slug so get the page part from the URL 
+if($pagename != "events") {
+
+//If the page title is not in the titles to exclude we can use it 
+if (!in_array($title, $titles_to_exclude)) { 
+
+  //If the page title is not in the personal fitness array 
+  if(in_array($title,$personal_fitness)) { ?>
+
+    <div class="container disclaimer mt-4"> 
+      <div class="row pt-2 pb-2 justify-content-center align-items-center text-center">
+        <p class="my-0">The resources within this section are for guidance only, always work within your own ability, before starting any new exercises it is always worth checking in with your GP first.</a></p>
+      </div>
+    </div> <?php } elseif(in_array($title,$meditation)) { ?> 
+
+    <div class="container disclaimer mt-4"> 
+      <div class="row pt-2 pb-2 justify-content-center align-items-center text-center">
+        <p class="my-0">The meditation resources provided are for guidance only, always make sure you are in a safe space before beginning any meditation and always listen to your own body.</p>
+      </div>
+    </div> <?php } elseif(in_array($title,$finance)) { ?> 
+
+    <div class="container disclaimer mt-4"> 
+      <div class="row pt-2 pb-2 justify-content-center align-items-center text-center">
+        <p class="my-0">Our Space is for educational and awareness purposes and is not a replacement for proper financial advice. It is recommended you consult a financial advisor or your bank before making any large changes to your financial circumstances.</p>
+      </div>
+    </div> <?php } else { ?>
+
+    <div class="container disclaimer mt-4"> 
+      <div class="row pt-2 pb-2 justify-content-center align-items-center text-center">
+        <p class="my-0">Our Space is for educational and awareness purposes and is not a replacement for proper medical advice. If you have concerns about your health, please contact your GP or medical professional. You can find out more about this <a href="<?php echo get_option('home'); ?>/about">here</a></p>
+      </div>
+    </div>
+    
+<?php }
+} }?>

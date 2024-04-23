@@ -468,7 +468,7 @@ function custom_post_discount_codes_type() {
         );
            
         // Registering your Custom Post Type
-        register_post_type( 'discount-codes', $args );
+        register_post_type( 'discount-code', $args );
        
     }
        

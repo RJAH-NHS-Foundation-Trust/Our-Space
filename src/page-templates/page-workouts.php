@@ -26,14 +26,6 @@
     $args = array (
         'post_status' => 'publish',
         'post_type' => 'workout',
-        'tax_query' => array(
-          array(
-            'taxonomy' => 'locations', // Your custom taxonomy slug
-            'field' => 'slug',
-            'terms' => array('office','outdoors'), // Slug of the diet you want to filter by
-            'operator' => 'IN',
-          ),
-        ),
         'orderby' => 'title',
         'order' => 'ASC',  
         'paged' => $paged,         
