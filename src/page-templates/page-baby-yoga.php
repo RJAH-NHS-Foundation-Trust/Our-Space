@@ -1,7 +1,7 @@
 <?php 
 
     /** 
-     * Template Name: Discount Codes Page Template
+     * Template Name: Baby Yoga Page Template
      * 
      * 
     */
@@ -23,22 +23,29 @@
     <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);         
     $args = array (
         'post_status' => 'publish',
-        'post_type' => 'discount-code',
+        'post_type' => 'exercise',
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'type', // Your custom taxonomy slug
+            'field' => 'slug',
+            'terms' => array('baby-yoga'), // Slug of the diet you want to filter by
+          ),
+        ),
         'orderby' => 'title',
         'order' => 'ASC',  
         'paged' => $paged,         
     );
 
     $posts = new WP_Query( $args );
-    $totalDiscountCodes = $posts -> found_posts;
+    $totalPopularPosts = $posts -> found_posts;
 
-if($totalDiscountCodes > 0) { ?>
+if($totalPopularPosts > 0) { ?>
 
 <section class="main-section mt-4">
     <div class="container">
       <div class="row g-grid gap-2 w-100 d-flex">
             <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
-                get_template_part( 'partials/discount-content', get_post_format() );
+                get_template_part( 'partials/exercise-content', get_post_format() );
                     endwhile; endif; wp_reset_postdata(); 
         ?>
       </div>
@@ -50,12 +57,15 @@ if($totalDiscountCodes > 0) { ?>
     <section class="main-section mt-4">
     <div class="container">
       <div class="row g-grid gap-2 w-100 d-flex">
-        <p>There are no discount codes to display.</p>        
+        <p>There are no baby yoga exercises to display.</p>        
       </div>
     </div>
   </section>
 
   <?php } ?>
     </section>
+
+
 </div>
+
   <?php get_footer(); ?>

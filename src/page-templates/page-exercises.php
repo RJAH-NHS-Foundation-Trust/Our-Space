@@ -18,9 +18,6 @@
     
     <h2><?php the_title(); ?></h2>
     <p><?php the_content(); ?></p> 
-    <div class="alert alert-secondary">
-      Workouts are provided as guidelines only, it is important to work within your own limits and consult your doctor before starting any new exercises.
-    </div>
 
     <section class="main-section mt-4">
     <h3>Beginner</h3>

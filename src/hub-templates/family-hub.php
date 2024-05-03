@@ -73,6 +73,19 @@
       </a>
     </div>
 
+    <!-- Fifth Card -->
+    <div class="col-md-4 mb-4">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/baby-yoga">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">Baby Yoga</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/baby-yoga.png" class="card-img-top" alt="Image Alt">
+          <div class="card-body">
+            <p class="card-text">Budget meals are essential for many households aiming to stretch their finances without compromising on nutrition or taste. These meals prioritize affordability without sacrificing quality ingredients or flavor.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
     <!-- Sixth Card -->
     <!-- <div class="col-md-4 mb-4">
     <a class="custom-card-link" target="_blank" href="https://crohnsandcolitis.org.uk/">

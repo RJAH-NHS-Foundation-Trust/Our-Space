@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-6">                
                 <iframe src="<?php the_field('gym_location'); ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <a class="btn btn-primary mb-2" href="<?php the_field('gym_location'); ?>">Visit Gym Website</a>
+                <a class="btn btn-primary mb-2" target="_blank" href="<?php the_field('gym_location'); ?>">Visit Gym Website</a>
             </div>
             <div class="col-6">
                 <h1><?php the_title(); ?></h1>

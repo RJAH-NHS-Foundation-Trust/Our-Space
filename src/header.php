@@ -63,38 +63,12 @@
   </div>
 </nav> 
 
-<?php
-
-// Read quotes from the JSON file
-$quotes_file = get_bloginfo('template_directory') . '/quotes.json';
-$quotes = json_decode(file_get_contents($quotes_file), true);
-
-// Check if the session variable is set, if not initialize it as an empty array
-if (!isset($_SESSION['displayed_quotes'])) {
-    $_SESSION['displayed_quotes'] = [];
-}
-
-// Get a random quote that hasn't been displayed yet
-$random_quote = "";
-do {
-    $random_quote = $quotes[array_rand($quotes)];
-} while (in_array($random_quote, $_SESSION['displayed_quotes']));
-
-// Store the displayed quote in the session variable
-$_SESSION['displayed_quotes'][] = $random_quote;
-
-// Reset displayed quotes if all quotes have been displayed
-if (count($_SESSION['displayed_quotes']) === count($quotes)) {
-    $_SESSION['displayed_quotes'] = [];
-}
-?>
-
 <div class="jumbotron">
     <div class="overlay"></div>
     <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6">
-                <h1 class="jumbotron-title mb-4"><?php echo $random_quote; ?></h1>
+                <h1 class="jumbotron-title mb-4">Search OurSpace</h1>
                 <?php get_search_form(); ?>
             </div>
         </div>
@@ -107,7 +81,7 @@ $pagename = str_replace('/','',str_replace(get_option('home'), '', get_pagenum_l
 $meditation = array("Meditation");
 $finance = array("Finances");
 $personal_fitness = array("Personal Fitness","Desk Exercises","Exercises","Workouts","Routes");
-$titles_to_exclude = array("Discount Codes", "Mental Health First Aiders", "Events", "Staff Networks","Get In Touch","Groups","Get Help Now","Gyms");
+$titles_to_exclude = array("Discount Codes", "Mental Health First Aiders", "Events", "Staff Networks","Get In Touch","Groups","Get Help Now","Gyms","Days Out","Suggest an edit");
 $title = get_the_title();
 
 

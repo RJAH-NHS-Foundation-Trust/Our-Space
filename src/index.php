@@ -136,7 +136,6 @@
     </a>
   </div>
 
-  <!-- 
   <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/your-family">
       <div class="card custom-card d-flex flex-column h-100">
@@ -147,7 +146,7 @@
         </div>
       </div>
     </a>
-  </div> -->
+  </div>
 
   <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/finances">

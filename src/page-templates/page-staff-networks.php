@@ -23,9 +23,9 @@
     $args = array (
         'post_status' => 'publish',
         'category_name' => 'staff-networks',
-        'orderby' => 'date',
+        'orderby' => 'title',
         'posts_per_page' => 8,
-        'order' => 'DESC',  
+        'order' => 'ASC',  
         'paged' => $paged 
     );
 
