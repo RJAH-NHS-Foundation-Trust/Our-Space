@@ -79,11 +79,24 @@
           <span class="custom-pill">Physio Self Referral</span>
           <img src="<?php echo get_bloginfo('template_directory'); ?>/img/physio.png" class="card-img-top" alt="Image Alt">
           <div class="card-body">
-            <p class="card-text">Did you know at RJAH we offer a staff self-referral to our Physiotherapy Service for permanent members of staff employed by RJAH suffering with MSK problems? Please note this will take you to the trust intranet where you will need to login to access the document.</p>
+            <p class="card-text">Did you know at RJAH we offer a staff self-referral to our Physiotherapy Service for permanent members of staff employed by RJAH suffering with MSK problems? Download and complete this referral form to get started.</p>
           </div>
         </div>
       </a>
     </div> 
+
+    <!-- Second Card -->
+    <div class="col-md-4 mb-4">
+    <a class="custom-card-link" href="<?php echo get_option('home'); ?>/pharmacy">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">Pharmacy</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/pharmacy.png" class="card-img-top" alt="Pharmacy">
+          <div class="card-body">
+            <p class="card-text">It is now possible to get over the counter medication from the league of friends shop, find out more here.</p>
+          </div>
+        </div>
+      </a>
+    </div>
 </div>
 </div>
 </div>

@@ -4,6 +4,8 @@ add_theme_support('title-tag');
 
 add_theme_support('post-thumbnails');
 
+add_filter('embed_oembed_html', function($code) { return str_replace('<iframe', '<iframe class="ratio ratio-1x1" width="600" height="450" ', $code);});
+
 /*
 * Disable the Gutenberg editor
 */

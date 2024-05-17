@@ -81,7 +81,7 @@ $pagename = str_replace('/','',str_replace(get_option('home'), '', get_pagenum_l
 $meditation = array("Meditation");
 $finance = array("Finances");
 $personal_fitness = array("Personal Fitness","Desk Exercises","Exercises","Workouts","Routes");
-$titles_to_exclude = array("Discount Codes", "Mental Health First Aiders", "Events", "Staff Networks","Get In Touch","Groups","Get Help Now","Gyms","Days Out","Suggest an edit");
+$titles_to_exclude = array("Discount Codes", "Mental Health First Aiders", "Events", "Staff Networks","Get In Touch","Groups","Pharmacy","Get Help Now","Gyms","Days Out","Suggest an edit");
 $title = get_the_title();
 
 
@@ -114,7 +114,7 @@ if (!in_array($title, $titles_to_exclude)) {
 
     <div class="container disclaimer mt-4"> 
       <div class="row pt-2 pb-2 justify-content-center align-items-center text-center">
-        <p class="my-0">Our Space is for educational and awareness purposes and is not a replacement for proper medical advice. If you have concerns about your health, please contact your GP or medical professional. You can find out more about this <a href="<?php echo get_option('home'); ?>/about">here</a></p>
+        <p class="my-0">Our Space is for educational and awareness purposes and is not a replacement for professional medical advice. If you have concerns about your health, please contact your GP or medical professional. You can find out more about this <a href="<?php echo get_option('home'); ?>/about">here</a></p>
       </div>
     </div>
     

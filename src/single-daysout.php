@@ -8,9 +8,13 @@
         </div>
 
         <div class="row">
-            <div class="col-6">                
-                <iframe src="<?php the_field('dayout_location'); ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                
-            </div>
+        <div class="col-6">    
+                <div class="card p-3 border-0">
+                    <div class="ratio ratio-1x1">
+                    <iframe src="<?php the_field('dayout_location'); ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                
+                    </div>
+                </div>
+            </div> 
             <div class="col-6">
                 <h1><?php the_title(); ?></h1>
                 <span><strong>Found a problem:</strong> <a href="<?php echo get_option('home'); ?>/suggest-an-edit/">Suggest an edit</a>                

@@ -28,15 +28,15 @@ get_header();
 
     <div class="row mb-2">
         <div class="col-lg-6 col-md-6 col-6">
-            <h3>Meditation Tips</h3>
+            <h3>Introduction To Meditation</h3>
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe style="min-width:280px; min-height:157px;" width="560px" height="315px" src="https://www.youtube.com/embed/StDpKqK2k6s?si=oL765giFX5GqmIyh" title="YouTube video player" allowfullscreen></iframe>
+                <iframe style="min-width:280px; min-height:157px;" width="560px" height="315px" src="https://www.youtube.com/embed/KM6S6pi7NSs?si=GlFP4i1nf0IHxrGS" title="YouTube video player" allowfullscreen></iframe>
             </div>
         </div>
         <div class="col-lg-6 col-md-6">
             <h3>Body Scan</h3>
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe style="min-width:280px; min-height:157px;" width="560px" height="315px"  src="https://www.youtube.com/embed/8gfvE8-N3Gg?si=2OGE5aPci-axUK28" allowfullscreen></iframe>
+                <iframe style="min-width:280px; min-height:157px;" width="560px" height="315px"  src="https://www.youtube.com/embed/9XQhkJ3JZFo?si=CcQsR5Wx_zstKDgS" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -45,13 +45,13 @@ get_header();
         <div class="col-lg-6 col-md-6">
             <h3>Mindful self compassion</h3>
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe style="min-width:280px; min-height:157px;" width="560px" height="315px" src="https://www.youtube.com/embed/fPjQDuRoAFc?si=c8SQIHFRCVQ7GZ6q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe style="min-width:280px; min-height:157px;" width="560px" height="315px" src="https://www.youtube.com/embed/2aJ7N0eWnBE?si=14FB_rv6cLsR2hr7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </div>
         <div class="col-lg-6 col-md-6">
             <h3>Mindfulness of breathing</h3>
             <div class="embed-responsive embed-responsive-16by9">
-                <iframe style="min-width:280px; min-height:157px;" width="560px" height="315px" src="https://www.youtube.com/embed/JOSq4yaxyYc?si=PKF2DdtflnDwu8c-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe style="min-width:280px; min-height:157px;" width="560px" height="315px" src="https://www.youtube.com/embed/hbdpluw5d98?si=aArZksjJhc0nd4qS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </div>       
     </div>
