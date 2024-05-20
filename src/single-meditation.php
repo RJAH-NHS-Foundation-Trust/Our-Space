@@ -10,18 +10,16 @@
         <div class="row">
             <div class="col-6">
             <?php
-            // Get the global $post object
+
             global $post;
 
-            // Check if the current post has a featured image
             if (has_post_thumbnail($post->ID)) {
-                // Get the featured image URL
+
                 $featured_image_url = get_the_post_thumbnail_url($post->ID);
                 
-                // Display the featured image
                 echo '<img class="img-fluid mb-2" src="' . $featured_image_url . '" alt="Featured Image">';
             } else {
-                // If no featured image is found, you can display a default image or do something else
+
                 echo 'No featured image found.';
             }
             ?>

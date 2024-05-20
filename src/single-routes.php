@@ -22,15 +22,13 @@
         <div class="row">
             <div class="col-6">
             <?php
-            // Get the global $post object
+
             global $post;
 
-            // Check if the current post has a featured image
             if (has_post_thumbnail($post->ID)) {
-                // Get the featured image URL
+
                 $featured_image_url = get_the_post_thumbnail_url($post->ID);
                 
-                // Display the featured image
                 echo '<img class="img-fluid mb-2" src="' . $featured_image_url . '" alt="Featured Image">';
             } else { ?>                
                 <img class="img-fluid mb-2" src="<?php echo get_bloginfo('template_directory'); ?>/img/route-image-default.png" alt="Featured Image">                
@@ -56,7 +54,7 @@
                     <div class="col-4">
                         <h6>Total Length</h6>
                         <span><?php
-                        // Assuming you have a custom taxonomy called 'your_taxonomy_name'
+
                         $terms = get_the_terms( get_the_ID(), 'length' );
 
                         if ( $terms && ! is_wp_error( $terms ) ) {
@@ -66,7 +64,6 @@
                                 $taxonomy_value[] = $term->name;
                             }
 
-                            // Output the values
                             echo implode( ', ', $taxonomy_value );
                         } else 
                         {
@@ -77,7 +74,7 @@
                     <div class="col-4">
                         <h6>Difficulty</h6>
                         <span><?php
-                        // Assuming you have a custom taxonomy called 'your_taxonomy_name'
+
                         $terms = get_the_terms( get_the_ID(), 'difficulty' );
 
                         if ( $terms && ! is_wp_error( $terms ) ) {
@@ -87,7 +84,6 @@
                                 $taxonomy_value[] = $term->name;
                             }
 
-                            // Output the values
                             echo implode( ', ', $taxonomy_value );
                         } else 
                         {

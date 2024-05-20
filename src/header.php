@@ -84,14 +84,10 @@ $personal_fitness = array("Personal Fitness","Desk Exercises","Exercises","Worko
 $titles_to_exclude = array("Discount Codes", "Mental Health First Aiders", "Events", "Staff Networks","Get In Touch","Groups","Pharmacy","Get Help Now","Gyms","Days Out","Suggest an edit");
 $title = get_the_title();
 
-
-//Used this because the title for the events page doesn't render the slug so get the page part from the URL 
 if($pagename != "events") {
 
-//If the page title is not in the titles to exclude we can use it 
 if (!in_array($title, $titles_to_exclude)) { 
 
-  //If the page title is not in the personal fitness array 
   if(in_array($title,$personal_fitness)) { ?>
 
     <div class="container disclaimer mt-4"> 

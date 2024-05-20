@@ -43,7 +43,7 @@ if($totalPopularPosts > 0) { ?>
                 get_template_part( 'partials/book-content', get_post_format() );
                     endwhile; ?> </div>
                     <?php bootstrap_pagination($posts);
-                endif; wp_reset_postdata();       ?>
+                endif; wp_reset_postdata();?>
     
       </div>
     </div>

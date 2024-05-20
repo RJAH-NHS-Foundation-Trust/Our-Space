@@ -58,20 +58,17 @@
 </div> -->
 
 <div class="row mt-2">
-    <!-- First Card -->
     <div class="col-md-4 mb-4">
-        <a class="custom-card-link" href="<?php echo get_option('home'); ?>/mental-health/">
-          <div class="card custom-card d-flex flex-column h-100">
-            <span class="custom-pill">Mental Health</span>
-            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/mental-health.png" class="card-img-top" alt="Image Alt">
-            <div class="card-body">
-              <p class="card-text">Mental Health support resources.</p>
-            </div>
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/mental-health/">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">Mental Health</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/mental-health.png" class="card-img-top" alt="Image Alt">
+          <div class="card-body">
+            <p class="card-text">Mental Health support resources.</p>
           </div>
-        </a>
-      </div>
-
-    <!-- Second Card -->
+        </div>
+      </a>
+    </div>
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/disability">
         <div class="card custom-card d-flex flex-column h-100">
@@ -83,8 +80,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Third Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/personal-fitness">
         <div class="card custom-card d-flex flex-column h-100">
@@ -96,8 +91,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Fourth Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/self-help">
         <div class="card custom-card d-flex flex-column h-100">
@@ -109,21 +102,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Fifth Card -->
-    <!-- <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/healthy-eating">
-        <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">Healthy Eating</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/healthy-eating.png" class="card-img-top" alt="Image Alt">
-          <div class="card-body">
-            <p class="card-text">A collection of healthy recipes including some of our very own catering team favorites.</p>
-          </div>
-        </div>
-      </a>
-    </div> -->
-
-    <!-- Sixth Card -->
     <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/personal-health">
       <div class="card custom-card d-flex flex-column h-100">
@@ -135,7 +113,6 @@
       </div>
     </a>
   </div>
-
   <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/your-family">
       <div class="card custom-card d-flex flex-column h-100">
@@ -147,7 +124,6 @@
       </div>
     </a>
   </div>
-
   <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/finances">
       <div class="card custom-card d-flex flex-column h-100">
@@ -158,8 +134,7 @@
         </div>
       </div>
     </a>
-  </div>
-  
+  </div>  
   <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/menopause">
       <div class="card custom-card d-flex flex-column h-100">

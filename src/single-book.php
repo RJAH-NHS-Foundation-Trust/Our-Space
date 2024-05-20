@@ -24,8 +24,7 @@
                         echo '<a  class="custom-category-pill" href="' . esc_url($category_link) . '" title="' . esc_attr($cat->name) . '">' . esc_html($cat->name) . '</a> ';
                     }
                     ?>
-                </div>
-                    
+                </div>                    
                 <div class="mt-3 fst-italic">
                     <?php the_content(); ?>
                 </div>

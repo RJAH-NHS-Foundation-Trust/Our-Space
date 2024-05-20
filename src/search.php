@@ -25,7 +25,7 @@
                 ?>
                         <h2 style='font-weight:bold;color:#000'>Nothing Found</h2>
                         <div class="alert alert-info">
-                        <p>Sorry, but nothing matched your search criteria. Please try again with some different keywords.</p>
+                          <p>Sorry, but nothing matched your search criteria. Please try again with some different keywords.</p>
                         </div>
                 <?php } ?>
         </div>

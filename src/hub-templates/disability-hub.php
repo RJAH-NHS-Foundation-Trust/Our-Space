@@ -21,20 +21,17 @@
 <p><?php the_content(); ?></p>
 
 <div class="row mt-2">
-    <!-- First Card -->
     <div class="col-md-4 mb-4">
-        <a class="custom-card-link" href="<?php echo get_option('home'); ?>/hidden-disabilities">
-          <div class="card custom-card d-flex flex-column h-100">
-            <span class="custom-pill">Hidden Disabilities</span>
-            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/hidden-disability.png" class="card-img-top" alt="Hidden Disabilities">
-            <div class="card-body">
-              <p class="card-text">Hidden disabilities are conditions that are not immediately apparent to others, often because they do not have visible physical signs. These disabilities can include chronic illnesses, mental health disorders, neurological conditions, and cognitive impairments, among others. </p>
-            </div>
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/hidden-disabilities">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">Hidden Disabilities</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/hidden-disability.png" class="card-img-top" alt="Hidden Disabilities">
+          <div class="card-body">
+            <p class="card-text">Hidden disabilities are conditions that are not immediately apparent to others, often because they do not have visible physical signs. These disabilities can include chronic illnesses, mental health disorders, neurological conditions, and cognitive impairments, among others. </p>
           </div>
-        </a>
-      </div>
-
-    <!-- First Card -->
+        </div>
+      </a>
+    </div>
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" target="_blank" href="https://hdsunflower.com/uk/">
         <div class="card custom-card d-flex flex-column h-100">
@@ -46,8 +43,6 @@
         </div>
       </a>
     </div>      
-
-    <!-- Second Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/access-to-work">
         <div class="card custom-card d-flex flex-column h-100">
@@ -59,8 +54,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Third Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" target="_blank" href="https://rnid.org.uk/">
         <div class="card custom-card d-flex flex-column h-100">
@@ -72,8 +65,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Fourth Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" target="_blank" href="https://www.rnib.org.uk/">
         <div class="card custom-card d-flex flex-column h-100">
@@ -85,8 +76,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Fifth Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" target="_blank" href="https://crohnsandcolitis.org.uk/">
         <div class="card custom-card d-flex flex-column h-100">
@@ -98,8 +87,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Fifth Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/autism">
         <div class="card custom-card d-flex flex-column h-100">
@@ -111,8 +98,6 @@
         </div>
       </a>
     </div>
-    
-    <!-- Sixth Card -->
     <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/ocd">
       <div class="card custom-card d-flex flex-column h-100">
@@ -124,33 +109,17 @@
       </div>
     </a>
   </div>
-  
-    <!-- Third Card -->
-    <div class="col-md-4 mb-4">
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/adhd">
-        <div class="card custom-card d-flex flex-column h-100">
-          <span class="custom-pill">ADHD</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/adhd.png" class="card-img-top" alt="ADHD">
-          <div class="card-body">
-            <p class="card-text">ADHD, or Attention-Deficit/Hyperactivity Disorder, is a neurodevelopmental condition characterized by persistent patterns of inattention, hyperactivity, and impulsivity that interfere with daily functioning and social interactions. Individuals with ADHD may struggle with maintaining focus, organizing tasks, managing time, and controlling impulsive behaviors.</p>
-          </div>
-        </div>
-      </a>
-    </div>  
-
-    <!-- Sixth Card -->
-    <!-- <div class="col-md-4 mb-4">
-    <a class="custom-card-link" target="_blank" href="https://crohnsandcolitis.org.uk/">
+  <div class="col-md-4 mb-4">
+    <a class="custom-card-link" href="<?php echo get_option('home'); ?>/adhd">
       <div class="card custom-card d-flex flex-column h-100">
-        <span class="custom-pill">Something else</span>
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image-3.jpg" class="card-img-top" alt="Image Alt">
+        <span class="custom-pill">ADHD</span>
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/adhd.png" class="card-img-top" alt="ADHD">
         <div class="card-body">
-          <p class="card-text">Space.</p>
+          <p class="card-text">ADHD, or Attention-Deficit/Hyperactivity Disorder, is a neurodevelopmental condition characterized by persistent patterns of inattention, hyperactivity, and impulsivity that interfere with daily functioning and social interactions. Individuals with ADHD may struggle with maintaining focus, organizing tasks, managing time, and controlling impulsive behaviors.</p>
         </div>
       </div>
     </a>
-  </div> -->
-
+  </div>
 </div>
 </div>
 </div>

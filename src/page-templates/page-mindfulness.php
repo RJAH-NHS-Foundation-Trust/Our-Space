@@ -74,13 +74,11 @@ if($totalRecentPosts > 0) { ?>
     <div class="container">
         <div class="row">    
             
-            <h3>Recent <?php echo $hubTitle; ?> Posts </h3>
-      
+            <h3>Recent <?php echo $hubTitle; ?> Posts </h3>      
             
             <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
                 get_template_part( 'content', get_post_format() );
-                    endwhile; endif; wp_reset_postdata(); 
-        ?>
+                    endwhile; endif; wp_reset_postdata();?>
       </div>      
     </div>
   </section>

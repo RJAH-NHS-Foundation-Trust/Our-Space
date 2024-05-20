@@ -20,7 +20,6 @@
 
 
 <div class="row mt-2">
-    <!-- First Card -->
     <div class="col-md-4 mb-4">
         <a class="custom-card-link" target="_blank" href="https://www.nhs.uk/live-well/quit-smoking/nhs-stop-smoking-services-help-you-quit/">
           <div class="card custom-card d-flex flex-column h-100">
@@ -32,8 +31,6 @@
           </div>
         </a>
       </div>
-
-      <!-- Third Card -->
       <div class="col-md-4 mb-4">
         <a class="custom-card-link" target="_blank" href="https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/">
           <div class="card custom-card d-flex flex-column h-100">
@@ -45,8 +42,6 @@
           </div>
         </a>
       </div>
-
-    <!-- Second Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" target="_blank" href="https://www.diabetes.org.uk/">
         <div class="card custom-card d-flex flex-column h-100">
@@ -58,8 +53,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Second Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/sanitary-products">
         <div class="card custom-card d-flex flex-column h-100">
@@ -71,8 +64,6 @@
         </div>
       </a>
     </div> 
-    
-    <!-- Second Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" target="_blank" href="<?php echo get_bloginfo('template_directory'); ?>/files/StaffSelfReferralPhysiotherapyService.pdf">
         <div class="card custom-card d-flex flex-column h-100">
@@ -84,8 +75,6 @@
         </div>
       </a>
     </div> 
-
-    <!-- Second Card -->
     <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/pharmacy">
         <div class="card custom-card d-flex flex-column h-100">

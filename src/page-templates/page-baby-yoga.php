@@ -26,9 +26,9 @@
         'post_type' => 'exercise',
         'tax_query' => array(
           array(
-            'taxonomy' => 'type', // Your custom taxonomy slug
+            'taxonomy' => 'type',
             'field' => 'slug',
-            'terms' => array('baby-yoga'), // Slug of the diet you want to filter by
+            'terms' => array('baby-yoga'),
           ),
         ),
         'orderby' => 'title',

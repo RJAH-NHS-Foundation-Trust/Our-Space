@@ -9,7 +9,7 @@
           if ( is_tax( 'diet' ) ) {
             $term = get_queried_object();
             $args = array(
-              'post_type' => 'recipe', // Your custom post type slug
+              'post_type' => 'recipe', 
               'tax_query' => array(
                 array(
                   'taxonomy' => 'diet',
@@ -19,7 +19,6 @@
               ),
             );
             $query = new WP_Query( $args );
-
             // The Loop
             if ( $query->have_posts() ) {
               while ( $query->have_posts() ) {
@@ -40,7 +39,6 @@
               echo 'No posts found';
             }
           } else {
-            // If not on taxonomy archive, display regular loop
             while ( have_posts() ) : the_post();
             ?>
               <div class="blog-post">

@@ -21,7 +21,6 @@
 <p><?php the_content(); ?></p>
 
 <div class="row mt-2">
-    <!-- First Card -->
     <div class="col-md-4 mb-4">
         <a class="custom-card-link" href="<?php echo get_option('home'); ?>/fertility">
           <div class="card custom-card d-flex flex-column h-100">
@@ -33,8 +32,6 @@
           </div>
         </a>
       </div>
-
-    <!-- Second Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/maternity">
         <div class="card custom-card d-flex flex-column h-100">
@@ -46,8 +43,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Second Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/parents">
         <div class="card custom-card d-flex flex-column h-100">
@@ -59,8 +54,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Fourth Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/days-out">
         <div class="card custom-card d-flex flex-column h-100">
@@ -72,8 +65,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Fifth Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" target="_blank" href="<?php echo get_option('home'); ?>/healthy-eating">
         <div class="card custom-card d-flex flex-column h-100">
@@ -85,8 +76,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Fifth Card -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/baby-yoga">
         <div class="card custom-card d-flex flex-column h-100">
@@ -98,20 +87,6 @@
         </div>
       </a>
     </div>
-
-    <!-- Sixth Card -->
-    <!-- <div class="col-md-4 mb-4">
-    <a class="custom-card-link" target="_blank" href="https://crohnsandcolitis.org.uk/">
-      <div class="card custom-card d-flex flex-column h-100">
-        <span class="custom-pill">Something else</span>
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/card-image-3.jpg" class="card-img-top" alt="Image Alt">
-        <div class="card-body">
-          <p class="card-text">Space.</p>
-        </div>
-      </div>
-    </a>
-  </div> -->
-
 </div>
 </div>
 </div>

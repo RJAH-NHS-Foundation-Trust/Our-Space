@@ -36,7 +36,7 @@
   endwhile; endif; wp_reset_postdata();?> 
     </div>        
     <?php } ?>
-  </div> <!-- Charity App Section Ends Here -->
+  </div>
   <div class="section mt-4">
 
   <?php     

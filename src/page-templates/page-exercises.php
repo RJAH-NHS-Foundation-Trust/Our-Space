@@ -28,9 +28,9 @@
         'post_type' => 'exercise',
         'tax_query' => array(
           array(
-            'taxonomy' => 'workout-difficulty', // Your custom taxonomy slug
+            'taxonomy' => 'workout-difficulty',
             'field' => 'slug',
-            'terms' => array('beginner'), // Slug of the diet you want to filter by
+            'terms' => array('beginner'),
           ),
         ),
         'orderby' => 'title',
@@ -76,9 +76,9 @@ if($totalPopularPosts > 0) { ?>
         'post_type' => 'exercise',
         'tax_query' => array(
           array(
-            'taxonomy' => 'workout-difficulty', // Your custom taxonomy slug
+            'taxonomy' => 'workout-difficulty',
             'field' => 'slug',
-            'terms' => array('intermediate'), // Slug of the diet you want to filter by
+            'terms' => array('intermediate'),
           ),
         ),
         'orderby' => 'title',
@@ -124,9 +124,9 @@ if($totalPopularPosts > 0) { ?>
         'post_type' => 'exercise',
         'tax_query' => array(
           array(
-            'taxonomy' => 'workout-difficulty', // Your custom taxonomy slug
+            'taxonomy' => 'workout-difficulty',
             'field' => 'slug',
-            'terms' => array('advanced'), // Slug of the diet you want to filter by
+            'terms' => array('advanced'),
           ),
         ),
         'orderby' => 'title',
