@@ -1,62 +1,5 @@
 <?php get_header(); ?>    
-
   <div class="container mt-5">
-    <!-- <div class="row">
-      <div class="col-md-6">
-        <div class="section">
-          <h3 class="section-title">I am in Crisis</h3>    
-          <p class="section-content">If you feel you need immediate help, contact one of the below charities.</p>        
-          <div class="app-icons">
-            <div class="app-icon">
-              <a href="<?php echo get_option('charity_a_url'); ?>">
-                <img src="<?php echo get_option('charity_a_logo'); ?>" alt="<?php echo get_option('charity_a_name'); ?>" class="app-image">      
-              </a>
-            </div>
-            <div class="app-icon">
-              <a href="<?php echo get_option('charity_b_url'); ?>">
-                <img src="<?php echo get_option('charity_b_logo'); ?>" alt="<?php echo get_option('charity_b_name'); ?>" class="app-image">                
-              </a>
-            </div>
-            <div class="app-icon">
-              <a href="<?php echo get_option('charity_c_url'); ?>">                  
-                <img src="<?php echo get_option('charity_c_logo'); ?>" alt="<?php echo get_option('charity_c_name'); ?>" class="app-image">
-              </a>
-            </div>
-            <div class="app-icon">
-              <a href="<?php echo get_option('charity_d_url'); ?>">                  
-                <img src="<?php echo get_option('charity_d_logo'); ?>" alt="<?php echo get_option('charity_d_name'); ?>" class="app-image">
-              </a>
-            </div>
-          </div>
-        </div>
-  </div>
-
-  <div class="col-md-6">
-  <div class="section">
-    <h3 class="section-title">Featured Content</h3>
-    <div class="card featured-card" style="min-height: 20vh; max-height: 20vh; overflow: hidden;">
-      <div class="card-body">
-      <?php          
-            $args = array (
-                'post_status' => 'publish',
-                'category_name' => 'anxiety',
-                'posts_per_page' => '1',
-                'order'          => 'desc',
-                'orderby'        => 'publish_date',    
-            );
-
-            $posts = new WP_Query( $args );
-            
-            if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
-                get_template_part( 'featured-content', get_post_format() );
-                    endwhile; endif; wp_reset_postdata(); 
-        ?>
-      </div>
-    </div>
-  </div>
-</div>
-</div> -->
-
 <div class="row mt-2">
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/mental-health/">
@@ -102,6 +45,17 @@
         </div>
       </a>
     </div>
+    <div class="col-md-4 mb-4">
+    <a class="custom-card-link" href="<?php echo get_option('home'); ?>/healthy-eating">
+      <div class="card custom-card d-flex flex-column h-100">
+        <span class="custom-pill">Healthy Eating</span>
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/healthy-eating.png" class="card-img-top" alt="Image Alt">
+        <div class="card-body">
+          <p class="card-text">Resource to better your own personal health including resources to help cut down alcohol consumption, quit smoking and more.</p>
+        </div>
+      </div>
+    </a>
+  </div>
     <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/personal-health">
       <div class="card custom-card d-flex flex-column h-100">

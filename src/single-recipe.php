@@ -62,7 +62,7 @@
 
         <div class="row mt-2">
             <div class="col-lg-6 col-md-6 col-12">
-                <div class="ingredients-card mb-2 mt-2">
+                <div class="ingredients-card mb-4 mt-4">
                     
                     <h3 class="mt-2">Ingredients</h3>                    
                     
@@ -79,7 +79,7 @@
 
                 </div>
             </div>
-            <div class="col-lg-6 col-6 col-12">
+            <div class="col-lg-6 col-6 col-12 mb-4 mt-4">
                 <h3>Directions</h3>
                 <?php 
                     $direction = get_field('directions');
@@ -105,7 +105,7 @@
                         echo 'No Notes Provided';
                     } ?>
 
-                <h3>Storage</h3>
+                <h3 class="mt-2">Storage</h3>
 
                 <?php 
                     $direction = get_field('storage');
