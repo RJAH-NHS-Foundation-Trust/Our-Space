@@ -12,10 +12,6 @@
 
 <div class="container mt-4">
     
-    <div class="row mb-4">
-        <?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
-    </div>
-    
     <h2><?php the_title(); ?></h2>
     <p><?php the_content(); ?></p> 
 
@@ -31,13 +27,6 @@
     $totalPopularPosts = $posts -> found_posts;
 
 if($totalPopularPosts > 0) { ?>
-
-<div class="row">
-    <div class="col-12">
-        <h3>Filter Recipes</h3>
-        <?php echo do_shortcode( '[searchandfilter fields="diet"]' ); ?>
-    </div>
-</div>
 
 <section class="main-section mt-4">
     <div class="container">

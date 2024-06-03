@@ -12,10 +12,6 @@
 
 <div class="container">
 
-<div class="row mb-2 mt-4">
-  <?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
-</div>
-
 <h2 class="mt-4"><?php the_title(); ?></h2>
 
 <p><?php the_content(); ?></p>
@@ -65,7 +61,7 @@
         </div>
       </a>
     </div>
-    <div class="col-md-4 mb-4">
+    <!-- <div class="col-md-4 mb-4">
       <a class="custom-card-link" target="_blank" href="<?php echo get_option('home'); ?>/healthy-eating">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Budget Meals</span>
@@ -75,7 +71,7 @@
           </div>
         </div>
       </a>
-    </div>
+    </div> -->
     <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/baby-yoga">
         <div class="card custom-card d-flex flex-column h-100">

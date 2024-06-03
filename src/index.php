@@ -45,7 +45,7 @@
         </div>
       </a>
     </div>
-    <div class="col-md-4 mb-4">
+    <!-- <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/healthy-eating">
       <div class="card custom-card d-flex flex-column h-100">
         <span class="custom-pill">Healthy Eating</span>
@@ -55,7 +55,7 @@
         </div>
       </div>
     </a>
-  </div>
+  </div> -->
     <div class="col-md-4 mb-4">
     <a class="custom-card-link" href="<?php echo get_option('home'); ?>/personal-health">
       <div class="card custom-card d-flex flex-column h-100">

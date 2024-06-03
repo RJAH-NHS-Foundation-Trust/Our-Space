@@ -4723,6 +4723,20 @@ div#rt-smart-modal-container .tlp-team-skill{
 .rt-team-container .layout18 .single-team-area a{
 	text-decoration: none;
 }
+.rt-team-container .readmore-btn{
+	margin-top: 20px;
+}
+.rt-team-container .readmore-btn a{
+	padding:10px 20px;
+	background:#007acc;
+	text-decoration:none;
+	color:#fff;
+	border-radius:4px;
+	transition: all 0.3s;
+}
+.rt-team-container .readmore-btn a:hover{
+	background-color:#07639e;
+}
 /*************************** pop up ****************************/
 #tlp-popup-wrap .tlp-popup-singlePage-counter {
 	color: #fff;

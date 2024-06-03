@@ -243,8 +243,9 @@ class Shortcode {
 			$containerClass  = 'rt-team-container-' . $scID;
 			$containerClass .= $parentClass ? ' ' . $parentClass : null;
 			$containerClass .= $grayscale ? ' rt-grayscale' : null;
-
 			$arg['items'] = $visibility;
+
+			$arg['read_more_btn_text'] = $read_more_btn_text;
 
 			$args = ( new QueryArgs() )->buildArgs( $buildMetas, $isCarousel );
 
@@ -766,6 +767,7 @@ class Shortcode {
 			'fImgSize'           => isset( $meta['ttp_image_size'][0] ) ? $meta['ttp_image_size'][0] : 'medium',
 			'character_limit'    => isset( $meta['character_limit'][0] ) ? absint( $meta['character_limit'][0] ) : 0,
 			'after_short_desc'   => isset( $meta['ttp_after_short_desc_text'][0] ) ? $meta['ttp_after_short_desc_text'][0] : '',
+			'read_more_btn_text' => isset( $meta['ttp_read_more_btn_text'][0] ) ? $meta['ttp_read_more_btn_text'][0] : esc_html__('Read More','tlp-team'),
 			'defaultImgId'       => ! empty( $meta['default_preview_image'][0] ) ? absint( $meta['default_preview_image'][0] ) : null,
 			'customImgSize'      => ! empty( $meta['ttp_custom_image_size'][0] ) ? unserialize( $meta['ttp_custom_image_size'][0] ) : [],
 			'visibility'         => ! empty( $meta['ttp_selected_field'] ) ? $meta['ttp_selected_field'] : [ 'name', 'designation', 'short_bio', 'social' ],

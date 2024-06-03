@@ -578,7 +578,7 @@
 							"</span>" +
 							"<a href='#' class='rt-smart-modal-close'><i class='fa fa-times'> </i></a>" +
 							"</div>" +
-							"<div class='rt-smart-modal'><div class='rt-smart-modal-main-content-wrapper'></div></div>" +
+							"<div class='rt-smart-modal' style='background:"+ popupBg +"'><div class='rt-smart-modal-main-content-wrapper'></div></div>" +
 							"</div></div>",
 						setWrap: function () {
 							this.wrap = $('body > #rt-smart-modal-container');

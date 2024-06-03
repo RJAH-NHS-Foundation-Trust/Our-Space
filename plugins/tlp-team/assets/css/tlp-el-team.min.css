@@ -105,6 +105,9 @@
 .rt-carousel-holder .default-img{width:100%}
 .rt-elementor-container .button-group{text-align:center;padding-bottom:20px;padding-left:10px;padding-right:10px}
 .rt-elementor-container .button-group button{background:#000;border:0;text-transform:none;font-weight:400;margin:5px;padding:10px 15px;outline:0;-webkit-box-shadow:none;box-shadow:none;text-shadow:none}
+.rt-team-container .readmore-btn{margin-top:20px}
+.rt-team-container .readmore-btn a{padding:10px 20px;background:#007acc;text-decoration:none;color:#fff;border-radius:4px;-webkit-transition:all .3s;transition:all .3s}
+.rt-team-container .readmore-btn a:hover{background-color:#07639e}
 .rt-elementor-container .tlp-pagination{text-align:center}
 .rt-elementor-container .pagination{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding-left:0;margin:20px 0}
 .rt-elementor-container .pagination>li{display:inline;margin-left:3px;margin-right:3px}

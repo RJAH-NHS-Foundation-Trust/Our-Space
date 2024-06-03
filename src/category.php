@@ -12,10 +12,6 @@
 
 <div class="container mt-4">
     
-    <div class="row mb-4">
-        <?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
-    </div>
-    
     <h2>Category: <?php single_cat_title('' , true ) ?></h2>    
 
 <section class="main-section mt-4">

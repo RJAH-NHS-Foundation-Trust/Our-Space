@@ -14,10 +14,6 @@ get_header();
 
 <div class="container">
 
-    <div class="row mb-4">
-        <?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
-    </div>
-
     <h2 class="mt-4"><?php the_title(); ?></h2>
 
     <div class="row">

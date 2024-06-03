@@ -8,10 +8,6 @@
 <section class="main-section mt-4">
     <div class="container">
 
-        <div class="row mb-4">
-            <?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
-        </div>
-
         <?php if($is_all_trails == TRUE) { ?>
             
             <div class="alert alert-secondary">

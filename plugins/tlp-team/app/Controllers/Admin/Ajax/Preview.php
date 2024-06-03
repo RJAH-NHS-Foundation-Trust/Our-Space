@@ -50,7 +50,6 @@ class Preview {
 			if ( ! in_array( $layout, array_keys( Options::scLayout() ) ) ) {
 				$layout = 'layout1';
 			}
-
 			$isIsotope  = preg_match( '/isotope/', $layout );
 			$isCarousel = preg_match( '/carousel/', $layout );
 			$isGrid     = preg_match( '/layout/', $layout );
@@ -164,7 +163,6 @@ class Preview {
 			if ( $order_by ) {
 				$args['orderby'] = $order_by;
 			}
-
 			// Validation
 			$containerDataAttr  = null;
 			$containerDataAttr .= " data-layout='{$layout}' data-desktop-col='{$dCol}'  data-tab-col='{$tCol}'  data-mobile-col='{$mCol}'";
@@ -261,6 +259,7 @@ class Preview {
 			$fImgSize         = ( isset( $_REQUEST['ttp_image_size'] ) ? sanitize_text_field( $_REQUEST['ttp_image_size'] ) : 'medium' );
 			$character_limit  = ( isset( $_REQUEST['character_limit'] ) ? absint( $_REQUEST['character_limit'] ) : 0 );
 			$after_short_desc = isset( $_REQUEST['ttp_after_short_desc_text'] ) ? sanitize_textarea_field( $_REQUEST['ttp_after_short_desc_text'] ) : '';
+			$read_more_btn_text = isset( $_REQUEST['ttp_read_more_btn_text'] ) ? sanitize_textarea_field( $_REQUEST['ttp_read_more_btn_text'] ) : esc_html__('Read More','tlp-team');
 			$defaultImgId     = ! empty( $_REQUEST['default_preview_image'] ) ? absint( $_REQUEST['default_preview_image'] ) : null;
 			$customImgSize    = ! empty( $_REQUEST['ttp_custom_image_size'] ) && is_array( $_REQUEST['ttp_custom_image_size'] ) ? array_map( 'sanitize_text_field', $_REQUEST['ttp_custom_image_size'] ) : [];
 
@@ -273,6 +272,8 @@ class Preview {
 			$action_term     = ! empty( $_REQUEST['ttp_default_filter'] ) ? absint( $_REQUEST['ttp_default_filter'] ) : 0;
 
 			$isoFilterTaxonomy = ! empty( $_REQUEST['ttp_isotope_filter_taxonomy'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['ttp_isotope_filter_taxonomy'] ) ) : null;
+
+			$arg['read_more_btn_text'] = $read_more_btn_text;
 
 			if ( in_array( '_taxonomy_filter', $filters ) && $taxFilter && $action_term ) {
 
@@ -304,7 +305,6 @@ class Preview {
 				'overlay_rgba_bg'    => ( isset( $_REQUEST['overlay_rgba_bg'] ) ? array_map( 'sanitize_text_field', $_REQUEST['overlay_rgba_bg'] ) : null ),
 				'ttp_gutter'         => ( isset( $_REQUEST['ttp_gutter'] ) ? absint( $_REQUEST['ttp_gutter'] ) : null ),
 			];
-
 			$teamQuery          = new \WP_Query( $args );
 			$containerDataAttr .= " data-sc-id='{$scID}'";
 			$html              .= Fns::layoutStyleGenerator( $layoutID, $cssMeta, $scID );

@@ -4,7 +4,7 @@ Donate link:
 Tags: team, team showcase, team members showcase, our team, team members
 Requires at least: 4.5
 Tested up to: 6.5
-Stable tag: 4.3.8
+Stable tag: 4.4.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -281,6 +281,13 @@ Install and Activate
 09. Elementor Team Grid layout
 
 == Changelog ==
+
+= 4.4.1  (May 30, 2024 ) =
+* Added: Read More button in shortcode
+* Fixed: P.H.P Deprecated issue
+
+= 4.3.9  (May 10, 2024 ) =
+* Fixed: Smart popup dynamic css control issues
 
 = 4.3.8  (April 16, 2024 ) =
 * Updated: Proper sanitization and escaping for all files.

@@ -15,10 +15,18 @@
   <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_bloginfo('template_directory'); ?>/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_bloginfo('template_directory'); ?>/favicon-16x16.png">
   <link rel="manifest" href="<?php echo get_bloginfo('template_directory'); ?>/site.webmanifest">
-    
   <?php wp_head(); ?>
 </head>
 <body>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q9YJL9T8RV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q9YJL9T8RV');
+</script>
 <nav class="py-2 bg-body-tertiary border-bottom">
   <div class="container d-flex flex-wrap">
     <ul class="nav me-auto">

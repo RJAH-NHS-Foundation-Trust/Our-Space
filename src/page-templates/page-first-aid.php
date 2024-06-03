@@ -18,10 +18,6 @@
 <section class="main-section mt-4">
     <div class="container">
 
-        <div class="row mb-2">
-            <?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
-        </div>
-
         <div class="row mt-4">
             <p>Our Mental Health First Aiders can be a first point of contact and reassurance if staff are experiencing any kind of mental health related issue. They can listen, provide comfort, and guide towards the right support.</p>
         </div>

@@ -11,10 +11,7 @@
 ?>
 
 <div class="container mt-4">
-    
-    <div class="row mb-4">
-        <?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
-    </div>
+
     
     <h2><?php the_title(); ?></h2>
     <p><?php the_content(); ?></p> 

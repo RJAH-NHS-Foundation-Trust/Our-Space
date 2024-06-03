@@ -46,6 +46,8 @@ if ( in_array( 'tax_department', $items, true ) && $tax_department ) {
 	$content .= '<div class="tlp-department">' . esc_html( $tax_department ) . '</div>';
 }
 
+
+
 $html .= $content ? '<div class="tlp-content">' . $content . '</div>' : null;
 
 $html .= Fns::get_formatted_short_bio( $short_bio, $items );
@@ -63,6 +65,9 @@ $html .= Fns::get_formatted_contact_info(
 
 $html .= Fns::get_formatted_skill( $tlp_skill, $items );
 $html .= Fns::get_formatted_social_link( $sLink, $items );
+if (in_array('readmore_btn',$items,true) && $link && $read_more_btn_text){
+	$html .= '<div class="readmore-btn"><a class="' . esc_attr( $anchorClass ) . '" data-id="' . absint( $mID ) .'"  target="' . esc_attr( $target ) . '"  title="' . esc_attr( $title ) . '" href="' . esc_url( $pLink ) . '">' . esc_html( $read_more_btn_text ) . '</a></div>';
+}
 $html .= '</div>';
 $html .= '</div>';
 

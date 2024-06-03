@@ -924,12 +924,14 @@ class Fns {
 			$html .= '<div class="social-icons">';
 
 			foreach ( $sLink as $id => $itemLink ) {
-				$lURL = ! empty( $itemLink['url'] ) ? esc_url( $itemLink['url'] ) : null;
+
+				$lURL = ! empty( $itemLink['url'] ) ? esc_url( $itemLink['url'] ) : '#';
 				$lID  = ! empty( $itemLink['id'] ) ? esc_html( $itemLink['id'] ) : null;
 
 				if ( 'envelope-o' === $lID ) {
 					$lURL = ! empty( $itemLink['url'] ) ? $itemLink['url'] : null;
 					$lURL = 'mailto:' . esc_attr( $lURL );
+
 				}
 
 				$icon_class = '';
@@ -986,7 +988,7 @@ class Fns {
 				}
 
 				if ( 'google-plus' !== $lID && $icon_class ) {
-					$html .= '<a href="' . esc_url( $lURL ) . '" title="' . esc_attr( $lID ) . '" target="_blank"><i class="' . esc_attr( $icon_class ) . '"></i></a>';
+					$html .= '<a href="' . $lURL . '" title="' . esc_attr( $lID ) . '" target="_blank"><i class="' . esc_attr( $icon_class ) . '"></i></a>';
 				}
 			}
 			$html .= '</div>';
@@ -1106,6 +1108,7 @@ class Fns {
 						#{$layoutID} .rt-pagination-wrap .pagination > li > span,
 						#{$layoutID} .ttp-isotope-buttons.button-group button,
 						#{$layoutID} .rt-pagination-wrap .rt-loadmore-btn,
+						#{$layoutID} .readmore-btn a,
 						#{$layoutID} .rt-carousel-holder .swiper-arrow,
 						#{$layoutID} .rt-team-container .rt-carousel-holder.swiper .swiper-pagination-bullet,
 						#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item,
@@ -1121,6 +1124,7 @@ class Fns {
 						#{$layoutID} .rt-pagination-wrap .pagination > li > a:hover,
 						#{$layoutID} .rt-pagination-wrap .pagination > li > span:hover,
 						#{$layoutID} .rt-carousel-holder .swiper-arrow:hover,
+						#{$layoutID} .readmore-btn a:hover,
 						#{$layoutID} .rt-team-container .rt-carousel-holder.swiper .swiper-pagination-bullet:hover,
 						#{$layoutID} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item:hover,
 						#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item:hover,
@@ -1144,6 +1148,7 @@ class Fns {
 						#{$layoutID} .rt-pagination-wrap .pagination > li > span,
 						#{$layoutID} .ttp-isotope-buttons.button-group button,
 						#{$layoutID} .rt-carousel-holder .swiper-arrow i,
+						#{$layoutID} .readmore-btn a,
 						#{$layoutID} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item,
 						#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item,
 						#{$layoutID} .rt-pagination-wrap .paginationjs .paginationjs-pages li>a{";
@@ -1156,6 +1161,7 @@ class Fns {
 						#{$layoutID} .rt-pagination-wrap .pagination > li > span:hover,
 						#{$layoutID} .ttp-isotope-buttons.button-group button:hover,
 						#{$layoutID} .rt-carousel-holder .swiper-arrow:hover i,
+						#{$layoutID} .readmore-btn a:hover,
 						#{$layoutID} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item:hover,
 						#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item:hover,
 						#{$layoutID} .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages li>a:hover{";
@@ -1165,6 +1171,7 @@ class Fns {
 			if ( ! empty( $button['border'] ) ) {
 				$css .= "#{$layoutID} .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item,
 						#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action,
+						#{$layoutID} .readmore-btn a,
 						#{$layoutID} .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap{";
 				$css .= "border-color: {$button['border']};";
 				$css .= '}';
@@ -1205,6 +1212,7 @@ class Fns {
 		/* popup background color */
 		if ( $popupBg ) {
 			// $id = str_replace("rt-team-container-", "", $layoutID);
+
 			$css .= "#tlp-popup-wrap.tlp-popup-wrap-{$scID} .tlp-popup-navigation-wrap,
 					#tlp-modal.tlp-modal-{$scID} .md-content,
 					#tlp-modal.tlp-modal-{$scID} .md-content > .tlp-md-content-holder .tlp-md-content{";

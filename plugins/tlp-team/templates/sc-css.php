@@ -104,6 +104,10 @@ if ( ! empty( $button ) ) {
 		$css .= "$selector .rt-pagination-wrap .rt-infinite-action .rt-infinite-loading{";
 		$css .= 'color: ' . Fns::TLPhex2rgba( $button['bg'], 0.5 );
 		$css .= '}';
+
+		$css .= "$selector .readmore-btn a{";
+		$css .= "background-color: {$button['bg']};";
+		$css .= '}';
 	}
 
 	if ( ! empty( $button['hover_bg'] ) ) {
@@ -113,6 +117,10 @@ if ( ! empty( $button ) ) {
 
 		$css .= "$selector .rt-carousel-holder .swiper-arrow:hover{";
 		$css .= "border-color: {$button['hover_bg']};";
+		$css .= '}';
+
+		$css .= "$selector .readmore-btn a:hover{";
+		$css .= "background-color: {$button['hover_bg']};";
 		$css .= '}';
 	}
 
@@ -126,10 +134,18 @@ if ( ! empty( $button ) ) {
 		$css .= "$selector .rt-pagination-wrap .rt-loadmore-btn,$selector .rt-pagination-wrap .pagination > li > a, $selector .rt-pagination-wrap .pagination > li > span,$selector .ttp-isotope-buttons.button-group button,$selector .rt-carousel-holder .swiper-arrow i,$selector .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item,$selector .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item,$selector .rt-pagination-wrap .paginationjs .paginationjs-pages li>a{";
 		$css .= "color: {$button['text']};";
 		$css .= '}';
+
+		$css .= "$selector .readmore-btn a{";
+		$css .= "color: {$button['text']};";
+		$css .= '}';
 	}
 
 	if ( ! empty( $button['hover_text'] ) ) {
 		$css .= "$selector .rt-pagination-wrap .rt-loadmore-btn:hover,$selector .rt-pagination-wrap .pagination > li > a:hover, $selector .rt-pagination-wrap .pagination > li > span:hover,$selector .ttp-isotope-buttons.button-group button:hover,$selector .rt-carousel-holder .swiper-arrow:hover i,$selector .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item:hover,$selector .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap .rt-filter-dropdown .rt-filter-dropdown-item:hover,$selector .rt-pagination-wrap .rt-page-numbers .paginationjs .paginationjs-pages li>a:hover{";
+		$css .= "color: {$button['hover_text']};";
+		$css .= '}';
+
+		$css .= "$selector .readmore-btn a:hover{";
 		$css .= "color: {$button['hover_text']};";
 		$css .= '}';
 	}
@@ -137,6 +153,10 @@ if ( ! empty( $button ) ) {
 	if ( ! empty( $button['border'] ) ) {
 		$css .= "$selector .rt-filter-item-wrap.rt-filter-button-wrap span.rt-filter-button-item,$selector .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-sort-order-action,$selector .rt-layout-filter-container .rt-filter-wrap .rt-filter-item-wrap.rt-filter-dropdown-wrap{";
 		$css .= "border-color: {$button['border']};";
+		$css .= '}';
+
+		$css .= "$selector .readmore-btn a{";
+		$css .= "color: {$button['border']};";
 		$css .= '}';
 	}
 }
@@ -362,7 +382,7 @@ if ( $social_icon_bg ) {
 }
 
 if ( ! empty( $popupTextColor ) ) {
-	$css .= "#tlp-modal.tlp-modal-$scID .md-content{color:{$popupTextColor};}";
+	$css .= "#rt-smart-modal-container.rt-modal-$scID .member-details,#tlp-modal.tlp-modal-$scID .md-content{color:{$popupTextColor};}";
 	$css .= "#tlp-modal.tlp-modal-$scID .md-content .tlp-md-content-holder > .md-header h4, #tlp-modal.tlp-modal-$scID .md-content .tlp-md-content-holder > .md-header h3 {color:{$popupTextColor};}";
 	$css .= "#tlp-modal.tlp-modal-$scID .md-content button.md-close{color:{$popupTextColor};}";
 	$css .= "#tlp-modal.tlp-modal-$scID .social-icons a{color:{$popupTextColor};}";
@@ -371,6 +391,7 @@ if ( ! empty( $popupTextColor ) ) {
 	$css .= "#tlp-modal.tlp-modal-$scID .rt-team-container .contact-info i{color:{$popupTextColor};}";
 	$css .= "#tlp-modal.tlp-modal-$scID .md-content .author-latest-post li a{color:{$popupTextColor};}";
 	$css .= "#tlp-modal.tlp-modal-$scID .rt-team-container h3{color:{$popupTextColor};}";
+	$css .= "#rt-smart-modal-container.rt-modal-$scID .rt-team-container .tlp-position,#rt-smart-modal-container.rt-modal-$scID .rt-smart-modal-main .rt-smart-modal .rt-smart-modal-main-content-wrapper .rt-smart-modal-main-content .rt-team-container .member-details h3{color:{$popupTextColor};}";
 }
 
 // Overlay.

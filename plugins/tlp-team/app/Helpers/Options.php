@@ -125,7 +125,7 @@ class Options {
 			'skype'      => esc_html__( 'Skype', 'tlp-team' ),
 			'whatsapp'   => esc_html__( 'Whatsapp', 'tlp-team' ),
 			'telegram'   => esc_html__( 'Telegram', 'tlp-team' ),
-			'github'   => esc_html__( 'Github', 'tlp-team' ),
+			'github'     => esc_html__( 'Github', 'tlp-team' ),
 		];
 
 		return apply_filters( 'tlp_team_social_links', $socialLinks );
@@ -148,17 +148,18 @@ class Options {
 	public static function scAvailableFields() {
 
 		$sc_avaiable_fiels = [
-			'name'        => esc_html__( 'Name', 'tlp-team' ),
-			'designation' => esc_html__( 'Designation', 'tlp-team' ),
-			'short_bio'   => esc_html__( 'Short biography', 'tlp-team' ),
-			'content'     => esc_html__( 'Content Details', 'tlp-team' ),
-			'email'       => esc_html__( 'Email', 'tlp-team' ),
-			'web_url'     => esc_html__( 'Web Url', 'tlp-team' ),
-			'telephone'   => esc_html__( 'Telephone', 'tlp-team' ),
-			'mobile'      => esc_html__( 'Mobile', 'tlp-team' ),
-			'fax'         => esc_html__( 'Fax', 'tlp-team' ),
-			'location'    => esc_html__( 'Location', 'tlp-team' ),
-			'social'      => esc_html__( 'Social Link', 'tlp-team' ),
+			'name'         => esc_html__( 'Name', 'tlp-team' ),
+			'designation'  => esc_html__( 'Designation', 'tlp-team' ),
+			'short_bio'    => esc_html__( 'Short biography', 'tlp-team' ),
+			'content'      => esc_html__( 'Content Details', 'tlp-team' ),
+			'email'        => esc_html__( 'Email', 'tlp-team' ),
+			'web_url'      => esc_html__( 'Web Url', 'tlp-team' ),
+			'telephone'    => esc_html__( 'Telephone', 'tlp-team' ),
+			'mobile'       => esc_html__( 'Mobile', 'tlp-team' ),
+			'fax'          => esc_html__( 'Fax', 'tlp-team' ),
+			'location'     => esc_html__( 'Location', 'tlp-team' ),
+			'social'       => esc_html__( 'Social Link', 'tlp-team' ),
+			'readmore_btn' => esc_html__( 'Read More Button', 'tlp-team' ),
 		];
 
 		return apply_filters( 'rttm_sc_avaiable_fiels', $sc_avaiable_fiels );
@@ -360,6 +361,10 @@ class Options {
 				'label'       => esc_html__( 'After Short Description', 'tlp-team' ),
 				'description' => esc_html__( 'Add something after short description.', 'tlp-team' ),
 			],
+			'ttp_read_more_btn_text'     => [
+				'type'        => 'text',
+				'label'       => esc_html__( 'Read More Button Text', 'tlp-team' ),
+			],
 			'ttp_detail_page_link'          => [
 				'type'        => 'switch',
 				'label'       => esc_html__( 'Detail page link', 'tlp-team' ),
@@ -493,9 +498,9 @@ class Options {
 				'description' => esc_html__( 'Parent class for adding custom css', 'tlp-team' ),
 			],
 			'primary_color'    => [
-				'type'    => 'text',
-				'label'   => esc_html__( 'Primary Color', 'tlp-team' ),
-				'class'   => 'tlp-color',
+				'type'  => 'text',
+				'label' => esc_html__( 'Primary Color', 'tlp-team' ),
+				'class' => 'tlp-color',
 			],
 			'ttp_button_style' => [
 				'type'    => 'multiple_options',
@@ -671,6 +676,7 @@ class Options {
 
 	public static function getAllSettingOptions() {
 		$options = self::tlpTeamGeneralSettingFields() + self::tlpTeamDetailFieldSelection();
+
 		return apply_filters( 'rttm_settings_all_options', $options );
 	}
 
@@ -679,7 +685,7 @@ class Options {
 		$settings = get_option( rttlp_team()->options['settings'] );
 
 		return [
-			'slug'                => [
+			'slug' => [
 				'type'        => 'text',
 				'label'       => esc_html__( 'Slug', 'tlp-team' ),
 				'id'          => 'team-slug',
@@ -810,15 +816,15 @@ class Options {
 		return apply_filters(
 			'rttm_elementor_grid_layouts',
 			[
-				'layout1' => [
+				'layout1'  => [
 					'title' => esc_html__( 'Layout 1', 'tlp-team' ),
 					'url'   => rttlp_team()->assets_url() . 'images/layouts/layout1.png',
 				],
-                'layout16' => [
-                    'title' => esc_html__( 'Layout 2', 'tlp-team' ),
-                    'url'   => rttlp_team()->assets_url() . 'images/layouts/layout3.png',
-                ],
-				'layout3' => [
+				'layout16' => [
+					'title' => esc_html__( 'Layout 2', 'tlp-team' ),
+					'url'   => rttlp_team()->assets_url() . 'images/layouts/layout3.png',
+				],
+				'layout3'  => [
 					'title' => esc_html__( 'Layout 3', 'tlp-team' ),
 					'url'   => rttlp_team()->assets_url() . 'images/layouts/layout3.png',
 				],

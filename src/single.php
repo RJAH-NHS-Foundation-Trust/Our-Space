@@ -3,10 +3,6 @@
 <section class="main-section mt-4">
     <div class="container">
 
-        <div class="row mb-4">
-            <?php if( function_exists( 'aioseo_breadcrumbs' ) ) aioseo_breadcrumbs(); ?>
-        </div>
-
       <div class="row">        
         <div class="col-lg-9 col-md-12 blog-posts">
             <h2><?php the_title(); ?></h2>

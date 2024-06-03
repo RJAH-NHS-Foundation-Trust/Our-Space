@@ -114,20 +114,6 @@ a:hover.cat-link {
   color: var(--link-color-hover);
 }
 
-.aioseo-breadcrumb a {
-  color: var(--white-text);
-  text-decoration: none;
-}
-
-span.aioseo-breadcrumb {
-  color: var(--white-text);
-  background-color: var(--breadcrumb-background);
-  padding: 5px;
-  margin-right: 5px;
-  margin-left: 5px;
-  border-radius: 5px;
-}
-
 .aioseo-breadcrumb a:hover {
   color: var(--white-text);
 }
@@ -158,11 +144,11 @@ span.aioseo-breadcrumb {
 }
 
 .disclaimer p {
-  color: var(--white-text);
+  color: var(--black-text);
 }
 
 .disclaimer a {
-  color: var(--white-text);
+  color: var(--black-text);
 }
 
 .disclaimer a:hover {
