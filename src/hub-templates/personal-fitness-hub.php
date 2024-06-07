@@ -73,6 +73,17 @@
       </a>
     </div>
     <div class="col-md-4 mb-4">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/cycle-to-work-scheme">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">Cycle to Work Scheme</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/cycle-to-work.png" class="card-img-top" alt="Image Alt">
+          <div class="card-body">
+            <p class="card-text">The Cycle to Work scheme is a government supported initiative to promote greener journeys and reduce environmental pollution, and enables those who wish to cycle to work access to a tax free benefit.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 mb-4">
       <a class="custom-card-link" target="_blank" href="https://www.strava.com/clubs/ourspace">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Strava Club</span>

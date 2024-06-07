@@ -50,6 +50,17 @@
       </a>
     </div>
     <div class="col-md-4 mb-4">
+      <a class="custom-card-link" target="_blank" href="https://legsmatter.org/">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">Legs Matter</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/legs-matter.png" class="card-img-top" alt="Image Alt">
+          <div class="card-body">
+            <p class="card-text">The Legs Matter coalition is working together to increase awareness, understanding and prevent harm for lower leg and foot conditions.</p>
+          </div>
+        </div>
+      </a>
+    </div> 
+    <div class="col-md-4 mb-4">
       <a class="custom-card-link" href="<?php echo get_option('home'); ?>/sanitary-products">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Sanitary Products</span>

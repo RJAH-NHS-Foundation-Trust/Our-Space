@@ -18,15 +18,6 @@
   <?php wp_head(); ?>
 </head>
 <body>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q9YJL9T8RV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Q9YJL9T8RV');
-</script>
 <nav class="py-2 bg-body-tertiary border-bottom">
   <div class="container d-flex flex-wrap">
     <ul class="nav me-auto">
@@ -92,7 +83,7 @@ $pagename = str_replace('/','',str_replace(get_option('home'), '', get_pagenum_l
 $meditation = array("Meditation");
 $finance = array("Finances");
 $personal_fitness = array("Personal Fitness","Desk Exercises","Exercises","Workouts","Routes");
-$titles_to_exclude = array("Discount Codes", "Mental Health First Aiders", "Events", "Staff Networks","Get In Touch","Groups","Pharmacy","Get Help Now","Gyms","Days Out","Suggest an edit");
+$titles_to_exclude = array("Discount Codes", "Mental Health First Aiders", "Parents", "Events", "Staff Networks","Get In Touch","Groups","Pharmacy","Get Help Now","Gyms","Days Out","Suggest an edit");
 $title = get_the_title();
 
 if($pagename != "events") {
