@@ -93,6 +93,16 @@
         </div>
       </a>
     </div>
+    <div class="col-md-4 mb-4">
+    <a class="custom-card-link" target="_blank" href="https://www.nhsemployers.org/staff-experience/flexible-working">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">Flexible Working</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/flexible-working.png" class="card-img-top" alt="Flexible Working">
+          <div class="card-body">
+            <p class="card-text">As part of the <a href="https://www.england.nhs.uk/ournhspeople/">NHS People Plan</a>, the <a href="https://www.england.nhs.uk/ournhspeople/online-version/lfaop/our-nhs-people-promise/">NHS People Promise</a> sets out a series of commitments, one of which is We work flexibly, which states: We do not have to sacrifice our family, our friends or our interests for work.<br/><br/> Find out more here</div>
+        </div>
+      </a>
+    </div>    
 </div>
 </div>
 </div>

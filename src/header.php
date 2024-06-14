@@ -65,6 +65,16 @@
   </div>
 </nav> 
 
+<?php 
+  $pagename = str_replace('/','',str_replace(get_option('home'), '', get_pagenum_link()));
+  $meditation = array("Meditation");
+  $finance = array("Finances");
+  $personal_fitness = array("Personal Fitness","Desk Exercises","Exercises","Workouts","Routes");
+  $titles_to_exclude = array("Fun Run","Discount Codes", "Mental Health First Aiders", "Parents", "Events", "Staff Networks","Get In Touch","Groups","Pharmacy","Get Help Now","Gyms","Days Out","Suggest an edit");
+  $title = get_the_title();
+
+
+if($title != "Fun Run") { ?>
 <div class="jumbotron">
     <div class="overlay"></div>
     <div class="container">
@@ -77,14 +87,7 @@
     </div>
 </div>
 
-<?php
-
-$pagename = str_replace('/','',str_replace(get_option('home'), '', get_pagenum_link()));
-$meditation = array("Meditation");
-$finance = array("Finances");
-$personal_fitness = array("Personal Fitness","Desk Exercises","Exercises","Workouts","Routes");
-$titles_to_exclude = array("Discount Codes", "Mental Health First Aiders", "Parents", "Events", "Staff Networks","Get In Touch","Groups","Pharmacy","Get Help Now","Gyms","Days Out","Suggest an edit");
-$title = get_the_title();
+<?php }
 
 if($pagename != "events") {
 

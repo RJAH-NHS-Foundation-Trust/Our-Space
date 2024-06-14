@@ -21,6 +21,7 @@
     $pageTitle = get_the_title(); 
     $hubTitle = $pageTitle;
     $resourceTitle = 'resources';
+    $articleTitle = 'articles';
     $linkTitle = 'link';
 ?>
 
@@ -88,6 +89,37 @@ if($totalRecentPosts > 0) { ?>
   </section>
 
 <?php } else { echo '<p>No posts found in ' . $pageTitle . ' category.</p>'; }  ?>
+
+<?php             
+    $args = array (
+        'post_status' => 'publish',
+        'category_name' => "$hubTitle + $articleTitle",
+        'order'          => 'desc',
+        'orderby'        => 'publish_date', 
+        'operator' => 'IN',  
+    );
+
+    $posts = new WP_Query( $args );
+    $totalRecentPosts = $posts -> found_posts;
+
+if($totalRecentPosts > 0) { ?>
+
+  <section class="main-section mt-4">
+    <div class="container">
+      <div class="row g-grid gap-2 w-100 d-flex">
+            <h3>Recent <?php echo $hubTitle; ?> Articles </h3>
+            <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
+                get_template_part( 'partials/article-content', get_post_format() );
+                    endwhile; endif; wp_reset_postdata(); 
+        ?>
+
+        <a class="btn btn-primary mb-2" href="<?php echo get_option('home'); ?>/category/<?php echo strtolower($hubTitle); ?>">View All Articles</a>
+
+      </div>      
+    </div>
+  </section>
+
+<?php } ?>
 
 <?php     
     $args = array (
