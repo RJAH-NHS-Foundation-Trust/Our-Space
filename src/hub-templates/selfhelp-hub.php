@@ -64,8 +64,8 @@
   <div class="col-md-4 mb-4">
   <a class="custom-card-link" href="<?php echo get_option('home'); ?>/therapy-dogs">
     <div class="card custom-card d-flex flex-column h-100">
-      <span class="custom-pill">Therapy Dogs Nationside</span>
-      <img src="<?php echo get_bloginfo('template_directory'); ?>/img/therapy-dogs.webp" class="card-img-top" alt="Therapy Dogs Nationside">
+      <span class="custom-pill">Therapy Dogs Nationwide</span>
+      <img src="<?php echo get_bloginfo('template_directory'); ?>/img/therapy-dogs.webp" class="card-img-top" alt="Therapy Dogs Nationwide">
       <div class="card-body">
         <p class="card-text">Therapy Dogs Nationwide is a national charity where visiting volunteers take their own dogs into establishments to provide comfort, distraction, and stimulation.</p>
       </div>
