@@ -93,7 +93,6 @@ a:link {
   color: var(--link-color);
 }
 
-
 a:link:hover {
   color: var(--link-color-hover);
 }
@@ -111,6 +110,14 @@ a.cat-link {
 }
 
 a:hover.cat-link {
+  color: var(--link-color-hover);
+}
+
+a.tag-link {
+  color: var(--white-text);
+}
+
+a.tag-link:hover {
   color: var(--link-color-hover);
 }
 
@@ -249,29 +256,6 @@ span.page-link.current {
   color: var(--black-text) !important; 
 }
 
-/* Drop Down Menu */
-
-.dropdown-menu ul {
-  list-style: none;
-  padding: 0;
-}
-
-.dropdown-menu.show {
-  display: flex;
-}
-
-.dropdown-menu li:first-child a {
-  font-weight: bold;
-  font-size: 1.2em;
-  color: #132e41;
-}
-
-.dropdown-menu li .dropdown-item {
-  color: gray;
-  font-size: 1em;
-  padding: 0.5em 1em;
-}
-
 a.nav-link.crisis-help { 
   background-color:  var(--crisis-button-background);
   border-radius: 5px;
@@ -290,30 +274,6 @@ a:hover.nav-link.crisis-help {
   border-radius: 5px;
   border: solid 2px #c23172;
   color: var(--crisis-button-text) !important;
-}
-
-li.dropdown-item {
-  color: var(--card-text);
-  font-size: 1.5em;
-  font-weight: 800;
-  padding: 0.5em 1em;
-}
-
-.dropdown-menu {
-  border: none;
-  border-radius: 0;
-  padding: 0.7em;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.nav-item.dropdown:hover  {
-  background-color: var(--link-color-background-hover);
-  border-radius: 5px;
-  color: var(--link-color-text-hover);
-}
-
-.nav-item.dropdown a:hover  {
-  color: #fff;
 }
 
 /* Crisis Icons */
@@ -391,7 +351,7 @@ li.dropdown-item {
 }
 
 .jumbotron {
-  background-image: url('../img/blog-post-1.jpg');
+  background-image: url('../img/header.webp');
   background-size: cover;
   background-position: center;
   padding: 50px 0;
@@ -480,6 +440,24 @@ a.blog-title {
 }
 
 a:visited.blog-title {
+  color: var(--heading-color);
+}
+
+.food-title {
+  padding-top: 50px; /* Add padding to push the title down */
+  position: relative; /* Ensure it positions relative to the card */
+  z-index: 2; /* Ensure it stays above the banner */
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--heading-color)
+}
+
+a.food-title {
+  color: var(--heading-color);
+}
+
+a:visited.food-title {
   color: var(--heading-color);
 }
 
@@ -779,6 +757,30 @@ a.cat-pills {
 .featured-card .card-text {
   color: var(--feature-text-color);
 }
+
+.banner-card {
+  position: relative;
+  overflow: hidden; /* Ensure the banner doesn't overflow the card */
+  padding-top: 20px; /* Adding padding to ensure the banner is not clipped */
+}
+
+.banner-text {
+  position: absolute;
+  top: 70px; /* Adjust to position banner inside the card */
+  left: -25px; /* Adjust to position banner inside the card */
+  width: 140px; /* Adjust to fit the length of the text */
+  height: 30px; /* Adjust as necessary */
+  background-color: #00A9A2; /* Banner background color */
+  color: white; /* Banner text color */
+  text-align: center;
+  line-height: 30px; /* Vertically center the text */
+  transform: rotate(-45deg); /* Adjust rotation if needed */
+  transform-origin: top left;
+  font-size: 14px; /* Adjust as necessary */
+  font-weight: bold; /* Adjust as necessary */
+  z-index: 1;
+  pointer-events: none; /* Ensure the banner doesn't interfere with card interaction */
+}
   
 /* Footer styles */
 footer {
@@ -797,4 +799,79 @@ a.footer-link {
 a:hover.footer-link {
   color: var(--white-text);
   text-decoration: underline;  
+}
+
+/*Therapy Dogs */
+
+.dog-header {
+  background-color: #fad5e6; /* Background color of the header */
+  color: white;
+  padding: 60px 0;
+}
+.dog-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.dog-header-text {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+.dog-header-text h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+.dog-header-text h3 {
+  font-size: 24px;
+  font-weight: normal;
+}
+.dog-header-text p {
+  font-size: 18px;
+}
+.dog-header-image img {
+  border-radius: 15px;
+  max-width: 100%;
+}
+@media (min-width: 768px) {
+  .dog-header-text {
+    max-width: 50%;
+  }
+  .dog-header-text h1 {
+    font-size: 48px;
+  }
+}
+.dog-logo-bar {
+  background-color: #f287b5; /* Adjust this to match the background color of the logo bar */
+  padding: 20px 0;
+  text-align: center;
+}
+.dog-logo-bar img {
+  max-height: 60px; /* Adjust this to change the logo size */
+  margin: 0 15px;
+}        
+.dogs-section {
+  background-color: #fad5e6; /* Adjust this to match the background color in your image */
+  padding: 30px 0;
+  color: white;
+}
+.dog-card {
+  background-color: #005eb8; /* Adjust this to match the card background color in your image */
+  border: none;
+  padding: 20px;
+  color: black; /* Adjust this to match the text color in your image */
+}
+
+
+.dog-card {
+  border-radius: 0%;
+}
+
+.fade-image {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-image:hover {
+  opacity: 0.5;
 }

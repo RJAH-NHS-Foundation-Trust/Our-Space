@@ -14,10 +14,10 @@
                 $featured_image_url = get_the_post_thumbnail_url($post->ID);
                 
                 echo '<img class="img-fluid mb-2" src="' . $featured_image_url . '" alt="Featured Image">';
-            } else {
+            } else { ?>
 
-                echo 'No featured image found.';
-            }
+                <img src="<?php echo get_bloginfo('template_directory'); ?>/img/food-default.webp">
+            <?php }
             ?>
 
             </div>
@@ -41,16 +41,28 @@
                 </div>
                 <div class="row text-center mt-4">
                     <div class="col-4">
+                    <?php $total_time = get_field('total_time');
+                    if(!empty($total_time))
+                    { ?>
                         <h6>Total Time</h6>
                         <span><?php the_field('total_time'); ?></span>
+                    <?php } ?>
                     </div>
                     <div class="col-4">
+                    <?php $prep_time = get_field('prep_time');
+                    if(!empty($prep_time))
+                    { ?>
                         <h6>Prep Time</h6>
                         <span><?php the_field('prep_time'); ?></span>
+                        <?php } ?>
                     </div>
                     <div class="col-4">
+                    <?php $cook_time = get_field('cook_time');
+                    if(!empty($cook_time))
+                    { ?>
                         <h6>Cook Time</h6>
                         <span><?php the_field('cook_time'); ?></span>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

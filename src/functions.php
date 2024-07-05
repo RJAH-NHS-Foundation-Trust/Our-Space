@@ -151,7 +151,7 @@ function custom_post_recipe_type() {
             'description'         => __( 'recipes', 'twentytwentyone' ),
             'labels'              => $labels,
             'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'diet' ),
+            'taxonomies'          => array( 'diet','post_tag' ),
             'hierarchical'        => false,
             'public'              => true,
             'show_ui'             => true,

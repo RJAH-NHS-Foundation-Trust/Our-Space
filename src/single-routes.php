@@ -27,7 +27,7 @@
                 
                 echo '<img class="img-fluid mb-2" src="' . $featured_image_url . '" alt="Featured Image">';
             } else { ?>                
-                <img class="img-fluid mb-2" src="<?php echo get_bloginfo('template_directory'); ?>/img/route-image-default.png" alt="Featured Image">                
+                <img class="img-fluid mb-2" src="<?php echo get_bloginfo('template_directory'); ?>/img/route-image-default.webp" alt="Featured Image">                
             <?php }
             ?>
             </div>

@@ -25,7 +25,7 @@
       <div class="logo text-center">
         <li class="nav-item">
         <a href="<?php echo get_option('home'); ?>">
-            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo.png" alt="Logo">
+            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo.webp" alt="Logo">
           </a>
         </li>
       </div>
@@ -49,8 +49,14 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>/staff-networks">Staff Networks</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>/support">Support</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="supportDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Support
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="supportDropdown">
+            <li><a class="dropdown-item" aria-current="page" href="<?php echo get_option('home'); ?>/support">Support Links</a></li>
+            <li><a class="dropdown-item" aria-current="page" href="<?php echo get_option('home'); ?>/unison-reps">Unison Reps</a></li>
+          </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="<?php echo get_option('home'); ?>/contact">Get In Touch</a>
@@ -62,7 +68,8 @@
     </div>
   </div>
 </nav>
-  </div>
+
+</div>
 </nav> 
 
 <?php 
@@ -70,11 +77,11 @@
   $meditation = array("Meditation");
   $finance = array("Finances");
   $personal_fitness = array("Personal Fitness","Desk Exercises","Exercises","Workouts","Routes");
-  $titles_to_exclude = array("Fun Run","Discount Codes", "Mental Health First Aiders", "Parents", "Events", "Staff Networks","Get In Touch","Groups","Pharmacy","Get Help Now","Gyms","Days Out","Suggest an edit");
+  $titles_to_exclude = array("Fun Run","Therapy Dogs Nationwide","Discount Codes", "Mental Health First Aiders", "Parents", "Events", "Staff Networks","Get In Touch","Groups","Pharmacy","Get Help Now","Gyms","Days Out","Suggest an edit");
+  $no_search = array("Fun Run","Therapy Dogs Nationwide");
   $title = get_the_title();
 
-
-if($title != "Fun Run") { ?>
+if(!in_array($title,$no_search)) { ?>
 <div class="jumbotron">
     <div class="overlay"></div>
     <div class="container">

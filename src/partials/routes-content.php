@@ -5,7 +5,7 @@
         <?php if(has_post_thumbnail()) { ?>
         <img src="<?php the_post_thumbnail_url() ?>" alt="Thumbnail" class="thumbnail">
         <?php } else { ?>
-            <img class="img-fluid mb-2" src="<?php echo get_bloginfo('template_directory'); ?>/img/route-image-default.png" alt="Featured Image">
+            <img class="img-fluid mb-2" src="<?php echo get_bloginfo('template_directory'); ?>/img/route-image-default.webp" alt="Featured Image">
         <?php } ?>
         <p><?php the_excerpt(); ?></p>
         <a href="<?php the_permalink(); ?>" class="btn btn-outline-success">Explore</a>
