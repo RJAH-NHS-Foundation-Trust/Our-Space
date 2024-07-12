@@ -87,7 +87,7 @@
     <a class="custom-card-link" target="_blank" href="https://pomofocus.io/app">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Pomodoro Timer</span>
-          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/pomodoro.webp" class="card-img-top" alt="Pomodoro Timer">
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/pomodoro-timer.webp" class="card-img-top" alt="Pomodoro Timer">
           <div class="card-body">
             <p class="card-text">The Pomodoro Technique is created by Francesco Cirillo for a more productive way to work and study. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks.</div>
         </div>
