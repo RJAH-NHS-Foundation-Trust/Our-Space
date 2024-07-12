@@ -24,7 +24,11 @@
                 <div class="mt-3 fst-italic">
                     <?php the_content(); ?>
                 </div>
-                <a class="btn btn-primary mb-2" href="<?php the_field('purchase_link');?>" target="_blank">Purchase Book</a>                
+                <a class="btn btn-primary mb-2" href="<?php the_field('purchase_link');?>" target="_blank">Purchase Book</a>
+                <?php $catalogue_link = get_field('catalogue_url'); ?>
+                <?php if(!empty($catalogue_link)) {?>
+                <a class="btn btn-primary mb-2" href="<?php the_field('catalogue_url');?>" target="_blank">View in RJAH Library Catalogue</a>
+                <? } ?>
             </div>
         </div>
     </div>
