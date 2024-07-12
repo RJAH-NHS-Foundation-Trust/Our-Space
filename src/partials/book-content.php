@@ -2,7 +2,11 @@
     <h2 class="blog-title"><a class="blog-title" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
     <?php get_template_part( 'meta-content') ?>
     <div class="blog-excerpt">
-        <img src="<?php the_field('book_cover'); ?>" alt="Thumbnail" class="thumbnail">
+        <?php $book_cover = get_field('book_cover');
+        if(!empty($book_cover))
+        { ?>
+            <img src="<?php the_field('book_cover'); ?>" alt="Thumbnail" class="thumbnail">
+        <? } ?>
         <p><?php the_excerpt(); ?></p>
         <a href="<?php the_field('purchase_link'); ?>" class="btn btn-outline-success">Find Out More</a>
     </div>
@@ -23,4 +27,4 @@
 
     </div>
     <?php } ?>
-</div>
+</div> 
