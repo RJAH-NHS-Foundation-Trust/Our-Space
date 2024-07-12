@@ -102,7 +102,8 @@
             <p class="card-text">As part of the <a href="https://www.england.nhs.uk/ournhspeople/">NHS People Plan</a>, the <a href="https://www.england.nhs.uk/ournhspeople/online-version/lfaop/our-nhs-people-promise/">NHS People Promise</a> sets out a series of commitments, one of which is We work flexibly, which states: We do not have to sacrifice our family, our friends or our interests for work.<br/><br/> Find out more here</div>
         </div>
       </a>
-    </div>    
+    </div> 
+    
 </div>
 </div>
 </div>
