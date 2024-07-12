@@ -77,8 +77,8 @@
   $meditation = array("Meditation");
   $finance = array("Finances");
   $personal_fitness = array("Personal Fitness","Desk Exercises","Exercises","Workouts","Routes");
-  $titles_to_exclude = array("Fun Run","Therapy Dogs Nationwide","Discount Codes", "Mental Health First Aiders", "Parents", "Events", "Staff Networks","Get In Touch","Groups","Pharmacy","Get Help Now","Gyms","Days Out","Suggest an edit");
-  $no_search = array("Fun Run","Therapy Dogs Nationwide");
+  $titles_to_exclude = array("Neuro Friends","Body Doubling","Fun Run","Therapy Dogs Nationwide","Discount Codes", "Mental Health First Aiders", "Parents", "Events", "Staff Networks","Get In Touch","Groups","Pharmacy","Get Help Now","Gyms","Days Out","Suggest an edit");
+  $no_search = array("Neuro Friends","Fun Run","Therapy Dogs Nationwide","Body Doubling");
   $title = get_the_title();
 
 if(!in_array($title,$no_search)) { ?>
@@ -116,13 +116,13 @@ if (!in_array($title, $titles_to_exclude)) {
 
     <div class="container disclaimer mt-4"> 
       <div class="row pt-2 pb-2 justify-content-center align-items-center text-center">
-        <p class="my-0">Our Space is for educational and awareness purposes and is not a replacement for proper financial advice. It is recommended you consult a financial advisor or your bank before making any large changes to your financial circumstances.</p>
+        <p class="my-0">OurSpace is for educational and awareness purposes and is not a replacement for proper financial advice. It is recommended you consult a financial advisor or your bank before making any large changes to your financial circumstances.</p>
       </div>
     </div> <?php } else { ?>
 
     <div class="container disclaimer mt-4"> 
       <div class="row pt-2 pb-2 justify-content-center align-items-center text-center">
-        <p class="my-0">Our Space is for educational and awareness purposes and is not a replacement for professional medical advice. If you have concerns about your health, please contact your GP or medical professional. You can find out more about this <a href="<?php echo get_option('home'); ?>/about">here</a></p>
+        <p class="my-0">OurSpace is for educational and awareness purposes and is not a replacement for professional medical advice. If you have concerns about your health, please contact your GP or medical professional. You can find out more about this <a href="<?php echo get_option('home'); ?>/about">here</a></p>
       </div>
     </div>
     
