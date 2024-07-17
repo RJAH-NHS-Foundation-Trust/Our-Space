@@ -444,7 +444,6 @@ a:visited.blog-title {
 }
 
 .food-title {
-  padding-top: 50px; /* Add padding to push the title down */
   position: relative; /* Ensure it positions relative to the card */
   z-index: 2; /* Ensure it stays above the banner */
   font-size: 24px;
