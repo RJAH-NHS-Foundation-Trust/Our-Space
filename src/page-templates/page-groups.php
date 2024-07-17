@@ -34,7 +34,7 @@ if($totalPopularPosts > 0) { ?>
 
 <section class="main-section mt-4 mb-4">
     <div class="container">
-        <div class="row g-grid gap-2 w-100 d-flex">
+        <div class="row gap-2 w-100 d-flex justify-content-center">
             <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
                 get_template_part( 'partials/group-content', get_post_format() );
                     endwhile; ?> </div>
