@@ -14,7 +14,7 @@
         <?php } else { ?>
             <img class="img-fluid mb-2" src="<?php echo get_bloginfo('template_directory'); ?>/img/food-default.webp" alt="Featured Image">
         <?php } ?>   
-    <h2 class="food-title"><a class="food-title" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+    <h2 class="food-title mt-2"><a class="food-title" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
     <div class="blog-tags">        
         <?php 
             // Retrieve terms for the custom taxonomy 'diet'
