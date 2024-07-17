@@ -76,19 +76,9 @@
         <h2>Upcoming Meetings</h2>
         <div class="row mt-4">
             <div class="col-md-4 mb-4">
-                <div class="card neuro-card">                    
+                <div class="card neuro-card">
                     <div class="card-body text-white">
-                        <h2 class="card-title">August 16th</h2>
-                        <p class="card-text"><span class="fw-bold">Location:</span> Meeting Room 1</p>
-                        <p class="card-text"><span class="fw-bold">Time:</span> 13:00 - 14:00</p>
-                        <p class="card-text">This is the first meeting, we plan to get to know one another and plan for future meetings.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card neuro-card">                    
-                    <div class="card-body text-white">
-                        <h2 class="card-title">September 20th</h2>                        
+                        <h2 class="card-title">September 20th 2024</h2>
                         <p class="card-text"><span class="fw-bold">Location:</span> Conference Room 1</p>
                         <p class="card-text"><span class="fw-bold">Time:</span> 13:00 - 14:00</p>
                         <p class="card-text">This is the first meeting, we plan to get to know one another and plan for future meetings.</p>
@@ -97,31 +87,31 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card neuro-card">                    
+                <div class="card neuro-card">
                     <div class="card-body text-white">
-                        <h2 class="card-title">October 18th</h2>
+                        <h2 class="card-title">October 18th 2024</h2>
                         <p class="card-text"><span class="fw-bold">Location:</span> Board Room</p>
                         <p class="card-text"><span class="fw-bold">Time:</span> 13:00 - 14:00</p>
                         <p class="card-text">This is the first meeting, we plan to get to know one another and plan for future meetings.</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row mt-2">
             <div class="col-md-4 mb-4">
-                <div class="card neuro-card">                    
+                <div class="card neuro-card">
                     <div class="card-body text-white">
-                        <h2 class="card-title">November 15th</h2>
+                        <h2 class="card-title">November 15th 2024</h2>
                         <p class="card-text"><span class="fw-bold">Location:</span> ARC Seminar Room</p>
                         <p class="card-text"><span class="fw-bold">Time:</span> 13:00 - 14:00</p>
                         <p class="card-text">This is the first meeting, we plan to get to know one another and plan for future meetings.</p>                        
                     </div>
                 </div>
             </div>
+        </div>
+            <div class="row mt-2">
             <div class="col-md-4 mb-4">
-                <div class="card neuro-card">                    
+                <div class="card neuro-card">
                     <div class="card-body text-white">
-                        <h2 class="card-title">December 20th</h2>
+                        <h2 class="card-title">December 20th 2024</h2>
                         <p class="card-text"><span class="fw-bold">Location:</span> Conference Room 1</p>
                         <p class="card-text"><span class="fw-bold">Time:</span> 13:00 - 14:00</p>
                         <p class="card-text">This is the first meeting, we plan to get to know one another and plan for future meetings.</p>
@@ -130,9 +120,9 @@
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="card neuro-card">                    
+                <div class="card neuro-card">
                     <div class="card-body text-white">
-                        <h2 class="card-title">January 17th</h2>
+                        <h2 class="card-title">January 17th 2025</h2>
                         <p class="card-text"><span class="fw-bold">Location:</span> Conference Room 1</p>
                         <p class="card-text"><span class="fw-bold">Time:</span> 13:00 - 14:00</p>
                         <p class="card-text">This is the first meeting, we plan to get to know one another and plan for future meetings.</p>
@@ -140,12 +130,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row mt-2">
             <div class="col-md-4 mb-4">
-                <div class="card neuro-card">                    
+                <div class="card neuro-card">
                     <div class="card-body text-white">
-                        <h2 class="card-title">February 17th</h2>
+                        <h2 class="card-title">February 17th 2025</h2>
                         <p class="card-text"><span class="fw-bold">Location:</span> Conference Room 1</p>
                         <p class="card-text"><span class="fw-bold">Time:</span> 13:00 - 14:00</p>
                         <p class="card-text">This is the first meeting, we plan to get to know one another and plan for future meetings.</p>
@@ -153,10 +141,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+            <div class="row mt-2">
             <div class="col-md-4 mb-4">
                 <div class="card neuro-card">                    
                     <div class="card-body text-white">
-                        <h2 class="card-title">March 21th</h2>
+                        <h2 class="card-title">March 21th 2025</h2>
                         <p class="card-text"><span class="fw-bold">Location:</span> Conference Room 1</p>
                         <p class="card-text"><span class="fw-bold">Time:</span> 13:00 - 14:00</p>
                         <p class="card-text">This is the first meeting, we plan to get to know one another and plan for future meetings.</p>
@@ -165,6 +155,21 @@
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+<section class="neuro-section">
+    <div class="container text-center">
+    <h2>Contact The Facilitators</h2>
+    <div class="row mt-4">
+            <div class="col-md-12 mb-2">
+                <div class="card neuro-card">
+                    <div class="card-body text-white">
+                        <p class="card-text">If you need to speak to the facilitators you can use the button below to send an email.</p>                        
+                        <a class="btn btn-neuro" target="_blank" href="<?php echo get_option('home'); ?>/neurofriends-contact/">Contact The Facilitators</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -177,7 +182,7 @@
                 <div class="card neuro-card">
                     <div class="card-body text-white">
                         <p class="card-text">If you to make a connection between meetings we have a private Facebook group that you can join.</p>
-                        <p class="card-text">The Facebook group has been setup to allow members to post anonymously this is to allow members who dont want their names next to a post to post and retain their privacy.</p>
+                        <p class="card-text">The Facebook group has been setup to allow members to post anonymously this is to allow members who don't want their names next to a post to post and retain their privacy.</p>
                         <a class="btn btn-neuro" target="_blank" href="https://www.facebook.com/groups/447033588197410">Join The Facebook Group</a>
                     </div>
                 </div>
@@ -225,6 +230,8 @@
                     <div id="recordings" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                         There will not be any recordings made during the meet ups, this is to protect the privacy of the members.
+                        <br /><br />
+                        If you are unable to attend in person, please reach out to the facilitators using the contact form on OurSpace and we will make every effort to meet you individually or arrange a future meeting around your availability. 
                     </div>
                     </div>
                 </div>
