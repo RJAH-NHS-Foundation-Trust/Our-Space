@@ -56,6 +56,7 @@
           <ul class="dropdown-menu" aria-labelledby="supportDropdown">
             <li><a class="dropdown-item" aria-current="page" href="<?php echo get_option('home'); ?>/support">Support Links</a></li>
             <li><a class="dropdown-item" aria-current="page" href="<?php echo get_option('home'); ?>/unison-reps">Unison Reps</a></li>
+            <li><a class="dropdown-item" aria-current="page" href="<?php echo get_option('home'); ?>/neurofriends">NeuroFriends</a></li>
           </ul>
         </li>
         <li class="nav-item">
