@@ -72,6 +72,17 @@
       </a>
     </div> 
     <div class="col-md-4 mb-4">
+    <a class="custom-card-link" href="<?php echo get_option('home'); ?>/musculoskeletal/">
+        <div class="card custom-card d-flex flex-column h-100">
+          <span class="custom-pill">Musculoskeletal self care</span>
+          <img src="<?php echo get_bloginfo('template_directory'); ?>/img/musculoskeletal.webp" class="card-img-top" alt="musculoskeletal">
+          <div class="card-body">
+            <p class="card-text">Self-care is all about looking after your musculoskeletal problems in a healthy way. There is a lot of support available to people suffering from joint and/or muscle aches and pains, and this page aims to give you more information on how to do this as well as how to access physiotherapy through the workplace if needed.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 mb-4">
       <a class="custom-card-link" target="_blank" href="<?php echo get_bloginfo('template_directory'); ?>/files/StaffSelfReferralPhysiotherapyService.pdf">
         <div class="card custom-card d-flex flex-column h-100">
           <span class="custom-pill">Physio Self Referral</span>
@@ -102,7 +113,7 @@
             <p class="card-text">As part of the <a href="https://www.england.nhs.uk/ournhspeople/">NHS People Plan</a>, the <a href="https://www.england.nhs.uk/ournhspeople/online-version/lfaop/our-nhs-people-promise/">NHS People Promise</a> sets out a series of commitments, one of which is We work flexibly, which states: We do not have to sacrifice our family, our friends or our interests for work.<br/><br/> Find out more here</div>
         </div>
       </a>
-    </div> 
+    </div>    
     
 </div>
 </div>
