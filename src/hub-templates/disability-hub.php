@@ -116,6 +116,17 @@
       </div>
     </a>
   </div>
+  <div class="col-md-4 mb-4">
+    <a class="custom-card-link" href="<?php echo get_option('home'); ?>/access-requirements">
+      <div class="card custom-card d-flex flex-column h-100">
+        <span class="custom-pill">Access Requirements</span>
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/access-requirements.webp" class="card-img-top" alt="Access Requirements">
+        <div class="card-body">
+          <p class="card-text">An Access Requirement is a change that can be made to make it possible for you to access a building or service. It could be a ramp, or wider doorway to allow wheelchair access. It might be a portable induction loop for people with hearing aids, or providing a British Sign Language Interpreter.</p>
+        </div>
+      </div>
+    </a>
+  </div>
 </div>
 </div>
 </div>
