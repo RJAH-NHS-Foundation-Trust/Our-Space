@@ -927,6 +927,7 @@ a:hover.footer-link {
   padding: 30px 0;
   color: white;
 }
+
 .neuro-card {
   background-color: #0072BC; /* Adjust this to match the card background color in your image */
   border: none;
@@ -934,6 +935,61 @@ a:hover.footer-link {
 }
 .neuro-card {
   border-radius: 0%;
+}
+
+.mhd-card {
+  background-color: #6e0fee; /* Adjust this to match the card background color in your image */
+  border: none;
+  padding: 20px;
+}
+
+.mhd-card {
+  border-radius: 0%;
+}
+
+.mhd-card-alt {
+  background-color: #78d64b; /* Adjust this to match the card background color in your image */
+  border: none;
+  padding: 20px;
+}
+
+.mhd-card {
+  border-radius: 0%;
+}
+
+.btn-mhd {
+  background-color: #f8607c;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  color: white;
+}
+
+a.btn-mhd {
+  background-color: #f8607c;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  color: white;
+}
+
+.btn-mhd:visited {
+  background-color: #f8607c;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  color: white;
+}
+
+
+.btn-mhd:active {
+  background-color: #f8607c;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  color: white;
+}
+
+a.btn-mhd:hover {
+  background-color: #f8607c;
+  opacity: 0.8;
+  color: white;
 }
 
 .btn-neuro {
