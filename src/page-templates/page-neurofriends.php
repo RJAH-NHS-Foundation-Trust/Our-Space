@@ -74,19 +74,8 @@
 <section class="neuro-section">
     <div class="container text-center">
         <h2>Upcoming Meetings</h2>
-        <div class="row mt-4">
+        <div class="row mt-4">            
             <div class="col-md-4 mb-4">
-                <div class="card neuro-card">
-                    <div class="card-body text-white">
-                        <h2 class="card-title">September 20th 2024</h2>
-                        <p class="card-text"><span class="fw-bold">Location:</span> Conference Room 1</p>
-                        <p class="card-text"><span class="fw-bold">Time:</span> 13:00 - 14:00</p>
-                        <p class="card-text">This is the first meeting, we plan to get to know one another and plan for future meetings.</p>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
                 <div class="card neuro-card">
                     <div class="card-body text-white">
                         <h2 class="card-title">October 18th 2024</h2>
@@ -106,8 +95,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-            <div class="row mt-2">
             <div class="col-md-4 mb-4">
                 <div class="card neuro-card">
                     <div class="card-body text-white">
@@ -119,6 +106,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+            <div class="row mt-2">            
             <div class="col-md-4 mb-4">
                 <div class="card neuro-card">
                     <div class="card-body text-white">
@@ -141,20 +130,19 @@
                     </div>
                 </div>
             </div>
-        </div>
-            <div class="row mt-2">
-            <div class="col-md-4 mb-4">
-                <div class="card neuro-card">                    
-                    <div class="card-body text-white">
-                        <h2 class="card-title">March 21th 2025</h2>
-                        <p class="card-text"><span class="fw-bold">Location:</span> Conference Room 1</p>
-                        <p class="card-text"><span class="fw-bold">Time:</span> 13:00 - 14:00</p>
-                        <p class="card-text">This is the first meeting, we plan to get to know one another and plan for future meetings.</p>
-                    
+                <div class="col-md-4 mb-4">
+                    <div class="card neuro-card">                    
+                        <div class="card-body text-white">
+                            <h2 class="card-title">March 21th 2025</h2>
+                            <p class="card-text"><span class="fw-bold">Location:</span> Conference Room 1</p>
+                            <p class="card-text"><span class="fw-bold">Time:</span> 13:00 - 14:00</p>
+                            <p class="card-text">This is the first meeting, we plan to get to know one another and plan for future meetings.</p>
+                        
+                        </div>
                     </div>
-                </div>
+                </div>            
             </div>
-        </div>
+            
     </div>
 </section>
 

@@ -54,15 +54,27 @@ if($totalPopularPosts > 0) { ?>
       </div>
   </section>
 
-  <?php } ?>
+  <?php } ?>  
 
-<?php             
-    $args = array (
-        'post_status' => 'publish',
-        'category_name' => $hubTitle,
-        'order'          => 'desc',
-        'orderby'        => 'publish_date', 
-        'operator' => 'IN',  
+<?php
+
+    $exclude_categories = array('articles');
+
+    $exclude_category_ids = array();
+    foreach ($exclude_categories as $category_slug) {  
+        $category = get_category_by_slug($category_slug);
+        if ($category) {
+            $exclude_category_ids[] = $category->term_id;
+        }
+    }
+
+    $args = array(
+        'post_status'      => 'publish',
+        'category_name'    => $hubTitle,
+        'category__not_in' => $exclude_category_ids, 
+        'order'            => 'DESC',
+        'orderby'          => 'publish_date',
+        'operator'         => 'IN',
     );
 
     $posts = new WP_Query( $args );

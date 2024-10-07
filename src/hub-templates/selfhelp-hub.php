@@ -23,7 +23,7 @@
             <span class="custom-pill">Meditation</span>
             <img src="<?php echo get_bloginfo('template_directory'); ?>/img/meditation.webp" class="card-img-top" alt="Image Alt">
             <div class="card-body">
-              <p class="card-text">Follow along with some guided meditations provided by our very own Richa Kulshrestha, if you have an interest in the benefits of meditation or just want to learn more, there is plenty here for everyone.</p>
+              <p class="card-text">Follow along with some guided meditations provided by our fellow NHS Staff member Alex Greenwood, if you have an interest in the benefits of meditation or just want to learn more, there is plenty here for everyone.</p>
             </div>
           </div>
         </a>
@@ -94,6 +94,39 @@
       </a>
     </div>
 </div>
+
+<?php     
+    $args = array (
+        'post_type' => 'link',  
+        'post_status' => 'publish',
+        'category_name' => "self-help",
+        'orderby' => 'title',
+        'order' => 'ASC',
+        'paged' => $paged,
+        'operator' => 'IN'
+    );
+
+    $posts = new WP_Query( $args );
+    $totalPopularPosts = $posts -> found_posts;
+
+if($totalPopularPosts > 0) { ?>
+
+<section class="main-section mt-4">
+    <div class="container">
+
+        <div class="row g-grid gap-2 w-100 d-flex">
+            <h3>Useful Links </h3>
+            <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
+                get_template_part( 'partials/link-content', get_post_format() );
+                    endwhile; ?> </div>
+                    <?php bootstrap_pagination($posts);
+                endif; wp_reset_postdata();?>
+      </div>
+  </section>
+
+  <?php } ?>
+
+
 </div>
 </div>
 </div>
