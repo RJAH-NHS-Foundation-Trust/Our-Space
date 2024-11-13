@@ -1,5 +1,6 @@
 <?php  
-  if(!is_home()) {
+    $pagename = str_replace('/','',str_replace(get_option('home'), '', get_pagenum_link()));
+    if(!is_home() && $pagename != "events") {
 ?>
 
 <div class="container">
