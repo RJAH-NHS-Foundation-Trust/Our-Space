@@ -2,6 +2,7 @@
 
     /** 
      * Template Name: Top Level Hub Page
+     * Template Post Type: post, page, hub
      * 
      * 
     */
