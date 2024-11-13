@@ -3,7 +3,7 @@
       $title = get_the_title(); 
       $title = strtolower(str_replace(" ", "-",$title));
     ?> 
-      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/hub/<?php echo urlencode($title); ?>">
+      <a class="custom-card-link" href="<?php echo get_option('home'); ?>/<?php echo urlencode($title); ?>">
       <div class="card custom-card d-flex flex-column h-100">
         <span class="custom-pill"><?php the_title(); ?></span>
 
