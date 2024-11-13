@@ -5,7 +5,7 @@
     $route_directions_url = get_field('route_direction_url'); 
 ?>
 
-<section class="main-section mt-4">
+<section class="main-section">
     <div class="container">
 
         <?php if($is_all_trails == TRUE) { ?>

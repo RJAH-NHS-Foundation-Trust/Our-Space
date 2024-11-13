@@ -15,7 +15,7 @@
     <h2><?php the_title(); ?></h2>
     <p><?php the_content(); ?></p> 
 
-    <section class="main-section mt-4">
+    <section class="main-section">
     <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);         
     $args = array (
         'post_status' => 'publish',
@@ -30,7 +30,7 @@
 
 if($totalDiscountCodes > 0) { ?>
 
-<section class="main-section mt-4">
+<section class="main-section">
     <div class="container">
       <div class="row g-grid gap-2 w-100 d-flex">
             <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
@@ -43,7 +43,7 @@ if($totalDiscountCodes > 0) { ?>
 
   <?php } else { ?>
 
-    <section class="main-section mt-4">
+    <section class="main-section">
     <div class="container">
       <div class="row g-grid gap-2 w-100 d-flex">
         <p>There are no discount codes to display.</p>        

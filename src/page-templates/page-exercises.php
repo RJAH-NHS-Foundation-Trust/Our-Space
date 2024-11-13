@@ -15,7 +15,7 @@
     <h2><?php the_title(); ?></h2>
     <p><?php the_content(); ?></p> 
 
-    <section class="main-section mt-4">
+    <section class="main-section">
     <h3>Beginner</h3>
     <p>Select 5 of the workouts below</p>
     <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);         
@@ -39,7 +39,7 @@
 
 if($totalPopularPosts > 0) { ?>
 
-<section class="main-section mt-4">
+<section class="main-section">
     <div class="container">
       <div class="row g-grid gap-2 w-100 d-flex">
             <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
@@ -52,7 +52,7 @@ if($totalPopularPosts > 0) { ?>
 
   <?php } else { ?>
 
-    <section class="main-section mt-4">
+    <section class="main-section">
     <div class="container">
       <div class="row g-grid gap-2 w-100 d-flex">
         <p>There are no exercises to display.</p>        
@@ -63,7 +63,7 @@ if($totalPopularPosts > 0) { ?>
   <?php } ?>
     </section>
     
-    <section class="main-section mt-4">
+    <section class="main-section">
     <h3>Intermediate</h3>
     <p>Select 5 of the workouts below</p>
     <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);         
@@ -87,7 +87,7 @@ if($totalPopularPosts > 0) { ?>
 
 if($totalPopularPosts > 0) { ?>
 
-<section class="main-section mt-4">
+<section class="main-section">
     <div class="container">
       <div class="row g-grid gap-2 w-100 d-flex">
             <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
@@ -100,7 +100,7 @@ if($totalPopularPosts > 0) { ?>
 
   <?php } else { ?>
 
-    <section class="main-section mt-4">
+    <section class="main-section">
     <div class="container">
       <div class="row g-grid gap-2 w-100 d-flex">
         <p>There are no exercises to display.</p>        
@@ -111,7 +111,7 @@ if($totalPopularPosts > 0) { ?>
   <?php } ?>
     </section>
     
-    <section class="main-section mt-4">
+    <section class="main-section">
     <h3>Advanced</h3>
     <p>Select 5 of the workouts below</p>
     <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);         
@@ -135,7 +135,7 @@ if($totalPopularPosts > 0) { ?>
 
 if($totalPopularPosts > 0) { ?>
 
-<section class="main-section mt-4">
+<section class="main-section">
     <div class="container">
       <div class="row g-grid gap-2 w-100 d-flex">
             <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
@@ -148,7 +148,7 @@ if($totalPopularPosts > 0) { ?>
 
   <?php } else { ?>
 
-    <section class="main-section mt-4">
+    <section class="main-section">
     <div class="container">
       <div class="row g-grid gap-2 w-100 d-flex">
         <p>There are no exercises to display.</p>        

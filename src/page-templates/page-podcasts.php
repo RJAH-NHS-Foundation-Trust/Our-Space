@@ -30,7 +30,7 @@
 
 if($totalPopularPosts > 0) { ?>
 
-<section class="main-section mt-4">
+<section class="main-section">
     <div class="container">
         <div class="row gap-2 w-100 d-flex justify-content-center">
             <?php if ( $posts->have_posts() ) : while ( $posts->have_posts() ) : $posts->the_post(); 

@@ -121,6 +121,17 @@ a.tag-link:hover {
   color: var(--link-color-hover);
 }
 
+a.card-link {
+  color: var(--button-hover-background);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a.card-link:hover {
+  color: var(--button-hover-background);
+  font-weight: bold;
+}
+
 .aioseo-breadcrumb a:hover {
   color: var(--white-text);
 }
@@ -162,7 +173,38 @@ a.tag-link:hover {
   color: var(--link-color-hover);
 }
 
+@media (min-width: 1130px) {
+  .breadcrumb {
+    padding: 1rem 0rem 1rem 0rem;
+  }
+}
+
+@media (max-width: 1130px) {
+  .breadcrumb {
+    padding: 1.7rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+.breadcrumb-here {
+  padding-right: 1.0rem;
+}
+
+.breadcrumb-landing-page {
+  font-weight: 600;
+}
+
+.breadcrumb svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  vertical-align: middle;
+}
+
+
 img.page-profile-pic {
+  vertical-align: middle;
+  fill: currentColor;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -344,10 +386,32 @@ a:hover.nav-link.crisis-help {
   color: var(--black-text) !important;
 }
 
+.side-bar-items {
+  list-style: none; 
+  padding: 0;
+  margin: 0; 
+}
+
+.side-bar-items li {
+  padding: 0;
+  margin: 0;
+}
+
+.side-bar-navigation .side-bar-items a {
+  display: block;
+  text-align: left;
+  padding: 8px 0;
+  font-size: 18px;  
+}
+
+li.side-bar-list-item {
+  list-style:  none !important;
+}
+
 .feature {
   background-color: #f1f5f6;
-  border-radius: 5px; /* Added border radius */
-  padding: 10px; /* Added padding */
+  border-radius: 5px; 
+  padding: 10px;
 }
 
 .jumbotron {
@@ -755,6 +819,13 @@ a.cat-pills {
 
 .featured-card .card-text {
   color: var(--feature-text-color);
+}
+
+.banner .btn-close {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
 }
 
 .banner-card {

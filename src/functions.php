@@ -1,19 +1,86 @@
 <?php 
 
 add_theme_support('title-tag');
-
 add_theme_support('post-thumbnails');
 
-add_filter('embed_oembed_html', function($code) { return str_replace('<iframe', '<iframe class="ratio ratio-1x1" width="600" height="450" ', $code);});
-
-/*
-* Disable the Gutenberg editor
+/**
+* Remove Howdy Site Wide
 */
-add_filter('use_block_editor_for_post_type', 'disable_gutenberg', 10, 2);
+
+function remove_howdy_in_strings( $text ) {
+	$text = str_ireplace( 'Howdy! ', '', $text );
+	$text = str_ireplace( 'Howdy, ', '', $text );
+	return $text;
+}
+add_filter( 'gettext', 'remove_howdy_in_strings' );
+
+function ourspace_init() {
+    
+    add_filter('feed_links_show_comments_feed', '__return_false');
+    add_filter('xmlrpc_enabled', '__return_false');
+    add_filter('big_image_size_threshold', '__return_false');
+    add_filter('wpseo_next_rel_link', '__return_false');
+    add_filter('wpseo_prev_rel_link', '__return_false');
+    add_filter('wpseo_debug_markers', '__return_false');
+    add_filter('wpseo_json_ld_output', '__return_false');
+    add_filter('comments_open', '__return_false', 20, 2);
+    add_filter('pings_open', '__return_false', 20, 2);
+    add_filter('comments_array', '__return_empty_array', 10, 2);
+    add_action('admin_init', 'disable_admin_comments');
+    add_filter('embed_oembed_html', function($code) { return str_replace('<iframe', '<iframe class="ratio ratio-1x1" width="600" height="450" ', $code);});
+}
+
+/**
+ * Disable the Gutenberg editor
+ */
+
+add_filter('use_block_editor_for_post_type', 'disable_gutenberg', 10, 2);    
 function disable_gutenberg($current_status, $post_type)
 {
     return false;
 }
+
+function remove_admin_menu_items() {
+	$remove_menu_items = array(__('Comments'));
+	global $menu;
+	end ($menu);
+	while (prev($menu)){
+		$item = explode(' ',$menu[key($menu)][0]);
+		if(in_array($item[0] != NULL?$item[0]:"" , $remove_menu_items)){
+		unset($menu[key($menu)]);}
+	}
+}
+
+add_action('admin_menu', 'remove_admin_menu_items');
+
+/**
+* Change Admin Footer Text
+*/
+
+function remove_footer_admin () {
+    echo "OurSpace";
+} 
+
+add_filter('admin_footer_text', 'remove_footer_admin');
+
+/**
+* Cleanup Dashboard Widgets
+*/
+
+function remove_dashboard_widgets() {
+    global $wp_meta_boxes;
+ 
+    remove_action( 'welcome_panel', 'wp_welcome_panel' ); 
+    unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_site_health'] ); 
+    unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_primary'] );
+    unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'] );
+}
+ 
+add_action( 'wp_dashboard_setup', 'remove_dashboard_widgets' );
+
+/**
+* Custom Login
+*/
 
 function custom_login()
 {
@@ -22,7 +89,30 @@ function custom_login()
 
 add_action('login_head', 'custom_login');
 
-// Create categories on theme activation if they don't already exist
+/**
+  * Custom admin logo
+*/
+ 
+add_action('admin_menu', 'our_space_admin_menu');
+ 
+function our_space_admin_menu()
+{
+    global $menu;
+    $url = get_option('home');;
+    $menu[0] = array(__('Our Space'), 'read', $url, 'our-space-logo', 'our-space-logo');
+}
+
+add_action('admin_head', 'our_space_admin_style');
+
+function our_space_admin_style()
+{
+    echo '<link rel="stylesheet" href="' . get_template_directory_uri() . '/css/ourspace-admin.css" type="text/css" media="all" />';
+}
+
+/**
+* Create categories on theme activation if they don't already exist
+*/
+
 function create_categories_on_activation() {
     $categories = array(
         'Access To Work',
@@ -43,6 +133,7 @@ function create_categories_on_activation() {
         }
     }
 }
+
 add_action('after_switch_theme', 'create_categories_on_activation');
 
 /**
@@ -56,11 +147,6 @@ add_action('after_switch_theme', 'create_categories_on_activation');
      }
  
      $add_args = [];
- 
-     //add query (GET) parameters to generated page URLs
-     /*if (isset($_GET[ 'sort' ])) {
-         $add_args[ 'sort' ] = (string)$_GET[ 'sort' ];
-     }*/
  
      $pages = paginate_links(array_merge([
              'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
@@ -80,7 +166,7 @@ add_action('after_switch_theme', 'create_categories_on_activation');
      );
  
      if (is_array($pages)) {
-         //$current_page = ( get_query_var( 'paged' ) == 0 ) ? 1 : get_query_var( 'paged' );
+
          $pagination = '<nav class="mt-3" aria-label="navigation">';
  
          $pagination .= '<ul class="pagination justify-content-center"';
@@ -100,28 +186,59 @@ add_action('after_switch_theme', 'create_categories_on_activation');
  
      return null;
  }
- 
- /**
-  * Custom admin logo
-  */
- 
- add_action('admin_menu', 'our_space_admin_menu');
- 
- function our_space_admin_menu()
- {
-     global $menu;
-     $url = get_option('home');;
-     $menu[0] = array(__('Our Space'), 'read', $url, 'our-space-logo', 'our-space-logo');
- }
- 
- add_action('admin_head', 'our_space_admin_style');
- 
- function our_space_admin_style()
- {
-     echo '<link rel="stylesheet" href="' . get_template_directory_uri() . '/css/ourspace-admin.css" type="text/css" media="all" />';
- }
 
-/*
+/**
+* Hub Custom Post Types
+*/
+   
+function custom_post_hub_type() {
+   
+    $labels = array(
+        'name'                => _x( 'Hubs', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Hub', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Hubs', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent Hub', 'twentytwentyone' ),
+        'all_items'           => __( 'All Hubs', 'twentytwentyone' ),
+        'view_item'           => __( 'View Hubs', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Add New Hub', 'twentytwentyone' ),
+        'add_new'             => __( 'Add New Hub', 'twentytwentyone' ),
+        'edit_item'           => __( 'Edit Hub', 'twentytwentyone' ),
+        'update_item'         => __( 'Update Hub', 'twentytwentyone' ),
+        'search_items'        => __( 'Search Hubs', 'twentytwentyone' ),
+        'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+    );
+       
+       
+    $args = array(
+        'label'               => __( 'books', 'twentytwentyone' ),
+        'description'         => __( 'books', 'twentytwentyone' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'thumbnail'),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 2,
+        'menu_icon'           => 'dashicons-admin-multisite',
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+   
+    );           
+
+    register_post_type( 'hub', $args );       
+}
+
+
+add_action( 'init', 'custom_post_hub_type', 0 );
+
+/**
 * Recipe Custom Post Types
 */
    
@@ -167,27 +284,20 @@ function custom_post_recipe_type() {
             'capability_type'     => 'post',
             'show_in_rest' => true,
        
-        );
-           
-        // Registering your Custom Post Type
+        );           
+        
         register_post_type( 'recipe', $args );
        
     }
-       
-/* Hook into the 'init' action so that the function
-* Containing our post type registration is not 
-* unnecessarily executed. 
-*/
     
 add_action( 'init', 'custom_post_recipe_type', 0 );
 
-/*
+/**
 * DaysOut Custom Post Types
 */
    
 function custom_post_daysout_type() {
    
-    // Set UI labels for Custom Post Type
         $labels = array(
             'name'                => _x( 'Days Out', 'Post Type General Name', 'twentytwentyone' ),
             'singular_name'       => _x( 'Day Out', 'Post Type Singular Name', 'twentytwentyone' ),
@@ -203,8 +313,6 @@ function custom_post_daysout_type() {
             'not_found'           => __( 'Not Found', 'twentytwentyone' ),
             'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
         );
-           
-    // Set other options for Custom Post Type
            
         $args = array(
             'label'               => __( 'daysout', 'twentytwentyone' ),
@@ -228,26 +336,19 @@ function custom_post_daysout_type() {
             'show_in_rest' => true,
        
         );
-           
-        // Registering your Custom Post Type
+
         register_post_type( 'daysout', $args );
        
     }
-       
-/* Hook into the 'init' action so that the function
-* Containing our post type registration is not 
-* unnecessarily executed. 
-*/
     
 add_action( 'init', 'custom_post_daysout_type', 0 );
 
-/*
+/**
 * Links Custom Post Types
 */
    
 function custom_post_link_type() {
    
-    // Set UI labels for Custom Post Type
         $labels = array(
             'name'                => _x( 'Links', 'Post Type General Name', 'twentytwentyone' ),
             'singular_name'       => _x( 'Link', 'Post Type Singular Name', 'twentytwentyone' ),
@@ -264,14 +365,12 @@ function custom_post_link_type() {
             'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
         );
            
-    // Set other options for Custom Post Type
-           
         $args = array(
             'label'               => __( 'links', 'twentytwentyone' ),
             'description'         => __( 'links', 'twentytwentyone' ),
             'labels'              => $labels,
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'category' ),
+            'supports'            => array( 'title',),
+            'taxonomies'          => array( 'category'),
             'hierarchical'        => false,
             'public'              => true,
             'show_ui'             => true,
@@ -288,26 +387,18 @@ function custom_post_link_type() {
             'show_in_rest' => true,
        
         );
-           
-        // Registering your Custom Post Type
         register_post_type( 'link', $args );
        
     }
-       
-/* Hook into the 'init' action so that the function
-* Containing our post type registration is not 
-* unnecessarily executed. 
-*/
     
 add_action( 'init', 'custom_post_link_type', 0 );
 
-/*
+/**
 * Workouts Custom Post Types
 */
    
 function custom_post_workout_type() {
-   
-    // Set UI labels for Custom Post Type
+
         $labels = array(
             'name'                => _x( 'Workouts', 'Post Type General Name', 'twentytwentyone' ),
             'singular_name'       => _x( 'Workout', 'Post Type Singular Name', 'twentytwentyone' ),
@@ -324,14 +415,12 @@ function custom_post_workout_type() {
             'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
         );
            
-    // Set other options for Custom Post Type
-           
         $args = array(
             'label'               => __( 'workouts', 'twentytwentyone' ),
             'description'         => __( 'workouts', 'twentytwentyone' ),
             'labels'              => $labels,
             'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'diet' ),
+            'taxonomies'          => array( 'diet','category' ),
             'hierarchical'        => false,
             'public'              => true,
             'show_ui'             => true,
@@ -348,26 +437,19 @@ function custom_post_workout_type() {
             'show_in_rest' => true,
        
         );
-           
-        // Registering your Custom Post Type
+
         register_post_type( 'workout', $args );
        
     }
-       
-/* Hook into the 'init' action so that the function
-* Containing our post type registration is not 
-* unnecessarily executed. 
-*/
     
 add_action( 'init', 'custom_post_workout_type', 0 );
 
-/*
+/**
 * Exercises Custom Post Types
 */
    
 function custom_post_exercise_type() {
    
-    // Set UI labels for Custom Post Type
         $labels = array(
             'name'                => _x( 'Exercises', 'Post Type General Name', 'twentytwentyone' ),
             'singular_name'       => _x( 'Exercise', 'Post Type Singular Name', 'twentytwentyone' ),
@@ -383,9 +465,7 @@ function custom_post_exercise_type() {
             'not_found'           => __( 'Not Found', 'twentytwentyone' ),
             'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
         );
-           
-    // Set other options for Custom Post Type
-           
+                
         $args = array(
             'label'               => __( 'exercises', 'twentytwentyone' ),
             'description'         => __( 'exercises', 'twentytwentyone' ),
@@ -409,25 +489,18 @@ function custom_post_exercise_type() {
        
         );
            
-        // Registering your Custom Post Type
         register_post_type( 'exercise', $args );
        
     }
-       
-/* Hook into the 'init' action so that the function
-* Containing our post type registration is not 
-* unnecessarily executed. 
-*/
     
 add_action( 'init', 'custom_post_exercise_type', 0 );
 
-/*
+/**
 * Discount Codes Post Types
 */
    
 function custom_post_discount_codes_type() {
    
-    // Set UI labels for Custom Post Type
         $labels = array(
             'name'                => _x( 'Discount Codes', 'Post Type General Name', 'twentytwentyone' ),
             'singular_name'       => _x( 'Discount Code', 'Post Type Singular Name', 'twentytwentyone' ),
@@ -443,8 +516,6 @@ function custom_post_discount_codes_type() {
             'not_found'           => __( 'Not Found', 'twentytwentyone' ),
             'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
         );
-           
-    // Set other options for Custom Post Type
            
         $args = array(
             'label'               => __( 'Discount Codes', 'twentytwentyone' ),
@@ -468,20 +539,15 @@ function custom_post_discount_codes_type() {
             'show_in_rest' => true,
        
         );
-           
-        // Registering your Custom Post Type
+        
         register_post_type( 'discount-code', $args );
        
     }
-       
-/* Hook into the 'init' action so that the function
-* Containing our post type registration is not 
-* unnecessarily executed. 
-*/
     
 add_action( 'init', 'custom_post_discount_codes_type', 0 );
 
 function custom_workout_taxonomy() {
+
     $labels = array(
         'name' => _x( 'Types', 'taxonomy general name' ),
         'singular_name' => _x( 'Type', 'taxonomy singular name' ),
@@ -498,7 +564,10 @@ function custom_workout_taxonomy() {
 
     register_taxonomy(
         'type',
-        array('workout','exercise'), // Change 'recipe' to your custom post type slug
+        array(
+            'workout',
+            'exercise'
+        ), 
         array(
             'hierarchical' => true,
             'labels' => $labels,
@@ -544,6 +613,7 @@ function custom_workout_distance_taxonomy() {
 add_action( 'init', 'custom_workout_distance_taxonomy' );
 
 function custom_workout_difficulty_taxonomy() {
+
     $labels = array(
         'name' => _x( 'Difficulty', 'taxonomy general name' ),
         'singular_name' => _x( 'Difficulty', 'taxonomy singular name' ),
@@ -574,10 +644,8 @@ function custom_workout_difficulty_taxonomy() {
         )
     );
 
-    // Define default terms
     $default_terms = array( 'Beginner', 'Intermediate', 'Advanced' );
 
-    // Add default terms
     foreach ($default_terms as $term_name) {
         wp_insert_term($term_name, 'workout-difficulty');
     }
@@ -634,7 +702,9 @@ function custom_workout_body_area_taxonomy() {
 
     register_taxonomy(
         'body_area',
-        array('exercise'), // Change 'recipe' to your custom post type slug
+        array(
+            'exercise'
+            ), 
         array(
             'hierarchical' => true,
             'labels' => $labels,
@@ -645,16 +715,35 @@ function custom_workout_body_area_taxonomy() {
         )
     );
 
-    $default_terms = array( 'Hip Abductors','Chest','Triceps','Shoulders','Quadriceps','Glutes','Calves','Hip Flexors','Quadriceps','Abs','Hamstrings','Full Body','Legs','Biceps','Forearms','Back' );
+    $default_terms = array( 
+        'Hip Abductors',
+        'Chest',
+        'Triceps',
+        'Shoulders',
+        'Quadriceps',
+        'Glutes',
+        'Calves',
+        'Hip Flexors',
+        'Quadriceps',
+        'Abs',
+        'Hamstrings',
+        'Full Body',
+        'Legs',
+        'Biceps',
+        'Forearms',
+        'Back' 
+    );
 
     foreach ($default_terms as $term_name) {
-        wp_insert_term($term_name, 'body_area');
+        wp_insert_term(
+            $term_name, 
+            'body_area'
+        );
     }
 
 }
 
 add_action( 'init', 'custom_workout_body_area_taxonomy' );
-
 
 function custom_taxonomy() {
     $labels = array(
@@ -673,7 +762,7 @@ function custom_taxonomy() {
 
     register_taxonomy(
         'diet',
-        'recipe', // Change 'recipe' to your custom post type slug
+        'recipe',
         array(
             'hierarchical' => true,
             'labels' => $labels,
@@ -687,13 +776,12 @@ function custom_taxonomy() {
 
 add_action( 'init', 'custom_taxonomy' );
 
-/*
+/**
 * Books Custom Post Types
 */
    
-function custom_post_book_type() {
-   
-    // Set UI labels for Custom Post Type
+function custom_post_book_type() {   
+
         $labels = array(
             'name'                => _x( 'Books', 'Post Type General Name', 'twentytwentyone' ),
             'singular_name'       => _x( 'Book', 'Post Type Singular Name', 'twentytwentyone' ),
@@ -709,8 +797,6 @@ function custom_post_book_type() {
             'not_found'           => __( 'Not Found', 'twentytwentyone' ),
             'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
         );
-           
-    // Set other options for Custom Post Type
            
         $args = array(
             'label'               => __( 'books', 'twentytwentyone' ),
@@ -735,25 +821,19 @@ function custom_post_book_type() {
        
         );
            
-        // Registering your Custom Post Type
         register_post_type( 'book', $args );
        
     }
        
-/* Hook into the 'init' action so that the function
-* Containing our post type registration is not 
-* unnecessarily executed. 
-*/
     
 add_action( 'init', 'custom_post_book_type', 0 );
 
-/*
+/**
 * Podcasts Custom Post Types
 */
    
 function custom_post_podcast_type() {
    
-    // Set UI labels for Custom Post Type
         $labels = array(
             'name'                => _x( 'Podcasts', 'Post Type General Name', 'twentytwentyone' ),
             'singular_name'       => _x( 'Podcast', 'Post Type Singular Name', 'twentytwentyone' ),
@@ -769,9 +849,7 @@ function custom_post_podcast_type() {
             'not_found'           => __( 'Not Found', 'twentytwentyone' ),
             'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
         );
-           
-    // Set other options for Custom Post Type
-           
+                      
         $args = array(
             'label'               => __( 'podcasts', 'twentytwentyone' ),
             'description'         => __( 'podcasts', 'twentytwentyone' ),
@@ -795,25 +873,19 @@ function custom_post_podcast_type() {
        
         );
            
-        // Registering your Custom Post Type
         register_post_type( 'podcast', $args );
        
     }
        
-/* Hook into the 'init' action so that the function
-* Containing our post type registration is not 
-* unnecessarily executed. 
-*/
     
 add_action( 'init', 'custom_post_podcast_type', 0 );
 
-/*
+/**
 * Gyms Custom Post Types
 */
    
 function custom_post_gym_type() {
-   
-    // Set UI labels for Custom Post Type
+
         $labels = array(
             'name'                => _x( 'Gyms', 'Post Type General Name', 'twentytwentyone' ),
             'singular_name'       => _x( 'Gym', 'Post Type Singular Name', 'twentytwentyone' ),
@@ -829,9 +901,7 @@ function custom_post_gym_type() {
             'not_found'           => __( 'Not Found', 'twentytwentyone' ),
             'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
         );
-           
-    // Set other options for Custom Post Type
-           
+                   
         $args = array(
             'label'               => __( 'gyms', 'twentytwentyone' ),
             'description'         => __( 'gyms', 'twentytwentyone' ),
@@ -855,7 +925,6 @@ function custom_post_gym_type() {
        
         );
            
-        // Registering your Custom Post Type
         register_post_type( 'gym', $args );
        
     }

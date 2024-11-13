@@ -14,8 +14,12 @@
     </div>
 </footer>
 
-
   <script src="<?php echo get_bloginfo('template_directory'); ?>/js/bootstrap.bundle.min.js"></script>
+  
+  <?php
+    include(get_template_directory() . '/utilities/icons.php');
+  ?>
+
   <?php wp_footer();?>
 </body>
 </html>

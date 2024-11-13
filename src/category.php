@@ -14,7 +14,7 @@
     
     <h2>Category: <?php single_cat_title('' , true ) ?></h2>    
 
-<section class="main-section mt-4">
+<section class="main-section">
     <div class="container">
         <div class="row g-grid gap-2 w-100 d-flex">
         <?php

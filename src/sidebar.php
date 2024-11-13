@@ -63,4 +63,44 @@
     </div>
     <?php } ?>
   </div>
+  <div class="section mt-4">
+
+    <?php 
+
+      $current_page_id = get_the_ID();
+      $parent_page_id = wp_get_post_parent_id($current_page_id);
+      $section_page_id = $parent_page_id ? $parent_page_id : $current_page_id;
+      $section_title = get_the_title($section_page_id);
+      $section_link = get_permalink($section_page_id);
+
+      $child_pages = get_pages([
+          'child_of' => $current_page_id,
+          'sort_column' => 'menu_order',
+          'sort_order' => 'ASC'
+      ]); 
+
+      if (!empty($child_pages)) { ?>
+
+        <h3 class="section-title">In This Section</h3>
+        <div class="app-icons">
+
+        <?php $child_pages = array_filter($child_pages, function($page) use ($current_page_id) {
+            return $page->ID != $current_page_id;
+        });
+
+        echo '<div class="side-bar-navigation">';
+        echo '<ul class="side-bar-items">';
+
+            foreach ($child_pages as $page) {
+                echo '<li><a href="' . get_permalink($page->ID) . '">' . esc_html($page->post_title) . '</a></li>';
+            }
+
+        echo '</ul>';
+        echo '<a class="btn btn-primary mt-2" href="' . esc_url($section_link) . '">Back to ' . esc_html($section_title) . '</a>';
+        echo '</div>';
+      }
+      
+    ?>
+  </div>
 </div>
+</div> 

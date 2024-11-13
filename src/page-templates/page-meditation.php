@@ -10,7 +10,7 @@ get_header();
 
 ?>
 
-<section class="main-section mt-4">
+<section class="main-section">
 
 <div class="container">
 

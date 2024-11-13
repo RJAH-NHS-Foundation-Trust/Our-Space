@@ -11,7 +11,7 @@
 
 ?>
 
-<section class="main-section mt-4">
+<section class="main-section">
     <div class="container">
 
       <div class="row">        
@@ -41,7 +41,7 @@
 
 if($totalPopularPosts > 0) { ?>
 
-<section class="main-section mt-4">
+<section class="main-section">
     <div class="container">
       <div class="row g-grid gap-2 w-100 d-flex">    
             <h3>Popular <?php echo $hubTitle; ?> Resources </h3>
