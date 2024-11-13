@@ -95,6 +95,9 @@ function remove_admin_bar_comments() {
         $wp_admin_bar->remove_menu('wpforms-menu');
         $wp_admin_bar->remove_menu('tribe-events');
         $wp_admin_bar->remove_menu('new-content');
+        $wp_admin_bar->remove_menu('customize');
+        $wp_admin_bar->remove_menu('edit');
+        $wp_admin_bar->remove_menu('search');
     }
 }
 add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_comments' );
@@ -437,6 +440,55 @@ function custom_post_link_type() {
 }
     
 add_action( 'init', 'custom_post_link_type', 0 );
+
+/**
+* Staff Networks Custom Post Types
+*/
+   
+function custom_post_staff_network_type() {
+   
+    $labels = array(
+        'name'                => _x( 'Staff Network', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Staff Network', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Staff Networks', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent Staff Network', 'twentytwentyone' ),
+        'all_items'           => __( 'All Staff Networks', 'twentytwentyone' ),
+        'view_item'           => __( 'View Staff Network', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Add New Staff Network', 'twentytwentyone' ),
+        'add_new'             => __( 'Add New Staff Network', 'twentytwentyone' ),
+        'edit_item'           => __( 'Edit Staff Network', 'twentytwentyone' ),
+        'update_item'         => __( 'Update Staff Network', 'twentytwentyone' ),
+        'search_items'        => __( 'Search Staff Network', 'twentytwentyone' ),
+        'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+    );
+        
+    $args = array(
+        'label'               => __( 'Staff Network', 'twentytwentyone' ),
+        'description'         => __( 'Staff Network', 'twentytwentyone' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-admin-links',
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+    
+    );
+    register_post_type( 'staff-network', $args );
+    
+}
+    
+add_action( 'init', 'custom_post_staff_network_type', 0 );
 
 /**
 * Workouts Custom Post Types
