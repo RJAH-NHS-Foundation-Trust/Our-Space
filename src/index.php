@@ -1,5 +1,22 @@
 <?php get_header(); ?>    
   <div class="container mt-5">
+
+  <?php 
+    $curMonth = date('m');
+    $curDate = date('d');
+    $curYear = date('Y');
+    
+  if($curYear == 2025 && $curMonth == 03 && $curDate >= 17 && $curDate <= 23)
+  { ?>
+
+    <div class="row mt-2 text-center">
+      <a href="<?php echo get_option('home'); ?>/neurodiversity-week">
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/ncw-week.png">
+      </a>
+    </div>
+
+  <?php } ?>
+
     <div class="row mt-2">
 
     <?php          
