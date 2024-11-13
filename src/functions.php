@@ -23,8 +23,8 @@ function ourspace_init() {
     add_filter('wpseo_prev_rel_link', '__return_false');
     add_filter('wpseo_debug_markers', '__return_false');
     add_filter('wpseo_json_ld_output', '__return_false');
-    add_filter('comments_open', '__return_false', 20, 2);
     add_filter('pings_open', '__return_false', 20, 2);
+    add_filter('comments_open', '__return_false', 20, 2);
     add_filter('comments_array', '__return_empty_array', 10, 2);
     add_action('admin_init', 'disable_admin_comments');
     add_filter('embed_oembed_html', function($code) { return str_replace('<iframe', '<iframe class="ratio ratio-1x1" width="600" height="450" ', $code);});
@@ -40,6 +40,10 @@ function disable_gutenberg($current_status, $post_type)
     return false;
 }
 
+/**
+* Remove comments from sidebar 
+*/
+
 function remove_admin_menu_items() {
 	$remove_menu_items = array(__('Comments'));
 	global $menu;
@@ -49,9 +53,51 @@ function remove_admin_menu_items() {
 		if(in_array($item[0] != NULL?$item[0]:"" , $remove_menu_items)){
 		unset($menu[key($menu)]);}
 	}
-}
+};
 
 add_action('admin_menu', 'remove_admin_menu_items');
+
+/**
+* Redirect user away from comments page
+*/
+
+add_action('admin_init', function () {
+
+    global $pagenow;
+     
+    if ($pagenow === 'edit-comments.php') {
+        wp_safe_redirect(admin_url());
+        exit;
+    }
+
+    add_action('admin_menu', function () {
+        remove_menu_page('edit-comments.php');
+    });
+    
+    foreach (get_post_types() as $post_type) {
+        if (post_type_supports($post_type, 'comments')) {
+            remove_post_type_support($post_type, 'comments');
+            remove_post_type_support($post_type, 'trackbacks');
+        }
+    }
+        
+});
+
+/**
+* Remove items from menu bar
+*/
+
+function remove_admin_bar_comments() {
+    global $wp_admin_bar;
+    if (is_admin_bar_showing()) {
+        $wp_admin_bar->remove_menu('wp-logo');
+        $wp_admin_bar->remove_menu('comments');
+        $wp_admin_bar->remove_menu('wpforms-menu');
+        $wp_admin_bar->remove_menu('tribe-events');
+        $wp_admin_bar->remove_menu('new-content');
+    }
+}
+add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_comments' );
 
 /**
 * Change Admin Footer Text
@@ -90,7 +136,7 @@ function custom_login()
 add_action('login_head', 'custom_login');
 
 /**
-  * Custom admin logo
+* Custom admin logo
 */
  
 add_action('admin_menu', 'our_space_admin_menu');
@@ -103,6 +149,10 @@ function our_space_admin_menu()
 }
 
 add_action('admin_head', 'our_space_admin_style');
+
+/**
+* Add Admin Styling
+*/
 
 function our_space_admin_style()
 {
@@ -137,55 +187,55 @@ function create_categories_on_activation() {
 add_action('after_switch_theme', 'create_categories_on_activation');
 
 /**
- * Pagination
- */
+* Pagination
+*/
 
  function bootstrap_pagination(\WP_Query $wp_query = null, $echo = true, $params = [])
  {
-     if (null === $wp_query) {
-         global $wp_query;
-     }
+    if (null === $wp_query) {
+        global $wp_query;
+    }
  
-     $add_args = [];
+    $add_args = [];
  
-     $pages = paginate_links(array_merge([
-             'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
-             'format' => '?paged=%#%',
-             'current' => max(1, get_query_var('paged')),
-             'total' => $wp_query->max_num_pages,
-             'type' => 'array',
-             'show_all' => false,
-             'end_size' => 3,
-             'mid_size' => 1,
-             'prev_next' => true,
-             'prev_text' => __('Previous Page'),
-             'next_text' => __('Next Page'),
-             'add_args' => $add_args,
-             'add_fragment' => ''
-         ], $params)
-     );
- 
-     if (is_array($pages)) {
+    $pages = paginate_links(array_merge([
+            'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+            'format' => '?paged=%#%',
+            'current' => max(1, get_query_var('paged')),
+            'total' => $wp_query->max_num_pages,
+            'type' => 'array',
+            'show_all' => false,
+            'end_size' => 3,
+            'mid_size' => 1,
+            'prev_next' => true,
+            'prev_text' => __('Previous Page'),
+            'next_text' => __('Next Page'),
+            'add_args' => $add_args,
+            'add_fragment' => ''
+        ], $params)
+    );
 
-         $pagination = '<nav class="mt-3" aria-label="navigation">';
- 
-         $pagination .= '<ul class="pagination justify-content-center"';
- 
-         foreach ($pages as $page) {
-             $pagination .= '<li class="page-item' . (strpos($page, 'current') !== false ? ' active' : '') . '"> ' . str_replace('page-numbers', 'page-link', $page) . '</li>';
-         }
- 
-         $pagination .= '</ul></nav>';
- 
-         if ($echo) {
-             echo $pagination;
-         } else {
-             return $pagination;
-         }
-     }
- 
-     return null;
- }
+    if (is_array($pages)) {
+
+        $pagination = '<nav class="mt-3" aria-label="navigation">';
+
+        $pagination .= '<ul class="pagination justify-content-center"';
+
+        foreach ($pages as $page) {
+            $pagination .= '<li class="page-item' . (strpos($page, 'current') !== false ? ' active' : '') . '"> ' . str_replace('page-numbers', 'page-link', $page) . '</li>';
+        }
+
+        $pagination .= '</ul></nav>';
+
+        if ($echo) {
+            echo $pagination;
+        } else {
+            return $pagination;
+        }
+    }
+
+    return null;
+}
 
 /**
 * Hub Custom Post Types
@@ -207,8 +257,7 @@ function custom_post_hub_type() {
         'search_items'        => __( 'Search Hubs', 'twentytwentyone' ),
         'not_found'           => __( 'Not Found', 'twentytwentyone' ),
         'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
-    );
-       
+    );       
        
     $args = array(
         'label'               => __( 'books', 'twentytwentyone' ),
@@ -235,7 +284,6 @@ function custom_post_hub_type() {
     register_post_type( 'hub', $args );       
 }
 
-
 add_action( 'init', 'custom_post_hub_type', 0 );
 
 /**
@@ -244,51 +292,48 @@ add_action( 'init', 'custom_post_hub_type', 0 );
    
 function custom_post_recipe_type() {
    
-    // Set UI labels for Custom Post Type
-        $labels = array(
-            'name'                => _x( 'Recipes', 'Post Type General Name', 'twentytwentyone' ),
-            'singular_name'       => _x( 'Recipe', 'Post Type Singular Name', 'twentytwentyone' ),
-            'menu_name'           => __( 'Recipes', 'twentytwentyone' ),
-            'parent_item_colon'   => __( 'Parent Recipe', 'twentytwentyone' ),
-            'all_items'           => __( 'All Recipes', 'twentytwentyone' ),
-            'view_item'           => __( 'View Recipes', 'twentytwentyone' ),
-            'add_new_item'        => __( 'Add New Recipe', 'twentytwentyone' ),
-            'add_new'             => __( 'Add New', 'twentytwentyone' ),
-            'edit_item'           => __( 'Edit Recipe', 'twentytwentyone' ),
-            'update_item'         => __( 'Update Recipe', 'twentytwentyone' ),
-            'search_items'        => __( 'Search Recipe', 'twentytwentyone' ),
-            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
-        );
-           
-    // Set other options for Custom Post Type
-           
-        $args = array(
-            'label'               => __( 'recipes', 'twentytwentyone' ),
-            'description'         => __( 'recipes', 'twentytwentyone' ),
-            'labels'              => $labels,
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'diet','post_tag' ),
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-food',
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-       
-        );           
+    $labels = array(
+        'name'                => _x( 'Recipes', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Recipe', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Recipes', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent Recipe', 'twentytwentyone' ),
+        'all_items'           => __( 'All Recipes', 'twentytwentyone' ),
+        'view_item'           => __( 'View Recipes', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Add New Recipe', 'twentytwentyone' ),
+        'add_new'             => __( 'Add New', 'twentytwentyone' ),
+        'edit_item'           => __( 'Edit Recipe', 'twentytwentyone' ),
+        'update_item'         => __( 'Update Recipe', 'twentytwentyone' ),
+        'search_items'        => __( 'Search Recipe', 'twentytwentyone' ),
+        'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+    );
         
-        register_post_type( 'recipe', $args );
-       
-    }
+    $args = array(
+        'label'               => __( 'recipes', 'twentytwentyone' ),
+        'description'         => __( 'recipes', 'twentytwentyone' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'taxonomies'          => array( 'diet','post_tag' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-food',
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+    
+    );           
+    
+    register_post_type( 'recipe', $args );
+    
+}
     
 add_action( 'init', 'custom_post_recipe_type', 0 );
 
@@ -298,48 +343,48 @@ add_action( 'init', 'custom_post_recipe_type', 0 );
    
 function custom_post_daysout_type() {
    
-        $labels = array(
-            'name'                => _x( 'Days Out', 'Post Type General Name', 'twentytwentyone' ),
-            'singular_name'       => _x( 'Day Out', 'Post Type Singular Name', 'twentytwentyone' ),
-            'menu_name'           => __( 'Days Out', 'twentytwentyone' ),
-            'parent_item_colon'   => __( 'Parent Day Out', 'twentytwentyone' ),
-            'all_items'           => __( 'All Days Out', 'twentytwentyone' ),
-            'view_item'           => __( 'View Days Out', 'twentytwentyone' ),
-            'add_new_item'        => __( 'Add New Day Out', 'twentytwentyone' ),
-            'add_new'             => __( 'Add New', 'twentytwentyone' ),
-            'edit_item'           => __( 'Edit Day Out', 'twentytwentyone' ),
-            'update_item'         => __( 'Update Day Out', 'twentytwentyone' ),
-            'search_items'        => __( 'Search Day Out', 'twentytwentyone' ),
-            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
-        );
-           
-        $args = array(
-            'label'               => __( 'daysout', 'twentytwentyone' ),
-            'description'         => __( 'daysout', 'twentytwentyone' ),
-            'labels'              => $labels,
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'category' ),
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-share',
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-       
-        );
+    $labels = array(
+        'name'                => _x( 'Days Out', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Day Out', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Days Out', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent Day Out', 'twentytwentyone' ),
+        'all_items'           => __( 'All Days Out', 'twentytwentyone' ),
+        'view_item'           => __( 'View Days Out', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Add New Day Out', 'twentytwentyone' ),
+        'add_new'             => __( 'Add New', 'twentytwentyone' ),
+        'edit_item'           => __( 'Edit Day Out', 'twentytwentyone' ),
+        'update_item'         => __( 'Update Day Out', 'twentytwentyone' ),
+        'search_items'        => __( 'Search Day Out', 'twentytwentyone' ),
+        'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+    );
+        
+    $args = array(
+        'label'               => __( 'daysout', 'twentytwentyone' ),
+        'description'         => __( 'daysout', 'twentytwentyone' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'taxonomies'          => array( 'category' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-share',
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+    
+    );
 
-        register_post_type( 'daysout', $args );
+    register_post_type( 'daysout', $args );
        
-    }
+}
     
 add_action( 'init', 'custom_post_daysout_type', 0 );
 
@@ -349,47 +394,47 @@ add_action( 'init', 'custom_post_daysout_type', 0 );
    
 function custom_post_link_type() {
    
-        $labels = array(
-            'name'                => _x( 'Links', 'Post Type General Name', 'twentytwentyone' ),
-            'singular_name'       => _x( 'Link', 'Post Type Singular Name', 'twentytwentyone' ),
-            'menu_name'           => __( 'Links', 'twentytwentyone' ),
-            'parent_item_colon'   => __( 'Parent Link', 'twentytwentyone' ),
-            'all_items'           => __( 'All Links', 'twentytwentyone' ),
-            'view_item'           => __( 'View Links', 'twentytwentyone' ),
-            'add_new_item'        => __( 'Add New Link', 'twentytwentyone' ),
-            'add_new'             => __( 'Add New', 'twentytwentyone' ),
-            'edit_item'           => __( 'Edit Link', 'twentytwentyone' ),
-            'update_item'         => __( 'Update Link', 'twentytwentyone' ),
-            'search_items'        => __( 'Search Link', 'twentytwentyone' ),
-            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
-        );
-           
-        $args = array(
-            'label'               => __( 'links', 'twentytwentyone' ),
-            'description'         => __( 'links', 'twentytwentyone' ),
-            'labels'              => $labels,
-            'supports'            => array( 'title',),
-            'taxonomies'          => array( 'category'),
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-admin-links',
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-       
-        );
-        register_post_type( 'link', $args );
-       
-    }
+    $labels = array(
+        'name'                => _x( 'Links', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Link', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Links', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent Link', 'twentytwentyone' ),
+        'all_items'           => __( 'All Links', 'twentytwentyone' ),
+        'view_item'           => __( 'View Links', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Add New Link', 'twentytwentyone' ),
+        'add_new'             => __( 'Add New', 'twentytwentyone' ),
+        'edit_item'           => __( 'Edit Link', 'twentytwentyone' ),
+        'update_item'         => __( 'Update Link', 'twentytwentyone' ),
+        'search_items'        => __( 'Search Link', 'twentytwentyone' ),
+        'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+    );
+        
+    $args = array(
+        'label'               => __( 'links', 'twentytwentyone' ),
+        'description'         => __( 'links', 'twentytwentyone' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title',),
+        'taxonomies'          => array( 'category'),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-admin-links',
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+    
+    );
+    register_post_type( 'link', $args );
+    
+}
     
 add_action( 'init', 'custom_post_link_type', 0 );
 
@@ -399,48 +444,48 @@ add_action( 'init', 'custom_post_link_type', 0 );
    
 function custom_post_workout_type() {
 
-        $labels = array(
-            'name'                => _x( 'Workouts', 'Post Type General Name', 'twentytwentyone' ),
-            'singular_name'       => _x( 'Workout', 'Post Type Singular Name', 'twentytwentyone' ),
-            'menu_name'           => __( 'Workouts', 'twentytwentyone' ),
-            'parent_item_colon'   => __( 'Parent Workout', 'twentytwentyone' ),
-            'all_items'           => __( 'All Workouts', 'twentytwentyone' ),
-            'view_item'           => __( 'View Workouts', 'twentytwentyone' ),
-            'add_new_item'        => __( 'Add New Workout', 'twentytwentyone' ),
-            'add_new'             => __( 'Add New', 'twentytwentyone' ),
-            'edit_item'           => __( 'Edit Workout', 'twentytwentyone' ),
-            'update_item'         => __( 'Update Workout', 'twentytwentyone' ),
-            'search_items'        => __( 'Search Workout', 'twentytwentyone' ),
-            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
-        );
-           
-        $args = array(
-            'label'               => __( 'workouts', 'twentytwentyone' ),
-            'description'         => __( 'workouts', 'twentytwentyone' ),
-            'labels'              => $labels,
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'diet','category' ),
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-heart',
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-       
-        );
+    $labels = array(
+        'name'                => _x( 'Workouts', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Workout', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Workouts', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent Workout', 'twentytwentyone' ),
+        'all_items'           => __( 'All Workouts', 'twentytwentyone' ),
+        'view_item'           => __( 'View Workouts', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Add New Workout', 'twentytwentyone' ),
+        'add_new'             => __( 'Add New', 'twentytwentyone' ),
+        'edit_item'           => __( 'Edit Workout', 'twentytwentyone' ),
+        'update_item'         => __( 'Update Workout', 'twentytwentyone' ),
+        'search_items'        => __( 'Search Workout', 'twentytwentyone' ),
+        'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+    );
+        
+    $args = array(
+        'label'               => __( 'workouts', 'twentytwentyone' ),
+        'description'         => __( 'workouts', 'twentytwentyone' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'taxonomies'          => array( 'diet','category' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-heart',
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+    
+    );
 
-        register_post_type( 'workout', $args );
-       
-    }
+    register_post_type( 'workout', $args );
+    
+}
     
 add_action( 'init', 'custom_post_workout_type', 0 );
 
@@ -450,48 +495,47 @@ add_action( 'init', 'custom_post_workout_type', 0 );
    
 function custom_post_exercise_type() {
    
-        $labels = array(
-            'name'                => _x( 'Exercises', 'Post Type General Name', 'twentytwentyone' ),
-            'singular_name'       => _x( 'Exercise', 'Post Type Singular Name', 'twentytwentyone' ),
-            'menu_name'           => __( 'Exercises', 'twentytwentyone' ),
-            'parent_item_colon'   => __( 'Parent Exercise', 'twentytwentyone' ),
-            'all_items'           => __( 'All Exercises', 'twentytwentyone' ),
-            'view_item'           => __( 'View Exercises', 'twentytwentyone' ),
-            'add_new_item'        => __( 'Add New Exercise', 'twentytwentyone' ),
-            'add_new'             => __( 'Add New Exercise', 'twentytwentyone' ),
-            'edit_item'           => __( 'Edit Exercise', 'twentytwentyone' ),
-            'update_item'         => __( 'Update Exercise', 'twentytwentyone' ),
-            'search_items'        => __( 'Search Exercise', 'twentytwentyone' ),
-            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
-        );
-                
-        $args = array(
-            'label'               => __( 'exercises', 'twentytwentyone' ),
-            'description'         => __( 'exercises', 'twentytwentyone' ),
-            'labels'              => $labels,
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'diet' ),
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-superhero-alt',
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-       
-        );
-           
-        register_post_type( 'exercise', $args );
-       
-    }
+    $labels = array(
+        'name'                => _x( 'Exercises', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Exercise', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Exercises', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent Exercise', 'twentytwentyone' ),
+        'all_items'           => __( 'All Exercises', 'twentytwentyone' ),
+        'view_item'           => __( 'View Exercises', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Add New Exercise', 'twentytwentyone' ),
+        'add_new'             => __( 'Add New Exercise', 'twentytwentyone' ),
+        'edit_item'           => __( 'Edit Exercise', 'twentytwentyone' ),
+        'update_item'         => __( 'Update Exercise', 'twentytwentyone' ),
+        'search_items'        => __( 'Search Exercise', 'twentytwentyone' ),
+        'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+    );
+            
+    $args = array(
+        'label'               => __( 'exercises', 'twentytwentyone' ),
+        'description'         => __( 'exercises', 'twentytwentyone' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'taxonomies'          => array( 'diet' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-superhero-alt',
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+    
+    );
+        
+    register_post_type( 'exercise', $args );    
+}
     
 add_action( 'init', 'custom_post_exercise_type', 0 );
 
@@ -501,50 +545,53 @@ add_action( 'init', 'custom_post_exercise_type', 0 );
    
 function custom_post_discount_codes_type() {
    
-        $labels = array(
-            'name'                => _x( 'Discount Codes', 'Post Type General Name', 'twentytwentyone' ),
-            'singular_name'       => _x( 'Discount Code', 'Post Type Singular Name', 'twentytwentyone' ),
-            'menu_name'           => __( 'Discount Codes', 'twentytwentyone' ),
-            'parent_item_colon'   => __( 'Parent Discount Code', 'twentytwentyone' ),
-            'all_items'           => __( 'All Discount Codes', 'twentytwentyone' ),
-            'view_item'           => __( 'View Discount Codes', 'twentytwentyone' ),
-            'add_new_item'        => __( 'Add New Discount Code', 'twentytwentyone' ),
-            'add_new'             => __( 'Add New Discount Code', 'twentytwentyone' ),
-            'edit_item'           => __( 'Edit Discount Code', 'twentytwentyone' ),
-            'update_item'         => __( 'Update Discount Code', 'twentytwentyone' ),
-            'search_items'        => __( 'Search Discount Code', 'twentytwentyone' ),
-            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
-        );
-           
-        $args = array(
-            'label'               => __( 'Discount Codes', 'twentytwentyone' ),
-            'description'         => __( 'Discount Codes', 'twentytwentyone' ),
-            'labels'              => $labels,
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'diet' ),
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-money-alt',
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-       
-        );
+    $labels = array(
+        'name'                => _x( 'Discount Codes', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Discount Code', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Discount Codes', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent Discount Code', 'twentytwentyone' ),
+        'all_items'           => __( 'All Discount Codes', 'twentytwentyone' ),
+        'view_item'           => __( 'View Discount Codes', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Add New Discount Code', 'twentytwentyone' ),
+        'add_new'             => __( 'Add New Discount Code', 'twentytwentyone' ),
+        'edit_item'           => __( 'Edit Discount Code', 'twentytwentyone' ),
+        'update_item'         => __( 'Update Discount Code', 'twentytwentyone' ),
+        'search_items'        => __( 'Search Discount Code', 'twentytwentyone' ),
+        'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+    );
         
-        register_post_type( 'discount-code', $args );
-       
-    }
+    $args = array(
+        'label'               => __( 'Discount Codes', 'twentytwentyone' ),
+        'description'         => __( 'Discount Codes', 'twentytwentyone' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'taxonomies'          => array( 'diet' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-money-alt',
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+    
+    );
+    
+    register_post_type( 'discount-code', $args );       
+}
     
 add_action( 'init', 'custom_post_discount_codes_type', 0 );
+
+/**
+* Types Area taxonomy
+*/
 
 function custom_workout_taxonomy() {
 
@@ -581,6 +628,10 @@ function custom_workout_taxonomy() {
 
 add_action( 'init', 'custom_workout_taxonomy' );
 
+/**
+* Distances Area taxonomy
+*/
+
 function custom_workout_distance_taxonomy() {
     $labels = array(
         'name' => _x( 'Distances', 'taxonomy general name' ),
@@ -598,7 +649,7 @@ function custom_workout_distance_taxonomy() {
 
     register_taxonomy(
         'distance',
-        array('workout','exercise'), // Change 'recipe' to your custom post type slug
+        array('workout','exercise'),
         array(
             'hierarchical' => true,
             'labels' => $labels,
@@ -611,6 +662,10 @@ function custom_workout_distance_taxonomy() {
 }
 
 add_action( 'init', 'custom_workout_distance_taxonomy' );
+
+/**
+* Difficulty Area taxonomy
+*/
 
 function custom_workout_difficulty_taxonomy() {
 
@@ -649,10 +704,13 @@ function custom_workout_difficulty_taxonomy() {
     foreach ($default_terms as $term_name) {
         wp_insert_term($term_name, 'workout-difficulty');
     }
-
 }
 
 add_action( 'init', 'custom_workout_difficulty_taxonomy' );
+
+/**
+* Locations Area taxonomy
+*/
 
 function custom_workout_location_taxonomy() {
     $labels = array(
@@ -671,7 +729,7 @@ function custom_workout_location_taxonomy() {
 
     register_taxonomy(
         'locations',
-        array('workout','exercise'), // Change 'recipe' to your custom post type slug
+        array('workout','exercise'),
         array(
             'hierarchical' => true,
             'labels' => $labels,
@@ -684,6 +742,10 @@ function custom_workout_location_taxonomy() {
 }
 
 add_action( 'init', 'custom_workout_body_area_taxonomy' );
+
+/**
+* Body Area taxonomy
+*/
 
 function custom_workout_body_area_taxonomy() {
     $labels = array(
@@ -740,10 +802,13 @@ function custom_workout_body_area_taxonomy() {
             'body_area'
         );
     }
-
 }
 
 add_action( 'init', 'custom_workout_body_area_taxonomy' );
+
+/**
+* Diets taxonomy
+*/
 
 function custom_taxonomy() {
     $labels = array(
@@ -782,49 +847,47 @@ add_action( 'init', 'custom_taxonomy' );
    
 function custom_post_book_type() {   
 
-        $labels = array(
-            'name'                => _x( 'Books', 'Post Type General Name', 'twentytwentyone' ),
-            'singular_name'       => _x( 'Book', 'Post Type Singular Name', 'twentytwentyone' ),
-            'menu_name'           => __( 'Books', 'twentytwentyone' ),
-            'parent_item_colon'   => __( 'Parent Book', 'twentytwentyone' ),
-            'all_items'           => __( 'All Books', 'twentytwentyone' ),
-            'view_item'           => __( 'View Books', 'twentytwentyone' ),
-            'add_new_item'        => __( 'Add New Book', 'twentytwentyone' ),
-            'add_new'             => __( 'Add New', 'twentytwentyone' ),
-            'edit_item'           => __( 'Edit Book', 'twentytwentyone' ),
-            'update_item'         => __( 'Update Book', 'twentytwentyone' ),
-            'search_items'        => __( 'Search Books', 'twentytwentyone' ),
-            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
-        );
-           
-        $args = array(
-            'label'               => __( 'books', 'twentytwentyone' ),
-            'description'         => __( 'books', 'twentytwentyone' ),
-            'labels'              => $labels,
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'category' ),
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-book',
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-       
-        );
-           
-        register_post_type( 'book', $args );
-       
-    }
-       
+    $labels = array(
+        'name'                => _x( 'Books', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Book', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Books', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent Book', 'twentytwentyone' ),
+        'all_items'           => __( 'All Books', 'twentytwentyone' ),
+        'view_item'           => __( 'View Books', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Add New Book', 'twentytwentyone' ),
+        'add_new'             => __( 'Add New', 'twentytwentyone' ),
+        'edit_item'           => __( 'Edit Book', 'twentytwentyone' ),
+        'update_item'         => __( 'Update Book', 'twentytwentyone' ),
+        'search_items'        => __( 'Search Books', 'twentytwentyone' ),
+        'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+    );
+        
+    $args = array(
+        'label'               => __( 'books', 'twentytwentyone' ),
+        'description'         => __( 'books', 'twentytwentyone' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'taxonomies'          => array( 'category' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-book',
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+    
+    );
+        
+    register_post_type( 'book', $args );       
+}
     
 add_action( 'init', 'custom_post_book_type', 0 );
 
@@ -834,49 +897,47 @@ add_action( 'init', 'custom_post_book_type', 0 );
    
 function custom_post_podcast_type() {
    
-        $labels = array(
-            'name'                => _x( 'Podcasts', 'Post Type General Name', 'twentytwentyone' ),
-            'singular_name'       => _x( 'Podcast', 'Post Type Singular Name', 'twentytwentyone' ),
-            'menu_name'           => __( 'Podcasts', 'twentytwentyone' ),
-            'parent_item_colon'   => __( 'Parent Podcast', 'twentytwentyone' ),
-            'all_items'           => __( 'All Podcasts', 'twentytwentyone' ),
-            'view_item'           => __( 'View Podcasts', 'twentytwentyone' ),
-            'add_new_item'        => __( 'Add New Podcast', 'twentytwentyone' ),
-            'add_new'             => __( 'Add New', 'twentytwentyone' ),
-            'edit_item'           => __( 'Edit Podcast', 'twentytwentyone' ),
-            'update_item'         => __( 'Update Podcast', 'twentytwentyone' ),
-            'search_items'        => __( 'Search Podcast', 'twentytwentyone' ),
-            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
-        );
-                      
-        $args = array(
-            'label'               => __( 'podcasts', 'twentytwentyone' ),
-            'description'         => __( 'podcasts', 'twentytwentyone' ),
-            'labels'              => $labels,
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'category' ),
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-format-audio',
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-       
-        );
-           
-        register_post_type( 'podcast', $args );
-       
-    }
-       
+    $labels = array(
+        'name'                => _x( 'Podcasts', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Podcast', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Podcasts', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent Podcast', 'twentytwentyone' ),
+        'all_items'           => __( 'All Podcasts', 'twentytwentyone' ),
+        'view_item'           => __( 'View Podcasts', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Add New Podcast', 'twentytwentyone' ),
+        'add_new'             => __( 'Add New', 'twentytwentyone' ),
+        'edit_item'           => __( 'Edit Podcast', 'twentytwentyone' ),
+        'update_item'         => __( 'Update Podcast', 'twentytwentyone' ),
+        'search_items'        => __( 'Search Podcast', 'twentytwentyone' ),
+        'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+    );
+                    
+    $args = array(
+        'label'               => __( 'podcasts', 'twentytwentyone' ),
+        'description'         => __( 'podcasts', 'twentytwentyone' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'taxonomies'          => array( 'category' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-format-audio',
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+    
+    );
+        
+    register_post_type( 'podcast', $args );       
+}
     
 add_action( 'init', 'custom_post_podcast_type', 0 );
 
@@ -886,53 +947,47 @@ add_action( 'init', 'custom_post_podcast_type', 0 );
    
 function custom_post_gym_type() {
 
-        $labels = array(
-            'name'                => _x( 'Gyms', 'Post Type General Name', 'twentytwentyone' ),
-            'singular_name'       => _x( 'Gym', 'Post Type Singular Name', 'twentytwentyone' ),
-            'menu_name'           => __( 'Gyms', 'twentytwentyone' ),
-            'parent_item_colon'   => __( 'Parent Gym', 'twentytwentyone' ),
-            'all_items'           => __( 'All Gyms', 'twentytwentyone' ),
-            'view_item'           => __( 'View Gyms', 'twentytwentyone' ),
-            'add_new_item'        => __( 'Add New Gym', 'twentytwentyone' ),
-            'add_new'             => __( 'Add New', 'twentytwentyone' ),
-            'edit_item'           => __( 'Edit Gym', 'twentytwentyone' ),
-            'update_item'         => __( 'Update Gym', 'twentytwentyone' ),
-            'search_items'        => __( 'Search Gym', 'twentytwentyone' ),
-            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
-        );
-                   
-        $args = array(
-            'label'               => __( 'gyms', 'twentytwentyone' ),
-            'description'         => __( 'gyms', 'twentytwentyone' ),
-            'labels'              => $labels,
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'category' ),
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-superhero',
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-       
-        );
-           
-        register_post_type( 'gym', $args );
-       
-    }
-       
-/* Hook into the 'init' action so that the function
-* Containing our post type registration is not 
-* unnecessarily executed. 
-*/
+    $labels = array(
+        'name'                => _x( 'Gyms', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Gym', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Gyms', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent Gym', 'twentytwentyone' ),
+        'all_items'           => __( 'All Gyms', 'twentytwentyone' ),
+        'view_item'           => __( 'View Gyms', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Add New Gym', 'twentytwentyone' ),
+        'add_new'             => __( 'Add New', 'twentytwentyone' ),
+        'edit_item'           => __( 'Edit Gym', 'twentytwentyone' ),
+        'update_item'         => __( 'Update Gym', 'twentytwentyone' ),
+        'search_items'        => __( 'Search Gym', 'twentytwentyone' ),
+        'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+    );
+                
+    $args = array(
+        'label'               => __( 'gyms', 'twentytwentyone' ),
+        'description'         => __( 'gyms', 'twentytwentyone' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'taxonomies'          => array( 'category' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-superhero',
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+    
+    );
+        
+    register_post_type( 'gym', $args );       
+}
     
 add_action( 'init', 'custom_post_gym_type', 0 );
 
@@ -942,57 +997,47 @@ add_action( 'init', 'custom_post_gym_type', 0 );
    
 function custom_post_support_groups_type() {
    
-    // Set UI labels for Custom Post Type
-        $labels = array(
-            'name'                => _x( 'Groups', 'Post Type General Name', 'twentytwentyone' ),
-            'singular_name'       => _x( 'Group', 'Post Type Singular Name', 'twentytwentyone' ),
-            'menu_name'           => __( 'Groups', 'twentytwentyone' ),
-            'parent_item_colon'   => __( 'Parent Group', 'twentytwentyone' ),
-            'all_items'           => __( 'All Groups', 'twentytwentyone' ),
-            'view_item'           => __( 'View Groups', 'twentytwentyone' ),
-            'add_new_item'        => __( 'Add New Group', 'twentytwentyone' ),
-            'add_new'             => __( 'Add New', 'twentytwentyone' ),
-            'edit_item'           => __( 'Edit Group', 'twentytwentyone' ),
-            'update_item'         => __( 'Update Group', 'twentytwentyone' ),
-            'search_items'        => __( 'Search Group', 'twentytwentyone' ),
-            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
-        );
-           
-    // Set other options for Custom Post Type
-           
-        $args = array(
-            'label'               => __( 'groups', 'twentytwentyone' ),
-            'description'         => __( 'groups', 'twentytwentyone' ),
-            'labels'              => $labels,
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'category','post_tag'),
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-networking',
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-       
-        );
-           
-        // Registering your Custom Post Type
-        register_post_type( 'group', $args );
-       
-    }
-       
-/* Hook into the 'init' action so that the function
-* Containing our post type registration is not 
-* unnecessarily executed. 
-*/
+    $labels = array(
+        'name'                => _x( 'Groups', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Group', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Groups', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent Group', 'twentytwentyone' ),
+        'all_items'           => __( 'All Groups', 'twentytwentyone' ),
+        'view_item'           => __( 'View Groups', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Add New Group', 'twentytwentyone' ),
+        'add_new'             => __( 'Add New', 'twentytwentyone' ),
+        'edit_item'           => __( 'Edit Group', 'twentytwentyone' ),
+        'update_item'         => __( 'Update Group', 'twentytwentyone' ),
+        'search_items'        => __( 'Search Group', 'twentytwentyone' ),
+        'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+    );
+        
+    $args = array(
+        'label'               => __( 'groups', 'twentytwentyone' ),
+        'description'         => __( 'groups', 'twentytwentyone' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'taxonomies'          => array( 'category','post_tag'),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-networking',
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+    
+    );
+        
+    register_post_type( 'group', $args );       
+}
     
 add_action( 'init', 'custom_post_support_groups_type', 0 );
 
@@ -1002,57 +1047,47 @@ add_action( 'init', 'custom_post_support_groups_type', 0 );
    
 function custom_post_route_type() {
    
-    // Set UI labels for Custom Post Type
-        $labels = array(
-            'name'                => _x( 'Routes', 'Post Type General Name', 'twentytwentyone' ),
-            'singular_name'       => _x( 'Route', 'Post Type Singular Name', 'twentytwentyone' ),
-            'menu_name'           => __( 'Routes', 'twentytwentyone' ),
-            'parent_item_colon'   => __( 'Parent Route', 'twentytwentyone' ),
-            'all_items'           => __( 'All Routes', 'twentytwentyone' ),
-            'view_item'           => __( 'View Routes', 'twentytwentyone' ),
-            'add_new_item'        => __( 'Add New Route', 'twentytwentyone' ),
-            'add_new'             => __( 'Add New', 'twentytwentyone' ),
-            'edit_item'           => __( 'Edit Route', 'twentytwentyone' ),
-            'update_item'         => __( 'Update Route', 'twentytwentyone' ),
-            'search_items'        => __( 'Search Route', 'twentytwentyone' ),
-            'not_found'           => __( 'Not Found', 'twentytwentyone' ),
-            'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
-        );
-           
-    // Set other options for Custom Post Type
-           
-        $args = array(
-            'label'               => __( 'routes', 'twentytwentyone' ),
-            'description'         => __( 'routes', 'twentytwentyone' ),
-            'labels'              => $labels,
-            'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies'          => array( 'length' ),
-            'hierarchical'        => false,
-            'public'              => true,
-            'show_ui'             => true,
-            'show_in_menu'        => true,
-            'show_in_nav_menus'   => true,
-            'show_in_admin_bar'   => true,
-            'menu_position'       => 5,
-            'menu_icon'           => 'dashicons-admin-site',
-            'can_export'          => true,
-            'has_archive'         => true,
-            'exclude_from_search' => false,
-            'publicly_queryable'  => true,
-            'capability_type'     => 'post',
-            'show_in_rest' => true,
-       
-        );
-           
-        // Registering your Custom Post Type
-        register_post_type( 'routes', $args );
-       
-    }
-       
-/* Hook into the 'init' action so that the function
-* Containing our post type registration is not 
-* unnecessarily executed. 
-*/
+    $labels = array(
+        'name'                => _x( 'Routes', 'Post Type General Name', 'twentytwentyone' ),
+        'singular_name'       => _x( 'Route', 'Post Type Singular Name', 'twentytwentyone' ),
+        'menu_name'           => __( 'Routes', 'twentytwentyone' ),
+        'parent_item_colon'   => __( 'Parent Route', 'twentytwentyone' ),
+        'all_items'           => __( 'All Routes', 'twentytwentyone' ),
+        'view_item'           => __( 'View Routes', 'twentytwentyone' ),
+        'add_new_item'        => __( 'Add New Route', 'twentytwentyone' ),
+        'add_new'             => __( 'Add New', 'twentytwentyone' ),
+        'edit_item'           => __( 'Edit Route', 'twentytwentyone' ),
+        'update_item'         => __( 'Update Route', 'twentytwentyone' ),
+        'search_items'        => __( 'Search Route', 'twentytwentyone' ),
+        'not_found'           => __( 'Not Found', 'twentytwentyone' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'twentytwentyone' ),
+    );
+        
+    $args = array(
+        'label'               => __( 'routes', 'twentytwentyone' ),
+        'description'         => __( 'routes', 'twentytwentyone' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'taxonomies'          => array( 'length' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'menu_icon'           => 'dashicons-admin-site',
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest' => true,
+    
+    );
+        
+    register_post_type( 'routes', $args );       
+}
     
 add_action( 'init', 'custom_post_route_type', 0 );
 
@@ -1073,7 +1108,7 @@ function custom_length_taxonomy() {
 
     register_taxonomy(
         'length',
-        'routes', // Change 'recipe' to your custom post type slug
+        'routes',
         array(
             'hierarchical' => true,
             'labels' => $labels,
@@ -1084,14 +1119,11 @@ function custom_length_taxonomy() {
         )
     );
 
-    // Define default terms
     $default_terms = array( 'Less Than 5K', '3K', '5K', '10k', 'More Than 10k' );
 
-    // Add default terms
     foreach ($default_terms as $term_name) {
         wp_insert_term($term_name, 'length');
     }
-
 }
 
 add_action( 'init', 'custom_length_taxonomy' );
@@ -1114,7 +1146,7 @@ function custom_difficulty_taxonomy() {
 
     register_taxonomy(
         'difficulty',
-        'routes', // Change 'recipe' to your custom post type slug
+        'routes',
         array(
             'hierarchical' => true,
             'labels' => $labels,
@@ -1125,31 +1157,30 @@ function custom_difficulty_taxonomy() {
         )
     );
 
-    // Define default terms
     $default_terms = array( 'Easy', 'Intermediate', 'Difficult', 'Advanced' );
-
-    // Add default terms
     foreach ($default_terms as $term_name) {
         wp_insert_term($term_name, 'difficulty');
     }
 }
 
 add_action( 'init', 'custom_difficulty_taxonomy' );
-
 add_action( 'after_switch_theme', 'create_page_on_theme_activation' );
 
 function create_page_on_theme_activation(){
 
     $hubTemplate = 'page-hub.php';
 
-    // ANXIETY HUB PAGE 
+    /**
+    * Anxiety Hub Page
+    */ 
+
     $page_name = 'Anxiety';
     $page_name_with_spacing = strtolower(str_replace(' ','_',$page_name));
-    $new_page_title     = __($page_name,'text-domain'); // Page's title
-    $new_page_content   = '';                           // Content goes here
-    $new_page_template  = $hubTemplate;       // The template to use for the page
-    $page_check = get_page_by_title($new_page_title);   // Check if the page already exists
-    // Store the above data in an array
+    $new_page_title     = __($page_name,'text-domain'); 
+    $new_page_content   = '';
+    $new_page_template  = $hubTemplate;
+    $page_check = get_page_by_title($new_page_title);
+
     $new_page = array(
             'post_type'     => 'page', 
             'post_title'    => $new_page_title,
@@ -1159,14 +1190,15 @@ function create_page_on_theme_activation(){
             'post_name'     => $page_name_with_spacing
     );
 
-    // DEPRESSION HUB PAGE 
+    /**
+    * Depression Hub Page
+    */  
     $page_name = 'Depression';
     $page_name_with_spacing = strtolower(str_replace(' ','_',$page_name));
-    $new_page_title     = __($page_name,'text-domain'); // Page's title
-    $new_page_content   = '';                           // Content goes here
-    $new_page_template  = $hubTemplate;       // The template to use for the page
-    $page_check = get_page_by_title($new_page_title);   // Check if the page already exists
-    // Store the above data in an array
+    $new_page_title     = __($page_name,'text-domain');
+    $new_page_content   = '';
+    $new_page_template  = $hubTemplate;
+    $page_check = get_page_by_title($new_page_title);
     $new_page = array(
             'post_type'     => 'page', 
             'post_title'    => $new_page_title,
@@ -1176,14 +1208,15 @@ function create_page_on_theme_activation(){
             'post_name'     => $page_name_with_spacing
     );
 
-    // MINDFULNESS HUB PAGE 
+    /**
+    * Mindfullness Hub Page
+    */ 
     $page_name = 'Mindfulness';
     $page_name_with_spacing = strtolower(str_replace(' ','_',$page_name));
-    $new_page_title     = __($page_name,'text-domain'); // Page's title
-    $new_page_content   = '';                           // Content goes here
-    $new_page_template  = $hubTemplate;       // The template to use for the page
-    $page_check = get_page_by_title($new_page_title);   // Check if the page already exists
-    // Store the above data in an array
+    $new_page_title     = __($page_name,'text-domain');
+    $new_page_content   = '';
+    $new_page_template  = $hubTemplate;
+    $page_check = get_page_by_title($new_page_title);
     $new_page = array(
             'post_type'     => 'page', 
             'post_title'    => $new_page_title,
@@ -1193,14 +1226,16 @@ function create_page_on_theme_activation(){
             'post_name'     => $page_name_with_spacing
     );
 
-    // YOGA HUB PAGE 
+    /**
+    * Yoga Hub Page
+    */
     $page_name = 'Yoga';
     $page_name_with_spacing = strtolower(str_replace(' ','_',$page_name));
-    $new_page_title     = __($page_name,'text-domain'); // Page's title
-    $new_page_content   = '';                           // Content goes here
-    $new_page_template  = $hubTemplate;       // The template to use for the page
-    $page_check = get_page_by_title($new_page_title);   // Check if the page already exists
-    // Store the above data in an array
+    $new_page_title     = __($page_name,'text-domain');
+    $new_page_content   = '';
+    $new_page_template  = $hubTemplate;
+    $page_check = get_page_by_title($new_page_title);
+
     $new_page = array(
             'post_type'     => 'page', 
             'post_title'    => $new_page_title,
@@ -1210,15 +1245,16 @@ function create_page_on_theme_activation(){
             'post_name'     => $page_name_with_spacing
     );
 
+    /**
+    * Meditation Hub Page
+    */
 
-    // MEDITATION HUB PAGE 
     $page_name = 'Meditation';
     $page_name_with_spacing = strtolower(str_replace(' ','_',$page_name));
-    $new_page_title     = __($page_name,'text-domain'); // Page's title
-    $new_page_content   = '';                           // Content goes here
-    $new_page_template  = $hubTemplate;       // The template to use for the page
-    $page_check = get_page_by_title($new_page_title);   // Check if the page already exists
-    // Store the above data in an array
+    $new_page_title     = __($page_name,'text-domain');
+    $new_page_content   = '';
+    $new_page_template  = $hubTemplate;
+    $page_check = get_page_by_title($new_page_title);
     $new_page = array(
             'post_type'     => 'page', 
             'post_title'    => $new_page_title,
@@ -1228,14 +1264,16 @@ function create_page_on_theme_activation(){
             'post_name'     => $page_name_with_spacing
     );
 
-    // PERSONAL HEALTH HUB PAGE 
+    /**
+    * Personal Health Hub Page
+    */
+
     $page_name = 'Personal Health';
     $page_name_with_spacing = strtolower(str_replace(' ','_',$page_name));
-    $new_page_title     = __($page_name,'text-domain'); // Page's title
-    $new_page_content   = '';                           // Content goes here
-    $new_page_template  = $hubTemplate;       // The template to use for the page
-    $page_check = get_page_by_title($new_page_title);   // Check if the page already exists
-    // Store the above data in an array
+    $new_page_title     = __($page_name,'text-domain');
+    $new_page_content   = '';
+    $new_page_template  = $hubTemplate;
+    $page_check = get_page_by_title($new_page_title);  
     $new_page = array(
             'post_type'     => 'page', 
             'post_title'    => $new_page_title,
@@ -1243,12 +1281,13 @@ function create_page_on_theme_activation(){
             'post_status'   => 'publish',
             'post_author'   => 1,
             'post_name'     => $page_name_with_spacing
-    ); 
-
+    );
 }
 
-// POST VIEWS 
-// Functions to power the post views that drive the popular pages in the hubs
+/**
+* Post Views
+* Functions to power the post views that drive the popular pages in the hubs
+*/
 
 function wpb_set_post_views($postID) {
     $count_key = 'wpb_post_views_count';
@@ -1263,7 +1302,10 @@ function wpb_set_post_views($postID) {
     }
 }
 
-//Get rid of prefetching to keep the count accurate
+/**
+* Get rid of prefetching to keep the count accurate
+*/
+
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
 wpb_set_post_views(get_the_ID());
@@ -1277,7 +1319,12 @@ function wpb_track_post_views ($post_id) {
 
     wpb_set_post_views($post_id);
 }
+
 add_action( 'wp_head', 'wpb_track_post_views');
+
+/**
+* Post View Count
+*/
 
 function wpb_get_post_views($postID){
     $count_key = 'wpb_post_views_count';
@@ -1289,6 +1336,5 @@ function wpb_get_post_views($postID){
     }
     return $count.' Views';
 }
-
 
 ?>
