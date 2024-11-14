@@ -3,6 +3,7 @@
         <div class="row">
             <p>OurSpace Copyright <?php echo date("Y"); ?> 
             <a class="footer-link" href="https://www.rjah.nhs.uk">The Robert Jones & Agnes Hunt NHS Foundation Trust</a></p>
+            <p>Linked content copyright of it's respective owner unless otherwise stated</p>
         </div>
         <div class="row">
           <div class="col-12">
