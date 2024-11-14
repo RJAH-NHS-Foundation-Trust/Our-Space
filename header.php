@@ -21,7 +21,7 @@
 
 <?php
   include(get_template_directory() . '/utilities/banner.php');
-  $no_search = get_option('excluded_search_pages', []);
+  $excluded_search_pages = get_option('excluded_search_pages', []);
 ?>
 
 <nav class="py-2 bg-body-tertiary border-bottom">
