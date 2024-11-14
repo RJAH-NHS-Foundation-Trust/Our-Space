@@ -3,13 +3,12 @@
   $meditation = array("Meditation");
   $finance = array("Finances");
   $personal_fitness = array("Personal Fitness","Desk Exercises","Exercises","Workouts","Routes");
-  $titles_to_exclude = array("Reasonable Adjustments For Autistic Employees","International Mens Day","World Mental Health Day 2024","Mental Health First Aid Supervision","Neuro Friends","Body Doubling","Fun Run","Therapy Dogs Nationwide","Discount Codes", "Mental Health First Aiders", "Parents", "Events", "Staff Networks","Get In Touch","Groups","Pharmacy","Get Help Now","Gyms","Days Out","Suggest an edit");
-  $no_search = array("Mental Health First Aid Supervision","Neuro Friends","Fun Run","Therapy Dogs Nationwide","Body Doubling");
+  $excluded_pages = get_option('excluded_pages', []);
   $title = get_the_title();
 
   if($pagename != "events") {
 
-    if (!in_array(trim(strtolower($title)), array_map('strtolower', $titles_to_exclude))) {
+    if (!in_array(get_the_ID(), $excluded_pages)) {
   
     if(in_array($title,$personal_fitness)) { ?>
 

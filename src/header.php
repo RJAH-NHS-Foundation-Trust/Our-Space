@@ -21,7 +21,7 @@
 
 <?php
   include(get_template_directory() . '/utilities/banner.php');
-  $no_search = array("Mental Health First Aid Supervision","Neuro Friends","Fun Run","Therapy Dogs Nationwide","Body Doubling");
+  $no_search = get_option('excluded_search_pages', []);
 ?>
 
 <nav class="py-2 bg-body-tertiary border-bottom">
@@ -78,7 +78,7 @@
 
 <?php  
 
-  if(!in_array($title,$no_search)) { ?>
+if (!in_array(get_the_ID(), $excluded_search_pages)) { ?>
   <div class="jumbotron">
       <div class="overlay"></div>
       <div class="container">

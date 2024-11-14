@@ -154,6 +154,39 @@ function our_space_admin_menu()
 add_action('admin_head', 'our_space_admin_style');
 
 /**
+* Admin menu Re-order
+*/
+
+add_filter('custom_menu_order', function() { return true; });
+add_filter('menu_order', 'my_new_admin_menu_order');
+
+function my_new_admin_menu_order( $menu_order ) {
+  
+  $new_positions = array(
+    'index.php' => 1,  // Dashboard
+    'edit.php?post_type=hub' => 2,  // Hubs
+    'edit.php?post_type=page' => 3,  // Pages
+    'edit.php' => 4,  // Posts
+    'edit.php?post_type=tribe_events' => 5,  // Events
+    'edit.php?post_type=acf-field-group' => 6,  // Advanced Custom Fields
+    'edit.php?post_type=team' => 7,  // Advanced Custom Fields
+    'upload.php' => 8,  // Media
+  );
+  
+  function move_element(&$array, $a, $b) {
+    $out = array_splice($array, $a, 1);
+    array_splice($array, $b, 0, $out);
+  }
+
+  foreach( $new_positions as $value => $new_index ) {
+    if( $current_index = array_search( $value, $menu_order ) ) {
+      move_element($menu_order, $current_index, $new_index);
+    }
+  }
+  return $menu_order;
+};
+
+/**
 * Add Admin Styling
 */
 
@@ -266,7 +299,7 @@ function custom_post_hub_type() {
         'label'               => __( 'books', 'twentytwentyone' ),
         'description'         => __( 'books', 'twentytwentyone' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'page-attributes'),
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'page-attributes'),
         'hierarchical'        => false,
         'public'              => true,
         'show_ui'             => true,
@@ -467,7 +500,7 @@ function custom_post_staff_network_type() {
         'label'               => __( 'Staff Network', 'twentytwentyone' ),
         'description'         => __( 'Staff Network', 'twentytwentyone' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'supports'            => array( 'title', 'editor', 'thumbnail', ),
         'hierarchical'        => false,
         'public'              => true,
         'show_ui'             => true,
@@ -919,7 +952,7 @@ function custom_post_book_type() {
         'label'               => __( 'books', 'twentytwentyone' ),
         'description'         => __( 'books', 'twentytwentyone' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', ),
         'taxonomies'          => array( 'category' ),
         'hierarchical'        => false,
         'public'              => true,
@@ -969,7 +1002,7 @@ function custom_post_podcast_type() {
         'label'               => __( 'podcasts', 'twentytwentyone' ),
         'description'         => __( 'podcasts', 'twentytwentyone' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
         'taxonomies'          => array( 'category' ),
         'hierarchical'        => false,
         'public'              => true,
@@ -1019,7 +1052,7 @@ function custom_post_gym_type() {
         'label'               => __( 'gyms', 'twentytwentyone' ),
         'description'         => __( 'gyms', 'twentytwentyone' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'supports'            => array( 'title', 'editor', 'thumbnail' ),
         'taxonomies'          => array( 'category' ),
         'hierarchical'        => false,
         'public'              => true,
@@ -1069,7 +1102,7 @@ function custom_post_support_groups_type() {
         'label'               => __( 'groups', 'twentytwentyone' ),
         'description'         => __( 'groups', 'twentytwentyone' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
         'taxonomies'          => array( 'category','post_tag'),
         'hierarchical'        => false,
         'public'              => true,
@@ -1119,7 +1152,7 @@ function custom_post_route_type() {
         'label'               => __( 'routes', 'twentytwentyone' ),
         'description'         => __( 'routes', 'twentytwentyone' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
         'taxonomies'          => array( 'length' ),
         'hierarchical'        => false,
         'public'              => true,
@@ -1387,6 +1420,108 @@ function wpb_get_post_views($postID){
         return "0 View";
     }
     return $count.' Views';
+}
+
+/**
+* Custom Settings
+*/
+
+function my_custom_menu_pages() {
+    // Add main menu item
+    add_menu_page(
+        'Page Exclusions', // Main Page title
+        'Page Exclusions', // Main Menu title
+        'manage_options',  // Capability
+        'page-exclusions', // Main Menu slug
+        '',                // No callback function for main page
+        'dashicons-dismiss' // Optional icon
+    );
+
+    // Submenu for Disclaimer Exclusions
+    add_submenu_page(
+        'page-exclusions',               // Parent slug (main menu)
+        'Disclaimer Exclusions',         // Page title
+        'Disclaimer Exclusions',         // Menu title
+        'manage_options',                // Capability
+        'exclude-pages',                 // Submenu slug
+        'render_exclude_pages_settings_page' // Callback function
+    );
+
+    // Submenu for Search Exclusions
+    add_submenu_page(
+        'page-exclusions',                  // Parent slug (main menu)
+        'Search Exclusions',                // Page title
+        'Search Exclusions',                // Menu title
+        'manage_options',                   // Capability
+        'exclude-search-pages',             // Submenu slug
+        'render_exclude_search_pages_settings_page' // Callback function
+    );
+}
+add_action('admin_menu', 'my_custom_menu_pages');
+
+function render_exclude_pages_settings_page() {
+    ?>
+    <div class="wrap">
+        <h1>Disclaimer Exclusions</h1>
+        <form method="post" action="options.php">
+            <?php
+            settings_fields('exclude_pages_group');
+            do_settings_sections('exclude-pages');
+            submit_button();
+            ?>
+        </form>
+    </div>
+    <?php
+}
+
+function render_exclude_search_pages_settings_page() {
+    ?>
+    <div class="wrap">
+        <h1>Search Exclusions</h1>
+        <form method="post" action="options.php">
+            <?php
+            settings_fields('exclude_search_pages_group');
+            do_settings_sections('exclude-search-pages');
+            submit_button();
+            ?>
+        </form>
+    </div>
+    <?php
+}
+
+function my_custom_settings_init() {
+    register_setting('exclude_pages_group', 'excluded_pages');
+    add_settings_section('exclude_pages_section', 'Select Pages to Exclude', null, 'exclude-pages');
+    add_settings_field('excluded_pages', 'Exclude Pages', 'render_exclude_pages_field', 'exclude-pages', 'exclude_pages_section');
+
+    register_setting('exclude_search_pages_group', 'excluded_search_pages');
+    add_settings_section('exclude_search_pages_section', 'Select Pages to Exclude', null, 'exclude-search-pages');
+    add_settings_field('excluded_search_pages', 'Exclude Pages', 'render_exclude_search_pages_field', 'exclude-search-pages', 'exclude_search_pages_section');
+}
+add_action('admin_init', 'my_custom_settings_init');
+
+function render_exclude_pages_field() {
+    $excluded_pages = get_option('excluded_pages', []);
+    if (!is_array($excluded_pages)) {
+        $excluded_pages = [];
+    }
+    $pages = get_pages(array('sort_column' => 'post_title', 'sort_order' => 'asc'));
+    foreach ($pages as $page) {
+        $checked = in_array($page->ID, $excluded_pages) ? 'checked' : '';
+        echo "<label><input type='checkbox' name='excluded_pages[]' value='{$page->ID}' $checked> {$page->post_title}</label><br>";
+    }
+}
+
+function render_exclude_search_pages_field() {
+    $excluded_pages = get_option('excluded_search_pages', []);
+    if (!is_array($excluded_pages)) {
+        $excluded_pages = [];
+    }
+    $pages = get_pages(array('sort_column' => 'post_title', 'sort_order' => 'asc'));
+    foreach ($pages as $page) {
+        $checked = in_array($page->ID, $excluded_pages) ? 'checked' : '';
+        echo "<label><input type='checkbox' name='excluded_search_pages[]' value='{$page->ID}' $checked> {$page->post_title}</label><br>";
+    }
 }
 
 ?>
