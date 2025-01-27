@@ -1063,7 +1063,76 @@ a.btn-mhd:hover {
   color: white;
 }
 
-.btn-neuro {
+/* TTTD */
+
+.tttd-card {
+  background-color: #24B78D; /* Adjust this to match the card background color in your image */
+  border: none;
+  padding: 20px;
+}
+
+.tttd-card-alt {
+  background-color: #643D8E; /* Adjust this to match the card background color in your image */
+  border: none;
+  padding: 20px;
+}
+
+.tttd-card-primary {
+  background-color: #08ACA6; /* Adjust this to match the card background color in your image */
+  border: none;
+  padding: 20px;
+}
+
+.tttd-card {
+  border-radius: 0%;
+}
+
+.tttd-mhd {
+  background-color: #f8607c;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  color: white;
+}
+
+a.tttd-mhd {
+  background-color: #f8607c;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  color: white;
+}
+
+.tttd-mhd:visited {
+  background-color: #f8607c;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  color: white;
+}
+
+
+.btn-mhd:active {
+  background-color: #f8607c;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  color: white;
+}
+
+a.tttd-mhd:hover {
+  background-color: #f8607c;
+  opacity: 0.8;
+  color:#000000 }
+
+  .btn-tttd {
+    background-color: #00427A;
+    color: white !important;
+  }
+  
+  .btn-tttd:hover {
+    background-color: #00427A;
+    color: white;
+  }
+
+
+  .btn-neuro {
   background-color: #F3A71D;
   transition: opacity 0.5s ease-in-out;
   opacity: 1;
