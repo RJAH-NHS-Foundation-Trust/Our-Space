@@ -6,11 +6,11 @@
         <div class="row">
             <?php if(!empty(get_field('group_location')))
             {?>
-            <div class="col-6">
+            <div class="col-12 col-lg-6 order-lg-1">
             <iframe src="<?php the_field('group_location'); ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <?php } ?>
-            <div class="col-6">
+            <div class="col-12 col-lg-6 order-lg-2 pb-4">
                 <h1><?php the_title(); ?></h1>
                 <span><strong>Found a problem:</strong> <a href="<?php echo get_option('home'); ?>/suggest-an-edit/">Suggest an edit</a>
                 <div class="mt-3">
@@ -47,8 +47,6 @@
                     <a class="btn btn-primary mt-2 mb-2" target="_blank" href="<?php the_field('group_url'); ?>">Visit Group Site</a>
                 </div>
                 <?php } ?>
-
-
             </div>
         </div>
     </div>

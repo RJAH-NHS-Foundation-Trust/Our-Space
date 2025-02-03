@@ -3,6 +3,13 @@
 add_theme_support('title-tag');
 add_theme_support('post-thumbnails');
 
+function add_lightbox_assets() {
+    wp_enqueue_style('lightbox-css', get_template_directory_uri() . '/css/lightbox.css');
+    wp_enqueue_script('lightbox-js', get_template_directory_uri() . '/js/lightbox.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'add_lightbox_assets');
+
+
 /**
 * Remove Howdy Site Wide
 */
@@ -713,6 +720,7 @@ function custom_workout_taxonomy() {
 
 add_action( 'init', 'custom_workout_taxonomy' );
 
+
 /**
 * Distances Area taxonomy
 */
@@ -814,7 +822,7 @@ function custom_workout_location_taxonomy() {
 
     register_taxonomy(
         'locations',
-        array('workout','exercise'),
+        array('gyms'),
         array(
             'hierarchical' => true,
             'labels' => $labels,
@@ -1027,6 +1035,50 @@ function custom_post_podcast_type() {
 add_action( 'init', 'custom_post_podcast_type', 0 );
 
 /**
+* Locations taxonomy
+*/
+
+function custom_location_taxonomy() {
+
+    $labels = array(
+        'name' => _x( 'Locations', 'taxonomy general name' ),
+        'singular_name' => _x( 'Location', 'taxonomy singular name' ),
+        'search_items' =>  __( 'Search Locations' ),
+        'all_items' => __( 'All Locations' ),
+        'parent_item' => __( 'Parent Location' ),
+        'parent_item_colon' => __( 'Parent Location:' ),
+        'edit_item' => __( 'Edit Location' ), 
+        'update_item' => __( 'Update Location' ),
+        'add_new_item' => __( 'Add New Location' ),
+        'new_item_name' => __( 'New Type Location' ),
+        'menu_name' => __( 'Locations' ),
+    );
+
+    register_taxonomy(
+        'location',
+        array(
+            'gym'
+            
+        ), 
+        array(
+            'hierarchical' => true,
+            'labels' => $labels,
+            'show_ui' => true,
+            'show_admin_column' => true,
+            'query_var' => true,
+            'rewrite' => array( 'slug' => 'location' ),
+        )
+    );
+
+    $default_terms = array( 'Oswestry', 'Shrewsbury', 'Wrexham' );
+    foreach ($default_terms as $term_name) {
+        wp_insert_term($term_name, 'location');
+    }
+}
+
+add_action( 'init', 'custom_location_taxonomy' );
+
+/**
 * Gyms Custom Post Types
 */
    
@@ -1053,7 +1105,7 @@ function custom_post_gym_type() {
         'description'         => __( 'gyms', 'twentytwentyone' ),
         'labels'              => $labels,
         'supports'            => array( 'title', 'editor', 'thumbnail' ),
-        'taxonomies'          => array( 'category' ),
+        'taxonomies'          => array( 'category','location' ),
         'hierarchical'        => false,
         'public'              => true,
         'show_ui'             => true,

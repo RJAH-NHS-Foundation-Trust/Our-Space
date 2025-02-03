@@ -35,7 +35,7 @@
     </div>
     <div class="blog-excerpt">
         <?php if(has_post_thumbnail()) { ?>
-        <img src="<?php the_post_thumbnail_url() ?>" alt="Thumbnail" class="thumbnail">
+        <img src="<?php the_post_thumbnail_url() ?>" alt="<? the_title(); ?>" class="thumbnail">
         <?php } ?>
         <p><?php the_excerpt(); ?></p>
         <a href="<?php the_permalink(); ?>" class="btn btn-outline-success">Read More</a>

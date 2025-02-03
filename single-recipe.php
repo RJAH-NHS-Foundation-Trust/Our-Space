@@ -4,7 +4,7 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-lg-6 order-lg-1">
             <?php
 
             global $post;
@@ -13,15 +13,15 @@
 
                 $featured_image_url = get_the_post_thumbnail_url($post->ID);
                 
-                echo '<img class="img-fluid mb-2" src="' . $featured_image_url . '" alt="Featured Image">';
+                echo '<img class="img-fluid mb-2" src="' . $featured_image_url . '" alt="'. the_title()  .'" />';
             } else { ?>
 
-                <img src="<?php echo get_bloginfo('template_directory'); ?>/img/food-default.webp">
+                <img src="<?php echo get_bloginfo('template_directory'); ?>/img/food-default.webp" alt="<?php get_the_title(); ?>" />
             <?php }
             ?>
 
             </div>
-            <div class="col-6">
+            <div class="col-12 col-lg-6 order-lg-2">
                 <h1><?php the_title(); ?></h1>
                 <span><strong>Found a problem:</strong> <a href="<?php echo get_option('home'); ?>/suggest-an-edit/">Suggest an edit</a>
                 <div class="mt-3">

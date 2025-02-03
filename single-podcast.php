@@ -5,7 +5,7 @@
 
         <div class="row">
             <div class="col-6">
-                <img class="img-fluid mb-2" src="<?php the_field('podcast_art'); ?>" />
+                <img class="img-fluid mb-2" src="<?php the_field('podcast_art'); ?>" alt="<?php get_the_title(); ?>" />
             </div>
             <div class="col-6">
                 <h1><?php the_title(); ?></h1>

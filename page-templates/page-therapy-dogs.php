@@ -30,12 +30,12 @@
         <div class="row justify-content-center">
             <div class="col-auto">
                 <a href="https://www.friendsrjah.org.uk/" target="_blank">
-                    <img class="fade-image" src="<?php echo get_bloginfo('template_directory'); ?>/img/lof-logo.webp" alt="Logo 1">
+                    <img class="fade-image" src="<?php echo get_bloginfo('template_directory'); ?>/img/lof-logo.webp" alt="League Of Friends Logo">
                 </a>
             </div>
             <div class="col-auto">
                 <a href="https://tdn.org.uk/" target="_blank">
-                    <img class="fade-image" src="<?php echo get_bloginfo('template_directory'); ?>/img/therapy-dogs-logo.webp" alt="Logo 2">
+                    <img class="fade-image" src="<?php echo get_bloginfo('template_directory'); ?>/img/therapy-dogs-logo.webp" alt="Therapy Dogs Nationwide Logo">
                 </a>
             </div>            
         </div>

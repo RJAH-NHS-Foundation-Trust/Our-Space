@@ -11,7 +11,7 @@
 
     <div class="row mt-2 text-center">
       <a href="<?php echo get_option('home'); ?>/neurodiversity-week">
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/ncw-week.png">
+        <img src="<?php echo get_bloginfo('template_directory'); ?>/img/ncw-week.png" alt="Neurodiversity Celebration Week Banner" class="img-fluid" />
       </a>
     </div>
 

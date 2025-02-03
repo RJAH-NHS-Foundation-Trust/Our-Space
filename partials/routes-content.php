@@ -3,9 +3,9 @@
     <?php get_template_part( 'meta-content') ?>
     <div class="blog-excerpt">
         <?php if(has_post_thumbnail()) { ?>
-        <img src="<?php the_post_thumbnail_url() ?>" alt="Thumbnail" class="thumbnail">
+        <img src="<?php the_post_thumbnail_url() ?>" alt="<?php get_the_title(); ?>" class="thumbnail">
         <?php } else { ?>
-            <img class="img-fluid mb-2" src="<?php echo get_bloginfo('template_directory'); ?>/img/route-image-default.webp" alt="Featured Image">
+            <img class="img-fluid mb-2" src="<?php echo get_bloginfo('template_directory'); ?>/img/route-image-default.webp" alt="<?php get_the_title(); ?>" />
         <?php } ?>
         <p><?php the_excerpt(); ?></p>
         <a href="<?php the_permalink(); ?>" class="btn btn-outline-success">Explore</a>

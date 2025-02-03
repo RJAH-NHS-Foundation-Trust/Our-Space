@@ -4,7 +4,7 @@
     <div class="blog-excerpt">
         <?php $podcast_art = get_field('podcast_art'); ?>
         <?php if(!empty($podcast_art)) { ?>
-        <img src="<?php the_field('podcast_art'); ?>" alt="Thumbnail" class="thumbnail"> 
+        <img src="<?php the_field('podcast_art'); ?>" alt="<?php get_the_title(); ?>" class="thumbnail"> 
         <?php } ?>
         <p><?php the_excerpt(); ?></p>
         <div class="row mb-1">

@@ -4,15 +4,28 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-6">    
+            <div class="col-12 col-lg-6 order-lg-1">    
                 <div class="card p-3 border-0">
                     <div class="ratio ratio-1x1">
                         <iframe src="<?php the_field('gym_location'); ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>            
-            <div class="col-6">
+            <div class="col-12 col-lg-6 order-lg-2  pb-4">
                 <h1><?php the_title(); ?></h1>
+                <div class="blog-tags pt-1 pb-1">        
+                    <?php 
+                        $location_terms = get_the_terms(get_the_ID(), 'location');
+                        
+                        if ($location_terms && !is_wp_error($location_terms)) {
+                            foreach($location_terms as $term) { ?>
+                                <span class="tag">
+                                <?php echo '<a class="tag-link" href="' . get_term_link($term->term_id, 'location') . '">' . $term->name . '</a>'; ?>
+                                </span>
+                            <?php }
+                        }
+                    ?>
+                </div>
                 <span><strong>Found a problem:</strong> <a href="<?php echo get_option('home'); ?>/suggest-an-edit/">Suggest an edit</a>
                 <div class="alert alert-secondary mt-2">
                     We do our best to keep information provided as up to date and accurate as possible, but please check the Gym's website for the latest information before signing up or attending.
@@ -44,8 +57,9 @@
                     <h3 class="mt-2">Opening Times</h3>
                     <?php the_field('opening_times'); 
                 } ?>                    
+                
+                <a class="btn btn-primary mt-3" target="_blank" href="<?php the_field('gym_url'); ?>">Visit Gym Website</a>
             </div>
-            <a class="btn btn-primary mb-2" target="_blank" href="<?php the_field('gym_location'); ?>">Visit Gym Website</a>
         </div>
     </div>
   </section>

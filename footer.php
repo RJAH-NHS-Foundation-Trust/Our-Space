@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-12">
             <a href="https://www.friendsrjah.org.uk/" target="_blank">
-              <img src="<?php echo get_bloginfo('template_directory'); ?>/img/lof-logo.webp" alt="LOF Logo"  class="footer-image"/>
+              <img src="<?php echo get_bloginfo('template_directory'); ?>/img/lof-logo.webp" alt="LOF Logo" class="footer-image"/>
             </a>
           </div>
         </div>

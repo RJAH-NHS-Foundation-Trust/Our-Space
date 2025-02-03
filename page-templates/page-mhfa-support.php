@@ -13,8 +13,7 @@
 <header class="neuro-header text-center text-md-left">
     <div class="container-fluid">
         <div class="row neuro-header-content align-items-center">
-            <div class="col-12">
-                <!-- <img class="img-fluid" src="<?php echo get_bloginfo('template_directory'); ?>/img/neurodiversity-rainbow.webp"> -->
+            <div class="col-12">                
                 <h1 class="mt-4">Mental Health First Aider</h1>
                 <h3>Supervision Sessions</h3>
             </div>

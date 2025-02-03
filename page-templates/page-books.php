@@ -40,11 +40,11 @@
 
     <section>
             <div class="container">
-                <div class="row mt-4">
+                <div class="row mt-4 mb-4">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body neuro-card d-flex align-items-center">
-                                <img style="width:100px" class="me-3" src="<?php echo get_bloginfo('template_directory'); ?>/img/library-logo.webp">
+                                <img style="width:100px" class="me-3" src="<?php echo get_bloginfo('template_directory'); ?>/img/library-logo.webp" alt="RJAH Library Logo">
                                 <div>
                                     <p class="card-text text-white">The RJAH Library has a large collection of books covering a large range of topics, you can view all of the books they have in their own catalogue which can be found by clicking the link below.</p>
                                     <a class="btn btn-primary" target="_blank" href="https://rjah.koha-ptfs.co.uk/cgi-bin/koha/opac-shelves.pl?op=view&shelfnumber=1541&sortfield=title">RJAH Wellbeing Collection</a>
@@ -60,7 +60,7 @@
 
     <section class="main-section">
         <div class="container">
-            <div class="row gap-2 w-100 d-flex justify-content-center">
+            <div class="row gap-2 justify-content-center">
                 <?php if ( $posts->have_posts() ) :  while ( $posts->have_posts() ) : $posts->the_post(); 
                     get_template_part( 'partials/book-content', get_post_format() );
                 endwhile; ?> 

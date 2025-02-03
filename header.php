@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php echo get_bloginfo( 'name' ); ?> - <?php echo get_bloginfo( 'description' ); ?></title>
   <link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/css/ourspace.css">
   <link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/css/events.css">
@@ -26,15 +25,15 @@
 
 <nav class="py-2 bg-body-tertiary border-bottom">
   <div class="container d-flex flex-wrap">
+    <div class="logo text-center">
     <ul class="nav me-auto">
-      <div class="logo text-center">
         <li class="nav-item">
-        <a href="<?php echo get_option('home'); ?>">
-            <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo.webp" alt="Logo">
+          <a href="<?php echo get_option('home'); ?>">
+              <img src="<?php echo get_bloginfo('template_directory'); ?>/img/logo.webp" alt="OurSpace Logo">
           </a>
         </li>
-      </div>
-    </ul>
+      </ul>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

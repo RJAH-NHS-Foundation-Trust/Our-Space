@@ -30,13 +30,13 @@
   <div class="container">
     <div class="row">
       <div class="col-4">
-        <img class="img-fluid" src="<?php echo get_bloginfo('template_directory'); ?>/img/nhs_chef1.webp">
+        <img class="img-fluid" src="<?php echo get_bloginfo('template_directory'); ?>/img/nhs_chef1.webp" alt="NHS Chef">
       </div>
       <div class="col-4">
-        <img class="img-fluid" src="<?php echo get_bloginfo('template_directory'); ?>/img/nhs_chef2.webp">
+        <img class="img-fluid" src="<?php echo get_bloginfo('template_directory'); ?>/img/nhs_chef2.webp" alt="NHS Chef">
       </div>
       <div class="col-4">
-        <img class="img-fluid" src="<?php echo get_bloginfo('template_directory'); ?>/img/nhs_chef3.webp">
+        <img class="img-fluid" src="<?php echo get_bloginfo('template_directory'); ?>/img/nhs_chef3.webp" alt="NHS Chef">
       </div>
     </div>
   </div>

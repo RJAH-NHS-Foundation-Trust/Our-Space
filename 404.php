@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row text-center">        
       <div class="col-12 blog-posts">
-          <img class="img-responsive" width="400px" src="<?php echo get_bloginfo('template_directory'); ?>/img/404-meditation.webp">
+          <img class="img-responsive" width="400px" alt="Page Not Found" src="<?php echo get_bloginfo('template_directory'); ?>/img/404-meditation.webp">
           <h2 class="mt-2">You've landed on a page that doesn't exist</h2>
           <p>Take a deep breath and give it another go</p>
       </div> <!-- COL -->

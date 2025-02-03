@@ -841,7 +841,7 @@ a.cat-pills {
   width: 140px; /* Adjust to fit the length of the text */
   height: 30px; /* Adjust as necessary */
   background-color: #00A9A2; /* Banner background color */
-  color: white; /* Banner text color */
+  color: #000000; /* Banner text color */
   text-align: center;
   line-height: 30px; /* Vertically center the text */
   transform: rotate(-45deg); /* Adjust rotation if needed */
@@ -1012,6 +1012,8 @@ a:hover.footer-link {
   background-color: #6e0fee; /* Adjust this to match the card background color in your image */
   border: none;
   padding: 20px;
+  position: relative;
+  overflow: visible; /* Ensure elements can overflow */
 }
 
 .mhd-card {
@@ -1025,6 +1027,32 @@ a:hover.footer-link {
 }
 
 .mhd-card {
+  border-radius: 0%;
+}
+
+.question-mark {
+  position: absolute;
+  top: -20px;  /* Adjust for overlap */
+  right: -20px; /* Adjust for overlap */
+  width: 80px; /* Double the size */
+  height: 80px;
+  background-color: #45b058; /* Bootstrap primary color */
+  color: white;
+  font-size: 40px; /* Adjust size */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Make it a circle */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+.ncw-card {
+  background-color: #6c70ad; /* Adjust this to match the card background color in your image */
+  border: none;
+  padding: 20px;
+  position: relative;
+  overflow: visible; /* Ensure elements can overflow */
   border-radius: 0%;
 }
 
@@ -1148,3 +1176,18 @@ a.tttd-mhd:hover {
 .alert {
   border-radius: 0;
 }
+
+.color-bar {
+  display: flex;
+  height: 20px; /* Adjust height as needed */
+}
+.color-bar div {
+  flex: 1; /* Equal width for all sections */
+}
+.red { background-color: #FF5733; }
+.orange { background-color: #FF8D1A; }
+.yellow { background-color: #FFC300; }
+.green { background-color: #28A745; }
+.blue { background-color: #007BFF; }
+.purple { background-color: #C700B3; }
+.brown { background-color: #A0522D; }

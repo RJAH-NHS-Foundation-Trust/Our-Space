@@ -11,7 +11,7 @@
 
             $featured_image_url = get_the_post_thumbnail_url($post->ID);
 
-            echo '<img class="img-fluid mb-2 card-img-top" src="'. $featured_image_url .'">';
+            echo '<img class="img-fluid mb-2 card-img-top" alt="'. get_the_title() . '" src="'. $featured_image_url .'">';
             } else {
                 echo 'No featured image found.';
             }
