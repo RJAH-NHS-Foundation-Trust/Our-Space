@@ -457,7 +457,7 @@ function custom_post_link_type() {
         'label'               => __( 'links', 'twentytwentyone' ),
         'description'         => __( 'links', 'twentytwentyone' ),
         'labels'              => $labels,
-        'supports'            => array( 'title',),
+        'supports'            => array( 'title','editor'),
         'taxonomies'          => array( 'category'),
         'hierarchical'        => false,
         'public'              => true,
