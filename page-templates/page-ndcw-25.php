@@ -327,7 +327,7 @@
                         <div class="card-body text-white">
                             <ul>
                                 <li>No two people are the same and so we will all have different profiles</li>
-                                <li>Although we talk about specific neurodifferences such as Autism and Dyslexia, the reality is that these can co-occur</li>
+                                <li>Although we talk about specific neuro differences such as Autism and Dyslexia, the reality is that these can co-occur</li>
                                 <li>Every neurodivergent individual has a unique pattern of strengths and challenges</li>
                                 <li>We tend to operate on an approach to diagnosis and labels which can mean that quite often the focus is on the challenges rather than the many strengths and talents of neurodivergent individuals</li>
                                 <li>It is important that we take a person-centred approach, by tailoring strategies to each individual</li>
@@ -527,7 +527,7 @@
                 <div class="card ncw-card">
                     <div class="card-body text-white">
                         <h2 class="card-title">#ThisIsND Quote Templates</h2>
-                        <p class="card-text">To make it easy to get involved and share your neurodiversity stories and lived experiances, Neurodiversity Celebration Week have created a few editable templates tat you can use to create social media content.</p>
+                        <p class="card-text">To make it easy to get involved and share your neurodiversity stories and lived experiences, Neurodiversity Celebration Week have created a few editable templates tat you can use to create social media content.</p>
                         <p class="card-text">You can view the designs available below</p>
                     </div>
                 </div>

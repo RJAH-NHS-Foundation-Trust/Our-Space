@@ -199,7 +199,7 @@
                 <div class="card tttd-card-primary">                    
                     <div class="card-body text-white">
                         <h2 class="card-title">Talking Tips</h2>
-                        <p>A reference card that you can carry with you that has tips on starting a concersation</p>
+                        <p>A reference card that you can carry with you that has tips on starting a conversation</p>
                         <a class="btn btn-tttd" target="_blank" href="<?php echo get_bloginfo('template_directory'); ?>/files/tttd25/TTTD25-Tip-Card.pdf">Download</a> 
                     </div>
                 </div>

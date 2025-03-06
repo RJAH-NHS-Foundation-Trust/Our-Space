@@ -237,7 +237,7 @@
                 <div class="card mhd-card-alt">
                     <div class="card-body">
                         <h2 class="card-title">Share nice feedback</h2>
-                        <p>Take a moment to write down something you admire abouta friend or a colleague and share this with them It’ll be guaranteed to make their day.</p>
+                        <p>Take a moment to write down something you admire about a friend or a colleague and share this with them It’ll be guaranteed to make their day.</p>
                     </div>
                 </div>
             </div>

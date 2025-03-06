@@ -35,7 +35,7 @@
 
 <section class="neuro-section">
     <div class="container text-center">  
-        <h2>10 minutes techtimeouts</h2>      
+        <h2>10 minutes tech timeouts</h2>      
         <div class="row mt-2">
             <div class="col-md-6 mb-4">
                 <div class="card neuro-card">
@@ -82,7 +82,7 @@
 
 <section class="neuro-section">
     <div class="container text-center"> 
-        <h2>1 hour techtimeouts</h2>  
+        <h2>1 hour tech timeouts</h2>  
         <div class="row mt-2">
             <div class="col-md-6 mb-4">
                 <div class="card neuro-card">
@@ -132,7 +132,7 @@
 
 <section class="neuro-section">
     <div class="container text-center"> 
-        <h2>Longer techtimeouts</h2>  
+        <h2>Longer tech timeouts</h2>  
         <div class="row mt-2">
             <div class="col-md-6 mb-4">
                 <div class="card neuro-card">

@@ -57,7 +57,7 @@
                             <div class="card-body text-white">
                                 <p class="card-text">If someone is at immediate risk of suicide, dial <strong>999</strong>.</p>                        
                                 <p class="card-text">If someone is having thoughts of suicide encourage them to call Samaritans on <strong>116 123</strong>, or text 'SHOUT' to <strong>85258</strong>.</p>
-                                <a class="btn btn-neuro" target="_blank" href="<?php echo get_option('home'); ?>/crisis">CRIS Support</a> 
+                                <a class="btn btn-neuro" target="_blank" href="<?php echo get_option('home'); ?>/crisis">CRISIS Support</a> 
                             </div>
                         </div>
                     </div>
