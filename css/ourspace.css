@@ -655,6 +655,13 @@ a.custom-card-link {
   color: var(--card-text);
 }
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem; /* Space between cards */
+}
+
 /*Ingredients Card */
 
 .ingredients-card {
@@ -1191,3 +1198,17 @@ a.tttd-mhd:hover {
 .blue { background-color: #007BFF; }
 .purple { background-color: #C700B3; }
 .brown { background-color: #A0522D; }
+
+
+.member-profile {
+  top: -50px;
+  left: 0;
+}
+
+.member-profile img {
+  width: 100px;
+  height: 100px;
+}
+.rounded-circle {
+  border-radius: 50% !important;
+}

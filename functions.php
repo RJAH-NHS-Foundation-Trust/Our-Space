@@ -1178,6 +1178,62 @@ function custom_post_support_groups_type() {
     
 add_action( 'init', 'custom_post_support_groups_type', 0 );
 
+/**
+ * Creating a function to create our Events
+**/
+
+function create_events_post()
+{
+
+    $labels = array(
+        'name' => _x('Event', 'Post Type General Name', 'twentytwentyone'),
+        'singular_name' => _x('Event', 'Post Type Singular Name', 'twentytwentyone'),
+        'menu_name' => __('Events', 'twentytwentyone'),
+        'parent_item_colon' => __('Parent Event', 'twentytwentyone'),
+        'all_items' => __('All Events', 'twentytwentyone'),
+        'view_item' => __('View Event', 'twentytwentyone'),
+        'add_new_item' => __('Add New Event', 'twentytwentyone'),
+        'add_new' => __('Add New Event', 'twentytwentyone'),
+        'edit_item' => __('Edit Event', 'twentytwentyone'),
+        'update_item' => __('Update Event', 'twentytwentyone'),
+        'search_items' => __('Search Event', 'twentytwentyone'),
+        'not_found' => __('Not Found', 'twentytwentyone'),
+        'not_found_in_trash' => __('Not found in Trash', 'twentytwentyone'),
+    );
+
+    $args = array(
+        'label' => __('Events', 'twentytwentyone'),
+        'description' => __('Events', 'twentytwentyone'),
+        'labels' => $labels,
+        'supports' => array('custom-fields', 'title', 'thumbnail', 'editor'),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_in_admin_bar' => true,
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-calendar-alt',
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'post',
+        'show_in_rest' => true,
+
+    );
+
+    register_post_type('events', $args);
+
+}
+
+/* Hook into the 'init' action so that the function
+ * Containing our post type registration is not 
+ * unnecessarily executed. 
+ */
+
+add_action('init', 'create_events_post', 0);
+
 /*
 * Routes Custom Post Types
 */
